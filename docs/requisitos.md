@@ -21,7 +21,7 @@
 | RF17 | O sistema deve aplicar diferentes identidades visuais para cada tipo de indicador, mostrando distinção explícita entre cada um. |
 | RF18 | O sistema deve exibir, no detalhamento de cada Linha de Ação, a identidade do Responsável Principal e entidades Colaboradoras para o avanço de cada tarefa. |
 | RF19 | O sistema deve manter o controle de acesso baseado em função, registrando os perfis distintos de: Administrador, SEDEF, Conselho Estadual/Secretarias e público geral. Administradores e SEDEF possuem permissões máximas de administração do sistema, Conselho Estadual/Secretarias podem inserir e editar dados de suas jurisdições e o público geral pode visualizar e exportar dados públicos. |
-| RF20 | O sistema deve permitir que usuários autorizados realizem o carregamento de dados por meio do upload de planilhas (csv, ods e xlsx), validando a consistência dos dados com o modelo do sistema. |
+| RF20 | O sistema deve permitir que usuários autorizados realizem o carregamento de dados por meio do upload de planilhas (csv, pdf e xlsx), validando a consistência dos dados com o modelo do sistema. |
 | RF21 | O sistema deve disponibilizar uma interface gráfica que permita usuários autorizados a atualização de qualquer registro de dado. |
 
 ## Requisitos Não Funcionais
