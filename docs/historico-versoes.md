@@ -59,3 +59,35 @@
 - RF15: O ator não estava especificado e o tipo do gráfico também.
 - RF20: Os dados que seriam importados não estavam bem descritos. O termo "autorizado" poderia tanto se referir a usuários autorizados no sistema quanto usuários autorizados a realizar a importação.
 - RF21: O termo "autorizado" poderia tanto se referir a usuários autorizados no sistema quanto usuários autorizados a realizar as alterações, neste caso, foi dada uma definição mais precisa. Quais dados seriam alterados não estavam bem descritos.
+
+# Versão 1.2 - Semana 2 - 14/06
+
+## Requisitos Alterados
+- RF02: Adição da camada "Problema público".
+- RF05: Adição dos filtros por município e região.
+- RF09: Especificação do gerenciamento.
+- RF12: Correção de ator e funcionalidades de cadastramento.
+- RF13: Correção de ator, detalhamento sobre o que os dados se referem e mudança nas opções de visualização.
+- RF15: Definição de um dashboard para centralização da visualização dos gráficos.
+- RF16: Detalhamento sobre o que os dados se referem.
+- RF20: Correção de ator e separação da validação em outro requisito.
+- RF21: Remoção da funcionalidade de alterar problemas públicos e demais dados relacionados, fora indicadores e tarefas.
+- RF21: Adição de requisito para validação de dados importados ou alterados.
+- RF22: Adição da funcionalidade de cadastro de usuários por parte do Administrador
+- RF23: Adição de funcionalidade para apoiar o cadastro.
+- Rf24: Adição de funcionalidade para apoiar o cadastro.
+
+## Justificativa
+- RF02: Camada estava ausente na especificação.
+- RF05: Definido novo tipo de filtro após esclarecimento de dúvidas com o cliente.
+- RF09: Gerenciamento estava ambíguo e não definia como o gerenciamento ocorria.
+- RF12: Ator responsável não estava correto e as condições de cadastro não estavam claras.
+- RF13: Ator não estava definido e os tipos de operações não estavam claras.
+- RF15: Definido após esclarecimento com o cliente.
+- RF16: Tudo que se refere a "dado" são sobre dados de indicadores, definido após esclarecimento com o cliente.
+- RF20: Além do requisito estar muito grande o ator também não estava corretamente indicado.
+- RF21: Após a reunião de esclarecimentos fora definido que os problemas seriam fixos, portanto não haveria necessidade de alteração.
+- RF21: Originado a partir da remoção de validação do RF20.
+- RF22: A maneira de cadastro não estava definida.
+- RF23: Seria necessário definir como o usuário cadastrado receberia acesso ao login.
+- Rf24: Requisito para impedir que o Administrador mantenha com a senha do novo usuário.
