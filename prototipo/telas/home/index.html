@@ -1,428 +1,66 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="home.css">
-  <title>Plano Decenal – Criança e Adolescente | CEDCA-PR</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Monitoramento do Plano Decenal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ── Skip links ──────────────────────────────────────────── -->
-<div class="skip-links">
-  <a href="#main-content">Ir para o conteúdo</a>
-  <a href="#main-nav">Ir para a navegação</a>
-  <a href="#busca">Ir para a busca</a>
-</div>
+    <!-- Primeiro Header: Governo do Estado do Paraná -->
+    <header class="header-governo">
+        <div class="container header-gov-content">
+            <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
+            <div class="gov-top-links">
+                <span>Acessibilidade</span> | <span>Alto-Contraste</span>
+            </div>
+        </div>
+    </header>
 
-<!-- ── Barra do Governo do Paraná ─────────────────────────── -->
-<div class="topbar" role="banner">
-  <div class="container">
-    <div class="topbar-brand">
-      <span class="gov-logo">PR</span>
-      <span>GOVERNO DO PARANÁ</span>
-    </div>
-    <nav class="topbar-links" aria-label="Links do Governo do Paraná">
-      <a href="#">Portal Transparência</a>
-      <a href="#">Ouvidoria</a>
-      <a href="#">LGPD</a>
-      <a href="#">Agência de Notícias</a>
+    <!-- Segundo Header: Título do Sistema -->
+    <header class="header-sistema">
+        <div class="container header-sis-content">
+            <div class="sistema-titulo-area">
+                <h1>Sistema de Monitoramento</h1>
+                <p>Plano Decenal da Criança e do Adolescente</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar Extensível -->
+    <nav class="navbar-principal">
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="#" class="active">Página Inicial</a></li>
+                <li><a href="#">Indicadores</a></li>
+                <!-- Novos links podem ser facilmente adicionados aqui -->
+            </ul>
+            <ul class="nav-auth">
+                <li><a href="#" class="btn-login">Login</a></li>
+            </ul>
+        </div>
     </nav>
-  </div>
-</div>
 
-<!-- ── Barra de Acessibilidade ────────────────────────────── -->
-<div class="access-bar" aria-label="Ferramentas de acessibilidade">
-  <div class="container">
-    <span id="font-size-display">Tamanho do texto:</span>
-    <button class="access-btn" id="font-decrease" title="Diminuir texto" aria-label="Diminuir tamanho do texto">A−</button>
-    <button class="access-btn" id="font-default"  title="Tamanho padrão" aria-label="Tamanho padrão do texto">A</button>
-    <button class="access-btn" id="font-increase" title="Aumentar texto"  aria-label="Aumentar tamanho do texto">A+</button>
-    <button class="access-btn" id="contrast-toggle" title="Alto contraste" aria-label="Alternar alto contraste">⬛ Contraste</button>
-  </div>
-</div>
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <section class="page-intro">
+            <h2>Navegação Hierárquica do Plano Decenal</h2>
+            <p>Acompanhe abaixo os problemas públicos e a estrutura detalhada de compromissos vigiados por este sistema.</p>
+        </section>
 
-<!-- ── Cabeçalho Institucional ────────────────────────────── -->
-<header class="inst-bar" role="banner">
-  <div class="container">
-    <div class="inst-logo-area">
-      <div class="inst-logo-shield" aria-hidden="true">
-        <!-- Escudo estilizado PR -->
-        <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-          <path d="M30 4 L54 16 L54 36 Q54 52 30 58 Q6 52 6 36 L6 16 Z" fill="#003366"/>
-          <path d="M30 10 L48 20 L48 36 Q48 49 30 54 Q12 49 12 36 L12 20 Z" fill="#007a3d"/>
-          <text x="30" y="37" text-anchor="middle" font-family="Arial" font-weight="800" font-size="14" fill="#fff">PR</text>
-        </svg>
-      </div>
-      <div class="inst-title-wrap">
-        <div class="sigla">CEDCA–PR</div>
-        <div class="full-name">Monitoramento dos Compromissos Decenais<br>da Criança e do Adolescente</div>
-      </div>
-    </div>
-    <div class="inst-login">
-      <a href="#login" aria-label="Entrar no sistema">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
-        </svg>
-        Entrar no Sistema
-      </a>
-    </div>
-  </div>
-</header>
+        <!-- Contêiner dinâmico onde o JavaScript injetará os elementos <details> -->
+        <div id="tree-container" class="cedca-tree"></div>
+    </main>
 
-<!-- ── Navegação Principal ────────────────────────────────── -->
-<nav class="main-nav" id="main-nav" aria-label="Navegação principal">
-  <div class="container">
-    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Abrir menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-      </svg>
-    </button>
-    <ul class="nav-list" id="nav-list" role="menubar">
-      <li role="none"><a href="#" class="active" role="menuitem">Início</a></li>
-      <li role="none">
-        <a href="#" role="menuitem" aria-haspopup="true">Plano Decenal ▾</a>
-        <div class="dropdown" role="menu">
-          <a href="#" role="menuitem">O que é o Plano Decenal</a>
-          <a href="#" role="menuitem">Problemas Públicos</a>
-          <a href="#" role="menuitem">Compromissos</a>
-          <a href="#" role="menuitem">Objetivos e Linhas de Ação</a>
+    <footer class="cedca-footer">
+        <div class="container">
+            <p><strong>Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente</strong></p>
+            <p>Governo do Estado do Paraná</p>
+            <small>Desenvolvido com foco em acessibilidade e transparência pública.</small>
         </div>
-      </li>
-      <li role="none"><a href="#" role="menuitem">Indicadores</a></li>
-      <li role="none"><a href="#" role="menuitem">Acompanhamento</a></li>
-      <li role="none">
-        <a href="#" role="menuitem" aria-haspopup="true">Relatórios ▾</a>
-        <div class="dropdown" role="menu">
-          <a href="#" role="menuitem">Exportar dados</a>
-          <a href="#" role="menuitem">Histórico de atualizações</a>
-        </div>
-      </li>
-      <li role="none"><a href="#" role="menuitem">Fale Conosco</a></li>
-    </ul>
-  </div>
-</nav>
+    </footer>
 
-<!-- ── Hero / Busca ───────────────────────────────────────── -->
-<section class="hero" id="busca" aria-labelledby="hero-title">
-  <div class="container">
-    <h1 id="hero-title">
-      Monitoramento do Plano Decenal
-      <span>Acompanhe os compromissos com a criança e o adolescente no Paraná</span>
-    </h1>
-
-    <div class="search-wrap" role="search">
-      <div class="search-box">
-        <label for="search-input" class="sr-only">Pesquisar por palavra-chave, responsável, compromisso ou linha de ação</label>
-        <input
-          id="search-input"
-          type="search"
-          placeholder="Pesquisar por palavra-chave, responsável, compromisso ou linha de ação..."
-          autocomplete="off"
-        />
-        <button type="button" aria-label="Realizar pesquisa">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-          </svg>
-          Pesquisar
-        </button>
-      </div>
-      <div class="search-tags" aria-label="Filtros rápidos">
-        <span>Filtros rápidos:</span>
-        <a href="#">Saúde</a>
-        <a href="#">Educação</a>
-        <a href="#">Assistência Social</a>
-        <a href="#">Justiça</a>
-        <a href="#">Em Andamento</a>
-        <a href="#">Concluídas</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Faixa de Estatísticas ──────────────────────────────── -->
-<div class="stats-strip" aria-label="Resumo numérico do plano">
-  <div class="container">
-    <div class="stat-block">
-      <span class="num">23</span>
-      <span class="lbl">Problemas Públicos</span>
-    </div>
-    <div class="stat-block">
-      <span class="num">23</span>
-      <span class="lbl">Compromissos Decenais</span>
-    </div>
-    <div class="stat-block">
-      <span class="num" id="stat-tarefas">148</span>
-      <span class="lbl">Tarefas</span>
-    </div>
-    <div class="stat-block">
-      <span class="num" id="stat-indicadores">312</span>
-      <span class="lbl">Indicadores</span>
-    </div>
-    <div class="stat-block">
-      <span class="num" id="stat-andamento">67%</span>
-      <span class="lbl">Em andamento</span>
-    </div>
-  </div>
-</div>
-
-<!-- ── Conteúdo Principal ─────────────────────────────────── -->
-<main id="main-content">
-  <div class="container">
-
-    <!-- ── Compromissos Decenais ── -->
-    <section class="section" aria-labelledby="compromissos-title">
-      <div class="section-header">
-        <h2 id="compromissos-title">Compromissos Decenais em Destaque</h2>
-        <a href="#" aria-label="Ver todos os 23 compromissos decenais">Ver todos →</a>
-      </div>
-
-      <div class="cards-grid" role="list">
-
-        <article class="card" role="listitem" tabindex="0" aria-label="Compromisso: Garantia do Direito à Vida e à Saúde">
-          <div class="card-eixo">Eixo: Direito à Vida</div>
-          <h3>Garantia do Direito à Vida e à Saúde</h3>
-          <p>Assegurar atenção integral à saúde de crianças e adolescentes, com acesso universal e equânime aos serviços.</p>
-          <div class="progress-wrap">
-            <div class="progress-label"><span>Progresso das tarefas</span><span>72%</span></div>
-            <div class="progress-bar"><div class="fill" style="width:72%"></div></div>
-          </div>
-          <span class="badge em-andamento">Em andamento</span>
-        </article>
-
-        <article class="card" role="listitem" tabindex="0" aria-label="Compromisso: Direito à Educação">
-          <div class="card-eixo">Eixo: Educação</div>
-          <h3>Direito à Educação de Qualidade</h3>
-          <p>Garantir acesso, permanência e aprendizagem a todas as crianças e adolescentes na rede pública de ensino.</p>
-          <div class="progress-wrap">
-            <div class="progress-label"><span>Progresso das tarefas</span><span>85%</span></div>
-            <div class="progress-bar"><div class="fill" style="width:85%"></div></div>
-          </div>
-          <span class="badge em-andamento">Em andamento</span>
-        </article>
-
-        <article class="card" role="listitem" tabindex="0" aria-label="Compromisso: Convivência Familiar e Comunitária">
-          <div class="card-eixo">Eixo: Convivência Familiar</div>
-          <h3>Convivência Familiar e Comunitária</h3>
-          <p>Fortalecer vínculos familiares e promover o direito à convivência em ambiente seguro e acolhedor.</p>
-          <div class="progress-wrap">
-            <div class="progress-label"><span>Progresso das tarefas</span><span>54%</span></div>
-            <div class="progress-bar"><div class="fill em-andamento" style="width:54%"></div></div>
-          </div>
-          <span class="badge em-andamento">Em andamento</span>
-        </article>
-
-        <article class="card" role="listitem" tabindex="0" aria-label="Compromisso: Proteção contra Violência">
-          <div class="card-eixo">Eixo: Proteção</div>
-          <h3>Proteção Contra Toda Forma de Violência</h3>
-          <p>Ampliar a rede de proteção e garantir a notificação e o atendimento de crianças e adolescentes em situação de risco.</p>
-          <div class="progress-wrap">
-            <div class="progress-label"><span>Progresso das tarefas</span><span>38%</span></div>
-            <div class="progress-bar"><div class="fill em-andamento" style="width:38%"></div></div>
-          </div>
-          <span class="badge em-andamento">Em andamento</span>
-        </article>
-
-        <article class="card" role="listitem" tabindex="0" aria-label="Compromisso: Assistência Social">
-          <div class="card-eixo">Eixo: Assistência Social</div>
-          <h3>Fortalecimento da Assistência Social</h3>
-          <p>Estruturar o SUAS para garantir serviços de proteção básica e especial a crianças, adolescentes e suas famílias.</p>
-          <div class="progress-wrap">
-            <div class="progress-label"><span>Progresso das tarefas</span><span>100%</span></div>
-            <div class="progress-bar"><div class="fill" style="width:100%"></div></div>
-          </div>
-          <span class="badge concluida">Concluída</span>
-        </article>
-
-        <article class="card" role="listitem" tabindex="0" aria-label="Compromisso: Socioeducação">
-          <div class="card-eixo">Eixo: Justiça</div>
-          <h3>Socioeducação e Medidas Protetivas</h3>
-          <p>Implementar medidas socioeducativas com perspectiva de reinserção social, garantindo direitos dos adolescentes em conflito com a lei.</p>
-          <div class="progress-wrap">
-            <div class="progress-label"><span>Progresso das tarefas</span><span>20%</span></div>
-            <div class="progress-bar"><div class="fill nao-iniciada" style="width:20%"></div></div>
-          </div>
-          <span class="badge nao-iniciada">Não iniciada</span>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ── Destaques + Notícias lado a lado ── -->
-    <section class="section" aria-labelledby="destaques-title">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
-
-        <!-- Destaques -->
-        <div>
-          <div class="section-header">
-            <h2 id="destaques-title">Acesso Rápido</h2>
-          </div>
-          <nav class="highlights-grid" aria-label="Acesso rápido">
-
-            <a class="hl-tile" href="#" aria-label="Ver todos os indicadores">
-              <div class="hl-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M3 3v18h18V3H3zm16 16H5V5h14v14zm-2-2H7v-2h10v2zm0-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-              </div>
-              <span>Indicadores</span>
-            </a>
-
-            <a class="hl-tile" href="#" aria-label="Ver exportação de dados">
-              <div class="hl-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/></svg>
-              </div>
-              <span>Exportar dados</span>
-            </a>
-
-            <a class="hl-tile" href="#" aria-label="Ver plano decenal completo">
-              <div class="hl-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-              </div>
-              <span>Plano Decenal</span>
-            </a>
-
-            <a class="hl-tile" href="#" aria-label="Histórico de atualizações">
-              <div class="hl-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
-              </div>
-              <span>Histórico</span>
-            </a>
-
-            <a class="hl-tile" href="#" aria-label="Calendário de reuniões">
-              <div class="hl-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
-              </div>
-              <span>Calendário</span>
-            </a>
-
-            <a class="hl-tile" href="#" aria-label="Relatórios e balancetes">
-              <div class="hl-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
-              </div>
-              <span>Relatórios</span>
-            </a>
-
-          </nav>
-        </div>
-
-        <!-- Notícias -->
-        <div>
-          <div class="section-header">
-            <h2 id="noticias-title">Atualizações Recentes</h2>
-            <a href="#" aria-label="Ver todas as atualizações">Ver mais →</a>
-          </div>
-          <div class="news-list" aria-labelledby="noticias-title">
-
-            <div class="news-item">
-              <div class="news-date" aria-label="10 de junho de 2025">
-                <span class="day">10</span> jun<br>2025
-              </div>
-              <div class="news-text">
-                <h4>Indicadores de saúde atualizados para o 1º semestre de 2025</h4>
-                <p>SEDEF publicou novos dados referentes à cobertura vacinal e atendimento pediátrico nos municípios do Paraná.</p>
-              </div>
-            </div>
-
-            <div class="news-item">
-              <div class="news-date" aria-label="28 de maio de 2025">
-                <span class="day">28</span> mai<br>2025
-              </div>
-              <div class="news-text">
-                <h4>Tarefa de Convivência Familiar concluída em 87% dos municípios</h4>
-                <p>Relatório parcial aponta avanço significativo nas ações de fortalecimento de vínculos familiares em todo o estado.</p>
-              </div>
-            </div>
-
-            <div class="news-item">
-              <div class="news-date" aria-label="15 de maio de 2025">
-                <span class="day">15</span> mai<br>2025
-              </div>
-              <div class="news-text">
-                <h4>Reunião ordinária do CEDCA definiu novas linhas de ação</h4>
-                <p>Conselho aprovou diretrizes para o eixo de proteção contra violência com foco em zonas rurais do Paraná.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ── Indicadores em Destaque ── -->
-    <section class="section" aria-labelledby="indicadores-title">
-      <div class="section-header">
-        <h2 id="indicadores-title">Indicadores em Destaque</h2>
-        <a href="#" aria-label="Ver dashboard completo de indicadores">Ver dashboard →</a>
-      </div>
-      <div class="ind-list">
-        <div class="ind-item">
-          <div class="ind-title">Taxa de cobertura vacinal (0–5 anos)</div>
-          <div class="ind-value">94,3%</div>
-          <div class="ind-meta">Atualizado em jun/2025 · Secretaria de Saúde</div>
-        </div>
-        <div class="ind-item">
-          <div class="ind-title">Crianças fora da escola (6–14 anos)</div>
-          <div class="ind-value">1,8%</div>
-          <div class="ind-meta">Atualizado em mai/2025 · Secretaria de Educação</div>
-        </div>
-        <div class="ind-item">
-          <div class="ind-title">Adolescentes em medida socioeducativa</div>
-          <div class="ind-value">2.140</div>
-          <div class="ind-meta">Atualizado em abr/2025 · SEDEF</div>
-        </div>
-        <div class="ind-item">
-          <div class="ind-title">Denúncias de violência infantil (Disque 100)</div>
-          <div class="ind-value">8.762</div>
-          <div class="ind-meta">Atualizado em jun/2025 · MDH Federal</div>
-        </div>
-      </div>
-    </section>
-
-  </div><!-- /container -->
-</main>
-
-<!-- ── Rodapé ─────────────────────────────────────────────── -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <h4>CEDCA–PR</h4>
-        <address>
-          Palácio das Araucárias<br>
-          Rua Jacy Loureiro de Campos, s/n – Centro Cívico<br>
-          80530-915 – Curitiba – PR<br><br>
-          Secretaria do Desenvolvimento Social e Família – SEDEF
-        </address>
-      </div>
-      <div>
-        <h4>Links Úteis</h4>
-        <ul>
-          <li><a href="#">Plano Decenal</a></li>
-          <li><a href="#">Indicadores</a></li>
-          <li><a href="#">Exportar Dados</a></li>
-          <li><a href="#">Histórico de Ações</a></li>
-          <li><a href="#">Fale Conosco</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Governo do Paraná</h4>
-        <ul>
-          <li><a href="#">Portal Transparência</a></li>
-          <li><a href="#">Ouvidoria</a></li>
-          <li><a href="#">Denuncie Corrupção</a></li>
-          <li><a href="#">LGPD</a></li>
-          <li><a href="#">Mapa do Site</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;width:100%">
-      <span>© 2025 Governo do Estado do Paraná – CEDCA-PR. Todos os direitos reservados.</span>
-      <span>Desenvolvido pela CELEPAR</span>
-    </div>
-  </div>
-</footer>
-  <script src="home.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

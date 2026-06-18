@@ -1,0 +1,168 @@
+/* Paleta de Cores Atualizada */
+:root {
+    --bg-gov-first: #3f4e55;     /* Cor solicitada para o primeiro header */
+    --cedca-blue-dark: #002244;
+    --cedca-blue-medium: #003366;
+    --cedca-blue-light: #0066cc;
+    --cedca-green: #00875a;
+    --gov-gray: #f4f6f8;
+    --text-dark: #222222;
+    --border-color: #d1d5db;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: var(--text-dark);
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Primeiro Header: Governo do Estado */
+.header-governo {
+    background-color: var(--bg-gov-first);
+    color: #ffffff;
+    font-size: 12px;
+    padding: 10px 0;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+.header-gov-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.gov-top-links span {
+    cursor: pointer;
+    margin: 0 5px;
+    opacity: 0.8;
+}
+.gov-top-links span:hover {
+    opacity: 1;
+}
+
+/* Segundo Header: Sistema de Monitoramento */
+.header-sistema {
+    background-color: var(--cedca-blue-dark);
+    color: white;
+    padding: 30px 0;
+    border-bottom: 4px solid var(--cedca-green);
+}
+.sistema-titulo-area h1 { 
+    margin: 0; 
+    font-size: 2rem; 
+    font-weight: 800; 
+    letter-spacing: -0.5px; 
+}
+.sistema-titulo-area p { 
+    margin: 5px 0 0 0; 
+    font-size: 1.1rem; 
+    opacity: 0.9; 
+    color: #cbd5e1;
+}
+
+/* Navbar Extensível */
+.navbar-principal {
+    background-color: var(--cedca-blue-medium);
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-links, .nav-auth {
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+}
+.navbar-principal a { 
+    display: block; 
+    padding: 14px 20px; 
+    color: white; 
+    text-decoration: none; 
+    font-size: 0.95rem; 
+    font-weight: 600; 
+    transition: background-color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { 
+    background-color: var(--cedca-blue-light); 
+}
+.btn-login {
+    background-color: var(--cedca-green);
+    border-radius: 4px;
+    margin: 6px 0;
+    padding: 8px 20px !important;
+}
+.btn-login:hover {
+    background-color: #00a66f;
+}
+
+/* Introdução da Página */
+.page-intro {
+    margin: 30px 0;
+    border-bottom: 2px solid var(--gov-gray);
+    padding-bottom: 15px;
+}
+.page-intro h2 { color: var(--cedca-blue-medium); margin: 0 0 10px 0; }
+
+/* Customização da Árvore Hierárquica (<details> e <summary>) */
+.cedca-tree details {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    margin-bottom: 8px;
+    border-radius: 4px;
+    transition: box-shadow 0.2s;
+}
+.cedca-tree details[open] {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.cedca-tree summary {
+    padding: 14px 18px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+.cedca-tree summary:hover {
+    background-color: var(--gov-gray);
+}
+.tree-content {
+    padding: 10px 15px 15px 30px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* Identidade Visual Individual por Nível */
+.level-problema > summary { color: var(--cedca-blue-dark); font-size: 1.05rem; border-left: 5px solid var(--cedca-blue-light); }
+.level-compromisso > summary { color: #333; font-size: 1rem; border-left: 5px solid var(--cedca-green); }
+.level-objetivo > summary { color: #444; font-size: 0.95rem; border-left: 5px solid #e67e22; }
+.level-linha > summary { color: #555; font-size: 0.95rem; border-left: 5px solid #7f8c8d; }
+
+.level-tarefa {
+    padding: 10px 15px;
+    background-color: #f9fafb;
+    border: 1px dashed var(--border-color);
+    border-left: 4px solid #9b59b6;
+    margin: 6px 0 6px 15px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+}
+
+/* Rodapé */
+.cedca-footer {
+    background-color: var(--gov-gray);
+    color: #666;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85rem;
+}
+.cedca-footer p { margin: 4px 0; }
