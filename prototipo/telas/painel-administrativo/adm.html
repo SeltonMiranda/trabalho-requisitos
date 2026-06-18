@@ -1,0 +1,409 @@
+<!DOCTYPE html><html class="light" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AdminConsole - Gerenciamento de Permissões</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#54647a",
+                        "on-background": "#191c1e",
+                        "surface-container": "#eceef0",
+                        "secondary": "#505f76",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c5c5d3",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#90a8ff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary-fixed": "#001a42",
+                        "on-tertiary-container": "#82abff",
+                        "surface-variant": "#e0e3e5",
+                        "inverse-primary": "#b6c4ff",
+                        "outline": "#757682",
+                        "primary": "#00236f",
+                        "inverse-on-surface": "#eff1f3",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-container": "#003d88",
+                        "on-surface-variant": "#444651",
+                        "on-surface": "#191c1e",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "primary-container": "#1e3a8a",
+                        "tertiary-fixed": "#d8e2ff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#dce1ff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "background": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "tertiary": "#00285e",
+                        "surface": "#f7f9fb",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-fixed": "#00164e",
+                        "secondary-container": "#d0e1fb",
+                        "surface-tint": "#4059aa",
+                        "on-primary-fixed-variant": "#264191"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sidebar-collapsed": "72px",
+                        "sm": "8px",
+                        "sidebar-width": "260px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "mono-md": ["JetBrains Mono"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "mono-md": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #f7f9fb;
+            font-family: 'Inter', sans-serif;
+            color: #191c1e;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #cbd5e1;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #00236f;
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            left: calc(100% - 2px);
+            transform: translateX(-100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- Sidebar Navigation -->
+<aside class="bg-surface-container-lowest dark:bg-inverse-surface w-[260px] h-screen fixed left-0 top-0 border-r border-outline-variant dark:border-outline flex flex-col py-lg z-50">
+    <div class="px-lg mb-xl">
+        <h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">Painel Admin</h1>
+        <p class="font-body-sm text-body-sm text-secondary">Gerenciamento</p>
+    </div>
+    <nav class="flex-1 space-y-1">
+        <a class="flex items-center px-lg py-sm transition-colors hover:bg-surface-container dark:hover:bg-surface-variant group text-secondary dark:text-secondary-fixed-dim font-medium" href="#">
+            <span class="material-symbols-outlined mr-md">group</span>
+            <span class="font-body-md text-body-md">Usuários</span>
+        </a>
+        <a class="flex items-center px-lg py-sm transition-colors hover:bg-surface-container dark:hover:bg-surface-variant group text-primary dark:text-primary-fixed-dim font-bold border-l-4 border-primary dark:border-primary-fixed-dim bg-secondary-fixed/10" href="#">
+            <span class="material-symbols-outlined mr-md">shield_person</span>
+            <span class="font-body-md text-body-md">Permissões/Perfis</span>
+        </a>
+    </nav>
+    <div class="px-lg mt-auto pt-lg border-t border-outline-variant">
+        <div class="flex items-center gap-md">
+            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">AM</div>
+            <div>
+                <p class="font-label-md text-label-md">Admin</p>
+                <p class="text-xs text-secondary">root_access</p>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<!-- Main Content -->
+<main class="ml-[260px] pt-24 px-lg pb-xl max-w-[1600px] mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md mb-xl">
+    <div>
+        <h2 class="font-headline-md text-headline-md text-primary">Gerenciamento de Permissões</h2>
+        <p class="text-secondary font-body-md">Controle de elevação de redução de permissões para usuários do sistema</p>
+    </div>
+</div>
+<!-- Dashboard Layout: Tab System + Card Container -->
+<div class="space-y-md">
+<!-- Bento-style Tab System -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-base flex gap-base w-fit">
+    <button class="tab-btn px-xl py-sm rounded-lg font-label-md transition-all bg-secondary-fixed/10 text-primary border-l-4 border-primary shadow-sm" id="tab-usuarios" onclick="switchTab('usuarios')">
+        Usuários
+    </button>
+    <button class="tab-btn px-xl py-sm rounded-lg font-label-md text-secondary hover:bg-surface-container transition-all" id="tab-secretarias" onclick="switchTab('secretarias')">
+        Secretarias
+    </button>
+    <button class="tab-btn px-xl py-sm rounded-lg font-label-md text-secondary hover:bg-surface-container transition-all" id="tab-perfis" onclick="switchTab('perfis')">
+        Perfis
+    </button>
+</div>
+<!-- Main Data Table Container -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+    <div class="overflow-x-auto custom-scrollbar max-h-[calc(100dvh-290px)] overflow-y-auto">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="bg-surface-container-low border-b border-outline-variant sticky top-0 z-10">
+                    <th class="px-lg py-md font-label-sm text-secondary uppercase tracking-wider min-w-[240px]">Usuário / Secretaria / Perfis</th>
+                    <th class="px-lg py-md font-label-sm text-secondary uppercase tracking-wider text-center" colspan="4">Nível de Acesso</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-outline-variant" id="tabela-permissoes">
+                <!-- preenche dinamicamente -->
+            </tbody>
+        </table>
+    </div>
+<!-- Pagination / Table Footer -->
+
+</div>
+</div>
+</main>
+<script>
+        function switchTab(tabId) {
+            // Remove active classes from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-secondary-fixed/10', 'text-primary', 'border-l-4', 'border-primary', 'shadow-sm');
+                btn.classList.add('text-secondary', 'hover:bg-surface-container');
+            });
+
+            // Add active classes to selected button
+            const activeBtn = document.getElementById('tab-' + tabId);
+            activeBtn.classList.add('bg-secondary-fixed/10', 'text-primary', 'border-l-4', 'border-primary', 'shadow-sm');
+            activeBtn.classList.remove('text-secondary', 'hover:bg-surface-container');
+
+            const tabela = document.getElementById('tabela-permissoes');
+            tabela.innerHTML = '';
+
+            if (tabId == 'usuarios'){ preencherTabelaPermissoes(usuarios)}
+            else if (tabId == 'secretarias'){ preencherTabelaPermissoes(secretarias)}
+            else if (tabId == 'perfis'){ preencherTabelaPermissoes(perfis)}
+
+            // Feedback Toast (Visual only)
+            console.log('Switched to ' + tabId);
+        }
+
+        // Lightweight Micro-interaction for Toggles
+        document.querySelectorAll('.toggle-checkbox').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const row = this.closest('tr');
+                if (this.checked) {
+                    row.classList.add('bg-primary/5');
+                    setTimeout(() => row.classList.remove('bg-primary/5'), 500);
+                }
+            });
+        });
+
+
+        //mock de usuarios
+        const usuarios = [
+            { nome: "Ricardo Lacerda", email: "ricardo.l@enterprise.com", sigla: "RL", nivel: 2 },
+            { nome: "Ana Maria Souza", email: "ana.m@enterprise.com", sigla: "AM", nivel: 1 },
+            { nome: "Felipe Peron", email: "felipe.p@enterprise.com", sigla: "FP", nivel: 4 },
+            { nome: "Beatriz Silva", email: "beatriz.s@enterprise.com", sigla: "BS", nivel: 3 },
+            { nome: "Carlos Eduardo", email: "carlos.e@enterprise.com", sigla: "CE", nivel: 2 },
+            { nome: "Juliana Mendes", email: "juliana.m@enterprise.com", sigla: "JM", nivel: 1 },
+            { nome: "Marcos Vinicius", email: "marcos.v@enterprise.com", sigla: "MV", nivel: 4 },
+            { nome: "Patrícia Gomes", email: "patricia.g@enterprise.com", sigla: "PG", nivel: 2 },
+            { nome: "Lucas Ferreira", email: "lucas.f@enterprise.com", sigla: "LF", nivel: 3 },
+            { nome: "Fernanda Rocha", email: "fernanda.r@enterprise.com", sigla: "FR", nivel: 1 },
+            { nome: "Thiago Almeida", email: "thiago.a@enterprise.com", sigla: "TA", nivel: 4 },
+            { nome: "Camila Ribeiro", email: "camila.r@enterprise.com", sigla: "CR", nivel: 2 },
+            { nome: "Eduardo Martins", email: "eduardo.m@enterprise.com", sigla: "EM", nivel: 3 },
+            { nome: "Vanessa Costa", email: "vanessa.c@enterprise.com", sigla: "VC", nivel: 1 },
+            { nome: "Gabriel Santos", email: "gabriel.s@enterprise.com", sigla: "GS", nivel: 2 },
+            { nome: "Larissa Oliveira", email: "larissa.o@enterprise.com", sigla: "LO", nivel: 4 },
+            { nome: "Rafael Nogueira", email: "rafael.n@enterprise.com", sigla: "RN", nivel: 3 },
+            { nome: "Aline Barbosa", email: "aline.b@enterprise.com", sigla: "AB", nivel: 1 },
+            { nome: "Bruno Carvalho", email: "bruno.c@enterprise.com", sigla: "BC", nivel: 2 },
+            { nome: "Renata Lopes", email: "renata.l@enterprise.com", sigla: "RL", nivel: 4 }
+        ];
+
+        //mock de secretarias
+        const secretarias = [
+            {
+                nome: "Secretaria da Fazenda e Planejamento",
+                email: "sefaz@sp.gov.br",
+                sigla: "SEFAZ",
+                nivel: 4
+            },
+            {
+                nome: "Secretaria da Educação",
+                email: "educacao@sp.gov.br",
+                sigla: "SEDUC",
+                nivel: 3
+            },
+            {
+                nome: "Secretaria da Saúde",
+                email: "saude@sp.gov.br",
+                sigla: "SES",
+                nivel: 4
+            },
+            {
+                nome: "Secretaria de Segurança Pública",
+                email: "ssp@sp.gov.br",
+                sigla: "SSP",
+                nivel: 4
+            },
+            {
+                nome: "Secretaria de Desenvolvimento Econômico",
+                email: "sde@sp.gov.br",
+                sigla: "SDE",
+                nivel: 2
+            },
+            {
+                nome: "Secretaria de Meio Ambiente, Infraestrutura e Logística",
+                email: "semil@sp.gov.br",
+                sigla: "SEMIL",
+                nivel: 3
+            },
+            {
+                nome: "Secretaria da Cultura, Economia e Indústria Criativas",
+                email: "cultura@sp.gov.br",
+                sigla: "SEC",
+                nivel: 2
+            },
+            {
+                nome: "Secretaria de Gestão e Governo Digital",
+                email: "sggd@sp.gov.br",
+                sigla: "SGGD",
+                nivel: 4
+            },
+            {
+                nome: "Secretaria dos Transportes Metropolitanos",
+                email: "stm@sp.gov.br",
+                sigla: "STM",
+                nivel: 3
+            },
+            {
+                nome: "Secretaria da Administração Penitenciária",
+                email: "sap@sp.gov.br",
+                sigla: "SAP",
+                nivel: 4
+            }
+        ];
+
+        //mock perfis
+        const perfis = [
+            {
+                nome: "Administrador",
+                email: "admin@admin.co",
+                sigla: "AM",
+                nivel: 4
+            },
+            {
+                nome: "Gestor SEDEF",
+                email: "paulo@sedef.org",
+                sigla: "GS",
+                nivel: 3
+            },
+            {
+                nome: "Secretarias",
+                email: "null",
+                sigla: "SE",
+                nivel: 2,
+            },
+            {
+                nome: "Usuários Públicos",
+                email: "null",
+                sigla: "UP",
+                nivel: 1
+            }
+        ];
+
+        // preenche formatado
+        function preencherTabelaPermissoes(usuarios) {
+            const tabela = document.getElementById('tabela-permissoes');
+
+            tabela.innerHTML = usuarios.map(usuario => `
+                <tr class="hover:bg-surface-container-low transition-colors group">
+                    <td class="px-lg py-md">
+                        <div class="flex items-center gap-md">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
+                                ${usuario.sigla}
+                            </div>
+                            <div>
+                                <p class="font-label-md text-on-surface">${usuario.nome}</p>
+                                <p class="text-xs text-secondary">${usuario.email}</p>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td class="px-lg py-md" colspan="4">
+                        <div class="flex flex-col gap-xs px-md">
+                            <input
+                                class="w-full h-2 bg-surface-container-high rounded-lg appearance-none cursor-pointer accent-primary"
+                                type="range"
+                                min="1"
+                                max="4"
+                                value="${usuario.nivel}"
+                            >
+
+                            <div class="flex justify-between text-[10px] text-secondary font-medium uppercase tracking-tighter">
+                                <span>Visualização</span>
+                                <span>Upload</span>
+                                <span>Gerenc.</span>
+                                <span>Gestão Total</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        //evento de load completo da página
+        window.onload = () => {
+            //carrega dados na tabela de permissões
+            preencherTabelaPermissoes(secretarias);
+        }
+    </script>
+
+
+</body></html>
