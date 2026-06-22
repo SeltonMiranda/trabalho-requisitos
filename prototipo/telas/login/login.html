@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Monitoramento</title>
+    <style>
+        /* Reutilização da Paleta de Cores do seu Exemplo */
+        :root {
+            --bg-gov-first: #3f4e55;
+            --cedca-blue-dark: #002244;
+            --cedca-blue-medium: #003366;
+            --cedca-blue-light: #0066cc;
+            --cedca-green: #00875a;
+            --gov-gray: #f4f6f8;
+            --text-dark: #222222;
+            --border-color: #d1d5db;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--gov-gray); /* Fundo cinza claro para destacar o card */
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Estrutura dos Headers baseada no exemplo */
+        .header-governo {
+            background-color: var(--bg-gov-first);
+            color: #ffffff;
+            font-size: 12px;
+            padding: 10px 20px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .header-sistema {
+            background-color: var(--cedca-blue-dark);
+            color: white;
+            padding: 20px;
+            border-bottom: 4px solid var(--cedca-green);
+            text-align: center;
+        }
+
+        .header-sistema h1 { 
+            margin: 0; 
+            font-size: 1.5rem; 
+            font-weight: 800; 
+        }
+
+        /* Container de Centralização do Login */
+        .login-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Card do Formulário */
+        .login-card {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .login-card h2 {
+            color: var(--cedca-blue-medium);
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        /* Estilização dos Inputs e Labels */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--cedca-blue-light);
+        }
+
+        /* Botão de Entrar herdando o estilo do seu btn-login */
+        .btn-submit {
+            width: 100%;
+            background-color: var(--cedca-green);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: #00a66f;
+        }
+
+        .login-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .login-footer a {
+            color: var(--cedca-blue-light);
+            text-decoration: none;
+        }
+
+        .login-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Rodapé simplificado */
+        .cedca-footer {
+            background-color: #ffffff;
+            color: #666;
+            text-align: center;
+            padding: 15px 0;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.82rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Primeiro Header identitário -->
+    <div class="header-governo">
+        GOVERNO DO ESTADO DO PARANÁ
+    </div>
+
+    <!-- Segundo Header identitário -->
+    <div class="header-sistema">
+        <h1>Sistema de Monitoramento</h1>
+    </div>
+
+    <!-- Área Central de Login -->
+    <div class="login-wrapper">
+        <div class="login-card">
+            <h2>Acesso ao Sistema</h2>
+            
+            <!-- Formulário apontando para a sua tela adm.html após o clique -->
+            <form action="../painel-administrativo/adm.html" method="GET">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" required placeholder="exemplo@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" required placeholder="Digite sua senha">
+                </div>
+
+                <button type="submit" class="btn-submit">Entrar</button>
+            </form>
+
+            <div class="login-footer">
+                <a href="#">Esqueceu sua senha?</a>
+                <br><br>
+                <span style="color: #666;">Acesso restrito a perfis autorizados.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <div class="cedca-footer">
+        <p>Conselho Estadual dos Direitos da Criança e do Adolescente</p>
+    </div>
+
+</body>
+</html>

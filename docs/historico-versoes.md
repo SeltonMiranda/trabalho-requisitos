@@ -91,3 +91,52 @@
 - RF22: A maneira de cadastro não estava definida.
 - RF23: Seria necessário definir como o usuário cadastrado receberia acesso ao login.
 - Rf24: Requisito para impedir que o Administrador mantenha com a senha do novo usuário.
+
+#  Versão 2 - Semana 3 - 21/06
+
+## Requisitos Adicionados
+- RF25: Requisito para recuperação de senha
+- RF26: Exibição da última atualização por indicador
+- RF27: Definição das permissões do Administrador e SEDEF para visualizar o histórico completo
+- RF28: Requisito de tradução de libras em tempo real.
+## Requisitos Alterados
+- RF07: Inclusão do tipo de ação (adição, alteração ou remoção) nas informações da última atualização das tarefas.
+- RF08: Ampliação do histórico de tarefas para registrar o tipo de ação realizada e separação das permissões de visualização para o RF27.
+- RF09: Reestruturação do gerenciamento de permissões por meio de uma hierarquia de acesso.
+- RF19: Refinamento das permissões para cada perfil
+## Requisitos Removidos
+- Nenhum nesta versão
+
+## HU Adicionadas
+- HU19: Definição de HU para utilizar a opção de acessibilidade em libras
+- HU20: Definição de HU para cadastro de usuários
+- HU21: HU para visualização das ultimas atualizações de indicadores
+## HU Alteradas
+- HU01: Inclusão da relação com RF02
+- HU02: Inclusão da relação com RF24
+- HU06: Inclusão da relação com RF27
+- HU09: Pequena mudança de especificação
+- HU10: Adição de gestor SEDEF na gestão de usuários
+- HU12: Especificação do dashboard para visualização dos gráficos
+- HU16: Ampliação da visualização para o histórico de tarefas e relacionamento com RF08 e RF27
+## HU Removidas
+- Nenhum nesta versão
+
+## Justificativas
+- RF07: Os tipos de ações possíveis no histórico estavam faltantes
+- RF08: Os tipos não estavam especificados e também achamos válido separar a permissão de validação em outro requisito que contemplasse os dois históricos, nesse caso o RF27
+- RF09: Após uma reunião de validação foi especificado que as permissões seriam hierárquicas, então esse requisito sofreu alterações para refletir isto.
+- RF19: Apesar de parecidas as permissões de Administradores e SEDEF são levemente diferentes, mas anteriormente os dois estavam no mesmo "nível" de permissão, assim foi incluído também a permissão de gerenciar uma tarefa por parte do administrador.
+- RF25: Apesar de ter requisitos em torno do login e cadastro não havia uma contra medida para caso o usuário perdesse ou esquecesse a senha, neste caso esse requisito foi adicionado para contemplar essa possibilidade.
+- RF26: Só tinham especificações de atualizações mais recentes por tarefas, e como são dois históricos diferentes, esse requisito foi adicionado para garantir que o usuário público visualiza-se os dois.
+- RF27: Novo requisito para separar a especificação de permissão de visualização do histórico da definição do histórico em si.
+- HU01: O RF02 se relaciona diretamente com a HU01 dado que determina o formato da visualização.
+- HU02: O RF24 se relaciona com o HU02 dado que também trata de uma situação de login
+- HU06: Adição da nova RF27 para determinação das permissões de visualização.
+- HU09: A Descrição foi alterada para deixar um pouco mais clara HU relacionada a alto contraste.
+- HU10: Após reunião de validação foi confirmado que o Gestor SEDEF também possuí papel na gestão de usuários como cadastro e mudança de permissões.
+- HU12: Após reunião de validação foi discutido a implementação de um dashboard para centralizar a visualização dos dados referentes aos indicadores.
+- HU16: Contemplava somente tarefas, os RF08 e RF27 se relacionam com a HU
+- HU19: Após uma reunião de validação foi levantada a necessidade de uma opção de acessibilidade em libras, essa HU serve para apoiar o RF28 e o RNF01
+- HU20: Uma HU referente a especificamente o cadastro de um usuário estava em falta, adicionada também as relações com RF22 e RF23
+- HU21: Não havia HU direcionada a visualização da alteração mais recente sobre indicadores, somente sobre tarefas. Relação com RF26 e RF13

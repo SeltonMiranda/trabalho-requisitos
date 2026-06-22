@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Monitoramento do Plano Decenal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Primeiro Header: Governo do Estado do Paraná -->
+    <header class="header-governo">
+        <div class="container header-gov-content">
+            <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
+            <div class="gov-top-links">
+                <span>Acessibilidade</span> | <span>Alto-Contraste</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Segundo Header: Título do Sistema -->
+    <header class="header-sistema">
+        <div class="container header-sis-content">
+            <div class="sistema-titulo-area">
+                <h1>Sistema de Monitoramento</h1>
+                <p>Plano Decenal da Criança e do Adolescente</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar Extensível -->
+    <nav class="navbar-principal">
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="#" class="active">Página Inicial</a></li>
+                <li><a href="../busca-filtro/busca-filtro.html">Painel</a></li>
+                <!-- Novos links podem ser facilmente adicionados aqui -->
+            </ul>
+            <ul class="nav-auth">
+                <li><a href="../login/login.html" class="btn-login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <section class="page-intro">
+            <h2>Navegação Hierárquica do Plano Decenal</h2>
+            <p>Acompanhe abaixo os problemas públicos e a estrutura detalhada de compromissos vigiados por este sistema.</p>
+        </section>
+
+        <!-- Contêiner dinâmico onde o JavaScript injetará os elementos <details> -->
+        <div id="tree-container" class="cedca-tree"></div>
+    </main>
+
+    <footer class="cedca-footer">
+        <div class="container">
+            <p><strong>Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente</strong></p>
+            <p>Governo do Estado do Paraná</p>
+            <small>Desenvolvido com foco em acessibilidade e transparência pública.</small>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

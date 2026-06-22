@@ -7,12 +7,14 @@ Durante o levantamento inicial de requisitos, foram identificados os principais 
 O usuário público representa qualquer cidadão interessado em acompanhar informações relacionadas aos compromissos decenais da criança e do adolescente. Esse perfil terá acesso às informações públicas disponibilizadas pelo sistema, sem necessidade de permissões administrativas ou operacionais.
 
 ### Principais interesses
-
-* visualizar compromissos decenais;
-* consultar indicadores;
-* acompanhar o andamento das ações;
-* utilizar filtros e buscas;
-* exportar dados públicos;
+* visualizar problemas públicos e todas as informações relacionadas
+* visualizar responsáveis e colaboradores em uma linha de ação
+* consultar indicadores
+* acompanhar o andamento das tarefas
+* acessar dashboard
+* visualizar ultima atualização das tarefas e indicadores
+* utilizar filtros e buscas
+* exportar dados públicos
 * acessar recursos de acessibilidade.
 
 ---
@@ -23,14 +25,8 @@ O ator denominado Gestor SEDEF representa os usuários vinculados à secretaria 
 
 ### Principais interesses
 
-* cadastrar e alterar problemas públicos;
-* cadastrar e alterar compromissos;
-* cadastrar objetivos, linhas de ação e tarefas;
-* atualizar indicadores;
 * acompanhar o andamento das ações;
-* consultar histórico de alterações;
-* importar dados por planilhas;
-* exportar relatórios de acompanhamento.
+* consultar os históricos de alterações de tarefas e indicadores
 
 ---
 
@@ -40,12 +36,8 @@ O ator Conselho Estadual e Secretarias representa órgãos públicos, conselhos 
 
 ### Principais interesses
 
-* consultar dados consolidados;
-* acompanhar indicadores;
-* verificar responsáveis e colaboradores das ações;
-* analisar o progresso das tarefas;
-* consultar histórico de atualizações;
-* contribuir com informações específicas.
+* consultar histórico de atualizações das tarefas e indicadores
+* contribuir com dados dos indicadores
 
 ---
 
@@ -55,9 +47,8 @@ O administrador do sistema representa o perfil com maior nível de permissão de
 
 ### Principais interesses
 
-* gerenciar usuários;
-* definir permissões de acesso;
-* administrar cadastros do sistema;
-* acompanhar registros de ações dos usuários;
-* garantir segurança e integridade das informações;
+* gerenciar usuários
+* definir permissões de acesso
+* administrar cadastros do sistema
+* gerenciar tarefas
 * manter a organização geral do sistema.
