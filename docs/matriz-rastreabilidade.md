@@ -13,7 +13,7 @@
 | RF11, RF19, RF24, RNF09 | HU02, HU18 | UC01 | Login |
 | RF12, RF14, RF21 | HU11 | UC07 | Pendente: Cadastro de Indicadores |
 | RF13, RF27 | HU16 | UC04 | Pendente: Histórico |
-| RF15, RF16, RF17 | HU12 | UC14 | Pendente: Indicadores |
+| RF03 | HU03 | UC11 | Indicadores / Pendente: Detalhamento |
 | RF18 | HU15 | UC18 | Pendente: Detalhamento |
 | RF20, RF21 | HU13 | UC08 | Pendente: Importação |
 | RF23 | HU17, HU20 | UC19 | Pendente: Cadastro de Usuários |
