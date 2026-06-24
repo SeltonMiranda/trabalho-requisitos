@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../home/style.css">
     <title>CEDCA-PR - Consulta do Plano Decenal</title>
     <style>
         :root {
@@ -41,7 +42,7 @@
             line-height: 1.6;
         }
 
-        header {
+        /*header {
             background-color: var(--primary-color);
             color: white;
             padding: 1rem 2rem;
@@ -49,7 +50,7 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 4px solid var(--accent-color);
-        }
+        }*/
 
         .logo-area h1 {
             font-size: 1.4rem;
@@ -234,13 +235,40 @@
 </head>
 <body>
 
-    <header>
-        <div class="logo-area">
-            <h1>CEDCA - PR</h1>
-            <p>Plano Decenal dos Direitos da Criança e do Adolescente</p>
+    <header class="header-governo">
+        <div class="container header-gov-content">
+            <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
+            <div class="gov-top-links">
+                <span>Acessibilidade</span> | <span>Alto-Contraste</span>
+            </div>
         </div>
-        <button class="accessibility-btn" onclick="document.body.classList.toggle('high-contrast')">🌓 Contraste</button>
     </header>
+
+    <!-- Segundo Header: Título do Sistema -->
+    <header class="header-sistema">
+        <div class="container header-sis-content">
+            <div class="sistema-titulo-area">
+                <h1>Sistema de Monitoramento</h1>
+                <p>Plano Decenal da Criança e do Adolescente</p>
+            </div>
+        </div>
+    </header>
+    <!-- Navbar Extensível -->
+    <nav class="navbar-principal">
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="../home/index.html" class="active">Página Inicial</a></li>
+                <li><a href="../busca-filtro/busca-filtro.html">Busca/Filtros</a></li>
+                <li><a href="../indicadores/indicadores.html">Indicadores</a></li>
+                <li><a href="../dashboard/index.html">Dashboard</a></li>
+                <li><a href="../painel-administrativo/adm.html">Painel Administrativo</a></li>
+                <!-- Novos links podem ser facilmente adicionados aqui -->
+            </ul>
+            <ul class="nav-auth">
+                <li><a href="../login/login.html" class="btn-login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <main>
         <h2 class="page-title">Painel de Monitoramento</h2>
