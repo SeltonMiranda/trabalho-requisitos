@@ -6,6 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../home/style.css">
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -136,76 +137,112 @@
     </style>
 </head>
 <body class="bg-background text-on-background">
-<!-- Sidebar Navigation -->
-<aside class="bg-surface-container-lowest dark:bg-inverse-surface w-[260px] h-screen fixed left-0 top-0 border-r border-outline-variant dark:border-outline flex flex-col py-lg z-50">
-    <div class="px-lg mb-xl">
-        <h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">Painel Admin</h1>
-        <p class="font-body-sm text-body-sm text-secondary">Gerenciamento</p>
-    </div>
-    <nav class="flex-1 space-y-1">
-        <a class="flex items-center px-lg py-sm transition-colors hover:bg-surface-container dark:hover:bg-surface-variant group text-secondary dark:text-secondary-fixed-dim font-medium" href="#">
-            <span class="material-symbols-outlined mr-md">group</span>
-            <span class="font-body-md text-body-md">Usuários</span>
-        </a>
-        <a class="flex items-center px-lg py-sm transition-colors hover:bg-surface-container dark:hover:bg-surface-variant group text-primary dark:text-primary-fixed-dim font-bold border-l-4 border-primary dark:border-primary-fixed-dim bg-secondary-fixed/10" href="#">
-            <span class="material-symbols-outlined mr-md">shield_person</span>
-            <span class="font-body-md text-body-md">Permissões/Perfis</span>
-        </a>
-    </nav>
-    <div class="px-lg mt-auto pt-lg border-t border-outline-variant">
-        <div class="flex items-center gap-md">
-            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">AM</div>
-            <div>
-                <p class="font-label-md text-label-md">Admin</p>
-                <p class="text-xs text-secondary">root_access</p>
+    <!-- Primeiro Header: Governo do Estado do Paraná -->
+    <header class="header-governo">
+        <div class="container header-gov-content">
+            <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
+            <div class="gov-top-links">
+                <span>Acessibilidade</span> | <button onclick="alternarContraste()">Alto-Contraste</button>
             </div>
         </div>
-    </div>
-</aside>
+    </header>
+    <!-- Segundo Header: Título do Sistema -->
+    <header class="header-sistema">
+        <div class="container header-sis-content">
+            <div class="sistema-titulo-area">
+                <h1>Sistema de Monitoramento</h1>
+                <p>Plano Decenal da Criança e do Adolescente</p>
+            </div>
+        </div>
+    </header>
 
-<!-- Main Content -->
-<main class="ml-[260px] pt-24 px-lg pb-xl max-w-[1600px] mx-auto">
-<!-- Page Header -->
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-md mb-xl">
-    <div>
-        <h2 class="font-headline-md text-headline-md text-primary">Gerenciamento de Permissões</h2>
-        <p class="text-secondary font-body-md">Controle de elevação de redução de permissões para usuários do sistema</p>
-    </div>
-</div>
-<!-- Dashboard Layout: Tab System + Card Container -->
-<div class="space-y-md">
-<!-- Bento-style Tab System -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-base flex gap-base w-fit">
-    <button class="tab-btn px-xl py-sm rounded-lg font-label-md transition-all bg-secondary-fixed/10 text-primary border-l-4 border-primary shadow-sm" id="tab-usuarios" onclick="switchTab('usuarios')">
-        Usuários
-    </button>
-    <button class="tab-btn px-xl py-sm rounded-lg font-label-md text-secondary hover:bg-surface-container transition-all" id="tab-secretarias" onclick="switchTab('secretarias')">
-        Secretarias
-    </button>
-    <button class="tab-btn px-xl py-sm rounded-lg font-label-md text-secondary hover:bg-surface-container transition-all" id="tab-perfis" onclick="switchTab('perfis')">
-        Perfis
-    </button>
-</div>
-<!-- Main Data Table Container -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
-    <div class="overflow-x-auto custom-scrollbar max-h-[calc(100dvh-290px)] overflow-y-auto">
-        <table class="w-full text-left border-collapse">
-            <thead>
-                <tr class="bg-surface-container-low border-b border-outline-variant sticky top-0 z-10">
-                    <th class="px-lg py-md font-label-sm text-secondary uppercase tracking-wider min-w-[240px]">Usuário / Secretaria / Perfis</th>
-                    <th class="px-lg py-md font-label-sm text-secondary uppercase tracking-wider text-center" colspan="4">Nível de Acesso</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y divide-outline-variant" id="tabela-permissoes">
-                <!-- preenche dinamicamente -->
-            </tbody>
-        </table>
-    </div>
-<!-- Pagination / Table Footer -->
+    <!-- Navbar Extensível -->
+    <nav class="navbar-principal">
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="../home/index.html" class="active">Página Inicial</a></li>
+                <li><a href="../busca-filtro/busca-filtro.html">Busca/Filtros</a></li>
+                <li><a href="../indicadores/indicadores.html">Indicadores</a></li>
+                <li><a href="../dashboard/index.html">Dashboard</a></li>
+                <li><a href="../painel-administrativo/adm.html">Painel Administrativo</a></li>
+                <!-- Novos links podem ser facilmente adicionados aqui -->
+            </ul>
+            <ul class="nav-auth">
+                <li><a href="../login/login.html" class="btn-login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
 
-</div>
-</div>
-</main>
+    <!-- Container Principal com Flexbox -->
+    <div class="flex min-h-screen">
+        <!-- Sidebar Navigation - Não fixa -->
+        <aside class="bg-surface-container-lowest dark:bg-inverse-surface w-[260px] border-r border-outline-variant dark:border-outline flex flex-col py-lg">
+            <div class="px-lg mb-xl">
+                <h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">Painel Admin</h1>
+                <p class="font-body-sm text-body-sm text-secondary">Gerenciamento</p>
+            </div>
+            <nav class="flex-1 space-y-1">
+                <a class="flex items-center px-lg py-sm transition-colors hover:bg-surface-container dark:hover:bg-surface-variant group text-primary dark:text-primary-fixed-dim font-bold border-l-4 border-primary dark:border-primary-fixed-dim bg-secondary-fixed/10" href="#">
+                    <span class="material-symbols-outlined mr-md">shield_person</span>
+                    <span class="font-body-md text-body-md">Permissões/Perfis</span>
+                </a>
+            </nav>
+            <div class="px-lg mt-auto pt-lg border-t border-outline-variant">
+                <div class="flex items-center gap-md">
+                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">AM</div>
+                    <div>
+                        <p class="font-label-md text-label-md">Admin</p>
+                        <p class="text-xs text-secondary">root_access</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 pt-24 px-lg pb-xl max-w-[1600px]">
+            <!-- Page Header -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-md mb-xl">
+                <div>
+                    <h2 class="font-headline-md text-headline-md text-primary">Gerenciamento de Permissões</h2>
+                    <p class="text-secondary font-body-md">Controle de elevação de redução de permissões para usuários do sistema</p>
+                </div>
+            </div>
+            
+            <!-- Dashboard Layout: Tab System + Card Container -->
+            <div class="space-y-md">
+                <!-- Bento-style Tab System -->
+                <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-base flex gap-base w-fit">
+                    <button class="tab-btn px-xl py-sm rounded-lg font-label-md transition-all bg-secondary-fixed/10 text-primary border-l-4 border-primary shadow-sm" id="tab-usuarios" onclick="switchTab('usuarios')">
+                        Usuários
+                    </button>
+                    <button class="tab-btn px-xl py-sm rounded-lg font-label-md text-secondary hover:bg-surface-container transition-all" id="tab-secretarias" onclick="switchTab('secretarias')">
+                        Secretarias
+                    </button>
+                    <button class="tab-btn px-xl py-sm rounded-lg font-label-md text-secondary hover:bg-surface-container transition-all" id="tab-perfis" onclick="switchTab('perfis')">
+                        Perfis
+                    </button>
+                </div>
+                
+                <!-- Main Data Table Container -->
+                <div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+                    <div class="overflow-x-auto custom-scrollbar max-h-[calc(100dvh-290px)] overflow-y-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-surface-container-low border-b border-outline-variant sticky top-0 z-10">
+                                    <th class="px-lg py-md font-label-sm text-secondary uppercase tracking-wider min-w-[240px]">Usuário / Secretaria / Perfis</th>
+                                    <th class="px-lg py-md font-label-sm text-secondary uppercase tracking-wider text-center" colspan="4">Nível de Acesso</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-outline-variant" id="tabela-permissoes">
+                                <!-- preenche dinamicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Pagination / Table Footer -->
+                </div>
+            </div>
+        </main>
+    </div>
 <script>
         function switchTab(tabId) {
             // Remove active classes from all buttons
@@ -401,8 +438,12 @@
         //evento de load completo da página
         window.onload = () => {
             //carrega dados na tabela de permissões
-            preencherTabelaPermissoes(secretarias);
+            preencherTabelaPermissoes(usuarios);
         }
+
+        function alternarContraste() {
+      document.body.classList.toggle("high-contrast");
+    }
     </script>
 
 
