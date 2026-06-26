@@ -4,66 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Indicadores - Sistema de Monitoramento</title>
+  
+  <link rel="stylesheet" href="../home/style.css">
 
   <style>
-    :root {
-      --bg-gov-first: #3f4e55;
-      --cedca-blue-dark: #002244;
-      --cedca-blue-medium: #003366;
-      --cedca-blue-light: #0066cc;
-      --cedca-green: #00875a;
-      --gov-gray: #f4f6f8;
-      --text-dark: #222222;
-      --text-muted: #555556;
-      --border-color: #d1d5db;
-      --card-bg: #ffffff;
-    }
-
-    body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      color: var(--text-dark);
-      background-color: #ffffff;
-      margin: 0;
-      padding: 0;
-      line-height: 1.5;
-    }
-
-    body.high-contrast {
-      --bg-gov-first: #000000;
-      --cedca-blue-dark: #000000;
-      --cedca-blue-medium: #111111;
-      --cedca-blue-light: #ffff00;
-      --cedca-green: #ffff00;
-      --gov-gray: #000000;
-      --text-dark: #ffffff;
-      --text-muted: #eeeeee;
-      --border-color: #ffffff;
-      --card-bg: #111111;
-      background-color: #000000;
-      color: #ffffff;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
+    /* Ajuste de precisão para neutralizar o tamanho do botão e fixar a altura do header em 38px */
     .header-governo {
-      background-color: var(--bg-gov-first);
-      color: #ffffff;
-      font-size: 12px;
-      padding: 10px 0;
-      font-weight: bold;
-      letter-spacing: 0.5px;
+      padding: 6px 0 !important;
     }
 
-    .header-gov-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
+    /* Mantém o visual do botão de alto contraste solicitado, mas com travas de tamanho */
     .btn-contraste {
       background-color: transparent;
       color: #ffffff;
@@ -72,91 +22,17 @@
       border-radius: 4px;
       font-weight: bold;
       cursor: pointer;
-    }
-
-    .header-sistema {
-      background-color: var(--cedca-blue-dark);
-      color: white;
-      padding: 30px 0;
-      border-bottom: 4px solid var(--cedca-green);
-    }
-
-    .header-sistema h1 {
+      transition: opacity 0.2s;
+      font-family: inherit;
+      font-size: 12px;
+      line-height: 1;
       margin: 0;
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
     }
-
-    .header-sistema p {
-      margin: 5px 0 0 0;
-      font-size: 1.1rem;
+    .btn-contraste:hover {
       opacity: 0.9;
-      color: #cbd5e1;
     }
 
-    .navbar-principal {
-      background-color: var(--cedca-blue-medium);
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .nav-links,
-    .nav-auth {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .navbar-principal a {
-      display: block;
-      padding: 14px 18px;
-      color: white;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: background-color 0.2s;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      background-color: var(--cedca-blue-light);
-    }
-
-    .btn-login {
-      background-color: var(--cedca-green);
-      border-radius: 4px;
-      margin: 6px 0;
-      padding: 8px 20px !important;
-    }
-
-    main {
-      margin-top: 30px;
-    }
-
-    .page-intro {
-      margin: 30px 0;
-      border-bottom: 2px solid var(--gov-gray);
-      padding-bottom: 15px;
-    }
-
-    .page-intro h2 {
-      color: var(--cedca-blue-medium);
-      margin: 0 0 10px 0;
-    }
-
-    body.high-contrast .page-intro h2,
-    body.high-contrast .card h3,
-    body.high-contrast .dashboard-title {
-      color: #ffff00;
-    }
-
+    /* Estilos customizados e exclusivos do Dashboard de Indicadores */
     .filters-panel {
       background-color: var(--gov-gray);
       border: 1px solid var(--border-color);
@@ -168,18 +44,18 @@
       gap: 18px;
     }
 
-    label {
+    .filters-panel label {
       display: block;
       font-weight: bold;
       margin-bottom: 6px;
     }
 
-    select {
+    .filters-panel select {
       width: 100%;
       padding: 10px;
       border: 1px solid var(--border-color);
       border-radius: 4px;
-      background-color: var(--card-bg);
+      background-color: #ffffff;
       color: var(--text-dark);
       font-size: 1rem;
     }
@@ -194,14 +70,14 @@
     .summary-card {
       border: 1px solid var(--border-color);
       border-radius: 8px;
-      background-color: var(--card-bg);
+      background-color: #ffffff;
       padding: 18px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     }
 
     .summary-card span {
       display: block;
-      color: var(--text-muted);
+      color: #555556;
       font-size: 0.9rem;
       margin-bottom: 8px;
     }
@@ -209,10 +85,6 @@
     .summary-card strong {
       color: var(--cedca-blue-dark);
       font-size: 1.8rem;
-    }
-
-    body.high-contrast .summary-card strong {
-      color: #ffff00;
     }
 
     .dashboard-title {
@@ -229,7 +101,7 @@
     .card {
       border: 1px solid var(--border-color);
       border-radius: 8px;
-      background-color: var(--card-bg);
+      background-color: #ffffff;
       padding: 18px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     }
@@ -249,20 +121,9 @@
       margin-bottom: 12px;
     }
 
-    .tipo-resultado {
-      background-color: #dbeafe;
-      color: #1e40af;
-    }
-
-    .tipo-cobertura {
-      background-color: #fef3c7;
-      color: #92400e;
-    }
-
-    .tipo-atendimento {
-      background-color: #ede9fe;
-      color: #5b21b6;
-    }
+    .tipo-resultado { background-color: #dbeafe; color: #1e40af; }
+    .tipo-cobertura { background-color: #fef3c7; color: #92400e; }
+    .tipo-atendimento { background-color: #ede9fe; color: #5b21b6; }
 
     .progress-bar {
       width: 100%;
@@ -285,44 +146,31 @@
     }
 
     .card p {
-      color: var(--text-muted);
+      color: #555556;
       margin-bottom: 0;
     }
 
-    .cedca-footer {
-      background-color: var(--gov-gray);
-      color: #666;
-      text-align: center;
-      padding: 30px 0;
-      margin-top: 50px;
-      border-top: 1px solid var(--border-color);
-      font-size: 0.85rem;
+    /* Regras para o funcionamento do Alto Contraste nesta tela */
+    body.high-contrast {
+      background-color: #000000 !important;
+      color: #ffffff !important;
     }
-
-    body.high-contrast .cedca-footer {
-      color: #ffffff;
-    }
+    body.high-contrast .header-governo,
+    body.high-contrast .header-sistema { background-color: #000000 !important; border-bottom-color: #ffff00 !important; }
+    body.high-contrast .navbar-principal { background-color: #111111 !important; }
+    body.high-contrast .summary-card, 
+    body.high-contrast .card, 
+    body.high-contrast .filters-panel { background-color: #111111 !important; border-color: #ffffff !important; }
+    body.high-contrast .summary-card strong,
+    body.high-contrast .card h3,
+    body.high-contrast .dashboard-title,
+    body.high-contrast .page-intro h2 { color: #ffff00 !important; }
+    body.high-contrast .summary-card span,
+    body.high-contrast .card p { color: #eeeeee !important; }
+    body.high-contrast .filters-panel select { background-color: #000000 !important; color: #ffffff !important; border-color: #ffffff !important; }
 
     @media (max-width: 850px) {
-      .filters-panel,
-      .summary-cards,
-      .indicator-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-container {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links,
-      .nav-auth {
-        width: 100%;
-      }
-
-      .navbar-principal a {
-        padding: 12px 14px;
-      }
+      .filters-panel, .summary-cards, .indicator-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -330,15 +178,17 @@
 <body>
   <header class="header-governo">
     <div class="container header-gov-content">
-      <span>GOVERNO DO ESTADO DO PARANÁ</span>
+      <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
       <button class="btn-contraste" onclick="alternarContraste()">Alto Contraste</button>
     </div>
   </header>
 
   <header class="header-sistema">
-    <div class="container">
-      <h1>Sistema de Monitoramento</h1>
-      <p>Plano Decenal da Criança e do Adolescente</p>
+    <div class="container header-sis-content">
+      <div class="sistema-titulo-area">
+        <h1>Sistema de Monitoramento</h1>
+        <p>Plano Decenal da Criança e do Adolescente</p>
+      </div>
     </div>
   </header>
 
@@ -407,15 +257,14 @@
     <h2 class="dashboard-title">Indicadores do problema selecionado</h2>
 
     <section class="indicator-grid" id="indicadoresContainer">
-      <!-- Conteúdo gerado por JavaScript -->
-    </section>
+      </section>
   </main>
 
   <footer class="cedca-footer">
     <div class="container">
       <p><strong>Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente</strong></p>
       <p>Governo do Estado do Paraná</p>
-      <small>Protótipo evolutivo — Tela de visualização de indicadores.</small>
+      <small>Desenvolvido com foco em acessibilidade e transparência pública.</small>
     </div>
   </footer>
 
@@ -456,14 +305,8 @@
     };
 
     function classeTipo(tipo) {
-      if (tipo === "Resultado") {
-        return "tipo-resultado";
-      }
-
-      if (tipo === "Cobertura") {
-        return "tipo-cobertura";
-      }
-
+      if (tipo === "Resultado") { return "tipo-resultado"; }
+      if (tipo === "Cobertura") { return "tipo-cobertura"; }
       return "tipo-atendimento";
     }
 
@@ -473,12 +316,10 @@
       const container = document.getElementById("indicadoresContainer");
 
       container.innerHTML = "";
-
       let soma = 0;
 
       dados.indicadores.forEach(function(indicador) {
         soma += indicador.valor;
-
         const card = document.createElement("article");
         card.className = "card";
 
@@ -490,12 +331,10 @@
           </div>
           <p>Progresso do indicador no ano selecionado.</p>
         `;
-
         container.appendChild(card);
       });
 
       const media = Math.round(soma / dados.indicadores.length);
-
       document.getElementById("statusGeral").textContent = dados.status;
       document.getElementById("progressoMedio").textContent = media + "%";
       document.getElementById("totalIndicadores").textContent = dados.indicadores.length;
@@ -505,6 +344,7 @@
       document.body.classList.toggle("high-contrast");
     }
 
+    // Inicialização do Dashboard
     atualizarDashboard();
   </script>
 </body>
