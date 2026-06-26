@@ -3,95 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEDCA-PR - Consulta do Plano Decenal</title>
+    <title>Busca e Filtros - Sistema de Monitoramento</title>
+    
+    <!-- Importa a folha de estilos padrão e idêntica da Home / Indicadores -->
+    <link rel="stylesheet" href="../home/style.css">
+
     <style>
+        /* Vinculação direta com a paleta global compartilhada pelas outras telas */
         :root {
-            --primary-color: #00457c;
-            --primary-hover: #002d54;
-            --accent-color: #0072c6;
-            --bg-color: #f4f6f9;
+            --primary-color: var(--cedca-blue-medium, #003366);
+            --primary-hover: var(--cedca-blue-dark, #002244);
+            --accent-color: var(--cedca-blue-light, #0066cc);
+            --bg-color: var(--gov-gray, #f4f6f8);
             --card-bg: #ffffff;
-            --text-color: #333333;
+            --text-color: var(--text-dark, #222222);
             --text-muted: #555556;
             --border-color: #d1d5db;
-        }
-
-        .high-contrast {
-            --primary-color: #ffff00;
-            --primary-hover: #ffff55;
-            --accent-color: #ffff00;
-            --bg-color: #000000;
-            --card-bg: #111111;
-            --text-color: #ffffff;
-            --text-muted: #dddddd;
-            --border-color: #ffffff;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             transition: background-color 0.3s, color 0.3s;
-            line-height: 1.6;
         }
 
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 4px solid var(--accent-color);
+        /* Ajuste de precisão idêntico a indicadores.html e login.html */
+        .header-governo {
+            padding: 6px 0 !important;
         }
 
-        .logo-area h1 {
-            font-size: 1.4rem;
-            font-weight: 700;
+        .btn-contraste {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            font-family: inherit;
+            font-size: 12px;
+            line-height: 1;
+            margin: 0;
         }
-
-        .logo-area p {
-            font-size: 0.85rem;
+        .btn-contraste:hover {
             opacity: 0.9;
         }
 
-        .accessibility-btn {
-            background-color: transparent;
-            color: white;
-            border: 1px solid white;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            font-weight: 600;
-            border-radius: 4px;
+        /* Espaçamentos do bloco de conteúdo principal */
+        .page-intro {
+            margin: 25px 0 15px 0;
         }
 
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .page-title {
-            margin-bottom: 1.5rem;
+        .page-intro h2 {
             color: var(--primary-color);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 0.5rem;
+            margin-bottom: 8px;
         }
 
-        /* Container de Busca (HU04) e Filtros (HU05) */
+        /* Estrutura interna de busca e filtros (Mantendo as funcionalidades funcionais) */
         .search-filter-container {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
         .search-group {
@@ -100,21 +76,21 @@
 
         .search-group label {
             display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-weight: bold;
+            margin-bottom: 6px;
         }
 
         .search-input-wrapper input {
             width: 100%;
-            padding: 0.75rem;
+            padding: 10px;
             border: 1px solid var(--border-color);
             border-radius: 4px;
             font-size: 1rem;
             background-color: var(--card-bg);
             color: var(--text-color);
+            box-sizing: border-box;
         }
 
-        /* Grid de Filtros Avançados solicitados */
         .filters-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -126,18 +102,19 @@
         .filter-item label {
             display: block;
             font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
+            font-weight: bold;
+            margin-bottom: 6px;
             color: var(--text-muted);
         }
 
-        .filter-item select, .filter-item input {
+        .filter-item select {
             width: 100%;
-            padding: 0.5rem;
+            padding: 10px;
             border: 1px solid var(--border-color);
             border-radius: 4px;
             background-color: var(--card-bg);
             color: var(--text-color);
+            font-size: 0.95rem;
         }
 
         .actions-row {
@@ -151,33 +128,42 @@
             padding: 0.6rem 1.5rem;
             border: none;
             border-radius: 4px;
-            font-weight: 600;
+            font-weight: bold;
             cursor: pointer;
         }
 
-        .btn-primary { background-color: var(--primary-color); color: white; }
-        .btn-secondary { background-color: transparent; border: 1px solid var(--border-color); color: var(--text-color); }
+        .btn-primary { 
+            background-color: var(--cedca-green, #00875a); 
+            color: white; 
+        }
+        .btn-secondary { 
+            background-color: transparent; 
+            border: 1px solid var(--border-color); 
+            color: var(--text-color); 
+        }
 
         .results-count {
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            font-weight: 600;
+            margin: 25px 0 15px 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--primary-color);
         }
 
         /* Layout de Cards em Grid */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-            gap: 1.5rem;
+            gap: 18px;
+            margin-bottom: 25px;
         }
 
         .plan-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-top: 5px solid var(--primary-color);
-            border-radius: 6px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 18px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -191,8 +177,8 @@
         }
 
         .badge {
-            font-size: 0.7rem;
-            padding: 0.2rem 0.5rem;
+            font-size: 0.75rem;
+            padding: 4px 8px;
             border-radius: 4px;
             font-weight: bold;
             text-transform: uppercase;
@@ -213,8 +199,8 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             color: var(--accent-color);
-            font-weight: 700;
-            margin-bottom: 0.15rem;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
         }
 
         .section-content { font-size: 0.9rem; color: var(--text-color); }
@@ -223,29 +209,106 @@
             display: inline-block;
             font-size: 0.75rem;
             background-color: #f3f4f6;
-            padding: 0.15rem 0.4rem;
-            margin: 0.15rem;
+            padding: 4px 8px;
+            margin: 2px;
             border-radius: 4px;
             border: 1px solid #e5e7eb;
         }
 
         .no-results { grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--text-muted); }
+
+        /* Espelhamento absoluto das regras de Alto Contraste de indicadores.html */
+        body.high-contrast {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+        }
+        body.high-contrast .header-governo { 
+            background-color: #000000 !important; 
+            border-bottom: 1px solid #ffff00 !important; 
+        }
+        body.high-contrast .header-sistema { 
+            background-color: #000000 !important; 
+            border-bottom-color: #ffff00 !important; 
+        }
+        body.high-contrast .navbar-principal { 
+            background-color: #111111 !important; 
+        }
+        body.high-contrast .search-filter-container,
+        body.high-contrast .plan-card {
+            background-color: #111111 !important;
+            border-color: #ffffff !important;
+        }
+        body.high-contrast .page-intro h2,
+        body.high-contrast .results-count,
+        body.high-contrast .section-label {
+            color: #ffff00 !important;
+        }
+        body.high-contrast .filter-item select,
+        body.high-contrast .search-input-wrapper input {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+        }
+        body.high-contrast .indicator-pill {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+        }
+        body.high-contrast .btn-primary {
+            background-color: #ffff00 !important;
+            color: #000000 !important;
+        }
+
+        @media (max-width: 850px) {
+            .filters-grid { grid-template-columns: 1fr; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-area">
-            <h1>CEDCA - PR</h1>
-            <p>Plano Decenal dos Direitos da Criança e do Adolescente</p>
+    <!-- Primeiro Header Padronizado -->
+    <header class="header-governo">
+        <div class="container header-gov-content">
+            <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
+            <button class="btn-contraste" onclick="alternarContraste()">Alto Contraste</button>
         </div>
-        <button class="accessibility-btn" onclick="document.body.classList.toggle('high-contrast')">🌓 Contraste</button>
     </header>
 
-    <main>
-        <h2 class="page-title">Painel de Monitoramento</h2>
+    <!-- Segundo Header Padronizado -->
+    <header class="header-sistema">
+        <div class="container header-sis-content">
+            <div class="sistema-titulo-area">
+                <h1>Sistema de Monitoramento</h1>
+                <p>Plano Decenal da Criança e do Adolescente</p>
+            </div>
+        </div>
+    </header>
 
-        <!-- HU04 & HU05: Formulário Multifiltros -->
+    <!-- Navbar Extensível Padronizada (Com aba Busca/Filtros Ativa) -->
+    <nav class="navbar-principal">
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="../home/index.html">Página Inicial</a></li>
+                <li><a href="../busca-filtro/busca-filtro.html" class="active">Busca/Filtros</a></li>
+                <li><a href="../indicadores/indicadores.html">Indicadores</a></li>
+                <li><a href="../painel-administrativo/adm.html">Painel Administrativo</a></li>
+            </ul>
+
+            <ul class="nav-auth">
+                <li><a href="../login/login.html" class="btn-login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal alinhado pelo container global -->
+    <main class="container">
+        <section class="page-intro">
+            <h2>Painel de Monitoramento</h2>
+            <p>Utilize os filtros abaixo para localizar metas, problemas públicos e linhas de ação estruturadas.</p>
+        </section>
+
+        <!-- Formulário Multifiltros -->
         <section class="search-filter-container">
             <div class="search-group">
                 <label for="searchTxt">Pesquisa Textual</label>
@@ -331,44 +394,53 @@
             </div>
         </section>
 
-        <!-- Resultados em Formato de Grade de Cards -->
-        <div class="results-count" id="countDisplay">Carregando dados...</div>
+        <!-- Exibição de Resultados -->
+        <h2 class="results-count" id="countDisplay">Carregando dados...</h2>
         
         <section class="cards-grid" id="cardsContainer">
             <!-- Cards injetados via JavaScript -->
         </section>
     </main>
 
+    <!-- Rodapé Padronizado -->
+    <footer class="cedca-footer">
+        <div class="container">
+            <p><strong>Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente</strong></p>
+            <p>Governo do Estado do Paraná</p>
+            <small>Desenvolvido com foco em acessibilidade e transparência pública.</small>
+        </div>
+    </footer>
+
+    <!-- Script de Operação -->
     <script>
-        // MOCK DATA estruturado de exemplos.pdf
         const mockData = [
             {
                 id: "1", municipio: "Curitiba", regiao: "RMC", responsavel: "SEED", ano: "2024",
                 problema: "Persistência da evasão e do abandono escolar entre adolescentes em situação de vulnerabilidade social e territorial.",
                 compromisso: "Fortalecer a permanência escolar de adolescentes, promovendo acompanhamento contínuo e articulação entre educação, assistência social e rede de proteção.",
                 linhaAcao: "Qualificar os mecanismos de monitoramento educacional e integração entre os órgãos responsáveis pelo acompanhamento dos estudantes.",
-                indicadores: ["taxa de evasão escolar", "taxa de abandono escolar", "percentual de estudantes com frequência abaixo do mínimo"]
+                indicators: ["taxa de evasão escolar", "taxa de abandono escolar", "percentual de estudantes com frequência abaixo do mínimo"]
             },
             {
                 id: "2", municipio: "Londrina", regiao: "Norte", responsavel: "SEDEF", ano: "2025",
                 problema: "Persistência da insegurança alimentar entre crianças em situação de vulnerabilidade social.",
                 compromisso: "Fortalecer a proteção social e nutricional de crianças em situação de vulnerabilidade por meio da integração das políticas públicas.",
-                linhaAcao: "Promover a integração das informações produzidas pelas áreas de saúde, assistência social e educação para apoiar a tomada de decisão.",
-                indicadores: ["percentual de crianças em situação de insegurança alimentar", "quantidade de famílias acompanhadas", "número de avaliações nutricionais realizadas"]
+                linhaAcao: "Promover a integração das informações próximas pelas áreas de saúde, assistência social e educação para apoiar a tomada de decisão.",
+                indicators: ["percentual de crianças em situação de insegurança alimentar", "quantidade de famílias acompanhadas", "número de avaliações nutricionais realizadas"]
             },
             {
                 id: "3", municipio: "Cascavel", regiao: "Oeste", responsavel: "SESA", ano: "2026",
                 problema: "Dificuldade de acompanhamento contínuo de adolescentes em situação de sofrimento psíquico na rede pública.",
                 compromisso: "Fortalecer a atenção psicossocial voltada à infância e adolescência, promovendo continuidade do cuidado e integração da rede de atendimento.",
                 linhaAcao: "Qualificar os processos de registro, acompanhamento e articulação dos serviços que compõem a rede de atenção psicossocial.",
-                indicadores: ["quantidade de atendimentos realizados", "tempo médio de espera para atendimento", "percentual de casos acompanhados continuamente"]
+                indicators: ["quantidade de atendimentos realizados", "tempo médio de espera para atendimento", "percentual de casos acompanhados continuamente"]
             },
             {
                 id: "4", municipio: "Foz do Iguaçu", regiao: "Oeste", responsavel: "SESP", ano: "2025",
                 problema: "Subnotificação e fragmentação das informações relacionadas aos casos de violência contra crianças e adolescentes.",
                 compromisso: "Fortalecer a rede de proteção à criança e ao adolescente por meio da melhoria dos mecanismos de notificação, acompanhamento e resposta às situações de violência.",
                 linhaAcao: "Promover a integração dos fluxos de informação e acompanhamento entre os órgãos que compõem a rede de proteção.",
-                indicadores: ["quantidade de denúncias registradas", "percentual de casos em acompanhamento", "tempo médio de resposta às denúncias"]
+                indicators: ["quantidade de denúncias registradas", "percentual de casos em acompanhamento", "tempo médio de resposta às denúncias"]
             }
         ];
 
@@ -413,7 +485,7 @@
                     <div style="margin-top: 10px;">
                         <div class="section-label">Indicadores Relacionados</div>
                         <div>
-                            ${item.indicadores.map(ind => `<span class="indicator-pill">${ind}</span>`).join('')}
+                            ${item.indicators.map(ind => `<span class="indicator-pill">${ind}</span>`).join('')}
                         </div>
                     </div>
                 `;
@@ -437,7 +509,7 @@
                     item.linhaAcao.toLowerCase().includes(searchText);
 
                 const matchesCompromisso = filterCompromisso === "" || item.compromisso.toLowerCase().includes(filterCompromisso.toLowerCase());
-                const matchesIndicador = filterIndicador === "" || item.indicadores.some(ind => ind.toLowerCase().includes(filterIndicador));
+                const matchesIndicador = filterIndicador === "" || item.indicators.some(ind => ind.toLowerCase().includes(filterIndicador));
                 const matchesAno = filterAno === "" || item.ano === filterAno;
                 const matchesResponsavel = filterResponsavel === "" || item.responsavel === filterResponsavel;
                 const matchesMunicipio = filterMunicipio === "" || item.municipio === filterMunicipio;
@@ -458,6 +530,10 @@
             document.getElementById('filterMunicipio').value = "";
             document.getElementById('filterRegiao').value = "";
             displayCards(mockData);
+        }
+
+        function alternarContraste() {
+            document.body.classList.toggle("high-contrast");
         }
 
         window.onload = () => displayCards(mockData);

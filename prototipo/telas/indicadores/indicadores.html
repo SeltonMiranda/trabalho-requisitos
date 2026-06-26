@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Indicadores - Sistema de Monitoramento</title>
   
+  <!-- Importa a folha de estilos padrão e idêntica da Home -->
   <link rel="stylesheet" href="../home/style.css">
 
   <style>
@@ -155,8 +156,15 @@
       background-color: #000000 !important;
       color: #ffffff !important;
     }
-    body.high-contrast .header-governo,
-    body.high-contrast .header-sistema { background-color: #000000 !important; border-bottom-color: #ffff00 !important; }
+    /* CORREÇÃO: Adicionada explicitamente a borda amarela fina embaixo do governo */
+    body.high-contrast .header-governo { 
+      background-color: #000000 !important; 
+      border-bottom: 1px solid #ffff00 !important; 
+    }
+    body.high-contrast .header-sistema { 
+      background-color: #000000 !important; 
+      border-bottom-color: #ffff00 !important; 
+    }
     body.high-contrast .navbar-principal { background-color: #111111 !important; }
     body.high-contrast .summary-card, 
     body.high-contrast .card, 
@@ -176,6 +184,7 @@
 </head>
 
 <body>
+  <!-- Primeiro Header -->
   <header class="header-governo">
     <div class="container header-gov-content">
       <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
@@ -183,6 +192,7 @@
     </div>
   </header>
 
+  <!-- Segundo Header -->
   <header class="header-sistema">
     <div class="container header-sis-content">
       <div class="sistema-titulo-area">
@@ -192,6 +202,7 @@
     </div>
   </header>
 
+  <!-- Navbar Extensível -->
   <nav class="navbar-principal">
     <div class="container nav-container">
       <ul class="nav-links">
@@ -207,6 +218,7 @@
     </div>
   </nav>
 
+  <!-- Conteúdo Principal -->
   <main class="container">
     <section class="page-intro">
       <h2>Dashboard de Indicadores</h2>
@@ -216,6 +228,7 @@
       </p>
     </section>
 
+    <!-- Filtros -->
     <section class="filters-panel">
       <div>
         <label for="problema">Problema público</label>
@@ -237,6 +250,7 @@
       </div>
     </section>
 
+    <!-- Cards de Resumo -->
     <section class="summary-cards">
       <article class="summary-card">
         <span>Status geral</span>
@@ -256,10 +270,12 @@
 
     <h2 class="dashboard-title">Indicadores do problema selecionado</h2>
 
+    <!-- Grid de Cards -->
     <section class="indicator-grid" id="indicadoresContainer">
-      </section>
+    </section>
   </main>
 
+  <!-- Rodapé -->
   <footer class="cedca-footer">
     <div class="container">
       <p><strong>Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente</strong></p>
