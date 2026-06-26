@@ -264,7 +264,6 @@
 </head>
 <body>
 
-    <!-- Primeiro Header Padronizado -->
     <header class="header-governo">
         <div class="container header-gov-content">
             <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
@@ -272,7 +271,6 @@
         </div>
     </header>
 
-    <!-- Segundo Header: Título do Sistema -->
     <header class="header-sistema">
         <div class="container header-sis-content">
             <div class="sistema-titulo-area">
@@ -281,33 +279,14 @@
             </div>
         </div>
     </header>
-    <!-- Navbar Extensível -->
-    <nav class="navbar-principal">
-        <div class="container nav-container">
-            <ul class="nav-links">
-                <li><a href="../home/index.html" class="active">Página Inicial</a></li>
-                <li><a href="../busca-filtro/busca-filtro.html">Busca/Filtros</a></li>
-                <li><a href="../indicadores/indicadores.html">Indicadores</a></li>
-                <li><a href="../dashboard/index.html">Dashboard</a></li>
-                <li><a href="../painel-administrativo/adm.html">Painel Administrativo</a></li>
-                <!-- Novos links podem ser facilmente adicionados aqui -->
-            </ul>
-            <ul class="nav-auth">
-                <li><a href="../login/login.html" class="btn-login">Login</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <main>
-        <h2 class="page-title">Painel de Monitoramento</h2>
-
-    <!-- Navbar Extensível Padronizada (Com aba Busca/Filtros Ativa) -->
     <nav class="navbar-principal">
         <div class="container nav-container">
             <ul class="nav-links">
                 <li><a href="../home/index.html">Página Inicial</a></li>
                 <li><a href="../busca-filtro/busca-filtro.html" class="active">Busca/Filtros</a></li>
                 <li><a href="../indicadores/indicadores.html">Indicadores</a></li>
+                <li><a href="../dashboard/index.html">Dashboard</a></li>
                 <li><a href="../painel-administrativo/adm.html">Painel Administrativo</a></li>
             </ul>
 
@@ -317,14 +296,12 @@
         </div>
     </nav>
 
-    <!-- Conteúdo Principal alinhado pelo container global -->
     <main class="container">
         <section class="page-intro">
             <h2>Painel de Monitoramento</h2>
             <p>Utilize os filtros abaixo para localizar metas, problemas públicos e linhas de ação estruturadas.</p>
         </section>
 
-        <!-- Formulário Multifiltros -->
         <section class="search-filter-container">
             <div class="search-group">
                 <label for="searchTxt">Pesquisa Textual</label>
@@ -334,7 +311,6 @@
             </div>
 
             <div class="filters-grid">
-                <!-- Filtro: Compromisso -->
                 <div class="filter-item">
                     <label for="filterCompromisso">Compromisso</label>
                     <select id="filterCompromisso" onchange="applyFilters()">
@@ -346,7 +322,6 @@
                     </select>
                 </div>
 
-                <!-- Filtro: Indicador -->
                 <div class="filter-item">
                     <label for="filterIndicador">Indicador</label>
                     <select id="filterIndicador" onchange="applyFilters()">
@@ -358,7 +333,6 @@
                     </select>
                 </div>
 
-                <!-- Filtro: Período de Tempo -->
                 <div class="filter-item">
                     <label for="filterAno">Período (Ano Base)</label>
                     <select id="filterAno" onchange="applyFilters()">
@@ -369,7 +343,6 @@
                     </select>
                 </div>
 
-                <!-- Filtro: Responsável -->
                 <div class="filter-item">
                     <label for="filterResponsavel">Responsável</label>
                     <select id="filterResponsavel" onchange="applyFilters()">
@@ -381,7 +354,6 @@
                     </select>
                 </div>
 
-                <!-- Filtro: Município -->
                 <div class="filter-item">
                     <label for="filterMunicipio">Município</label>
                     <select id="filterMunicipio" onchange="applyFilters()">
@@ -393,7 +365,6 @@
                     </select>
                 </div>
 
-                <!-- Filtro: Região -->
                 <div class="filter-item">
                     <label for="filterRegiao">Região</label>
                     <select id="filterRegiao" onchange="applyFilters()">
@@ -410,15 +381,12 @@
             </div>
         </section>
 
-        <!-- Exibição de Resultados -->
         <h2 class="results-count" id="countDisplay">Carregando dados...</h2>
         
         <section class="cards-grid" id="cardsContainer">
-            <!-- Cards injetados via JavaScript -->
-        </section>
+            </section>
     </main>
 
-    <!-- Rodapé Padronizado -->
     <footer class="cedca-footer">
         <div class="container">
             <p><strong>Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente</strong></p>
@@ -427,7 +395,6 @@
         </div>
     </footer>
 
-    <!-- Script de Operação -->
     <script>
         const mockData = [
             {
