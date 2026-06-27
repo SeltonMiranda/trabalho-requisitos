@@ -9,6 +9,10 @@
     <script id="tailwind-config">
             tailwind.config = {
                 darkMode: "class",
+                corePlugins: { 
+                   preflight: true,
+                   container: false
+                },
                 theme: {
                     extend: {
                         "colors": {
@@ -105,11 +109,68 @@
             }
         </script>
     <style>
-            body {
-                background-color: #f7f9fb;
-                font-family: 'Inter', sans-serif;
-                color: #191c1e;
-            }
+.header-governo {
+    padding: 6px 0 !important;
+}
+
+.btn-contraste {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1;
+    margin: 0;
+}
+.btn-contraste:hover {
+    opacity: 0.9;
+}
+.btn-contraste:hover {
+    opacity: 0.9;
+}
+
+/* === ALTO CONTRASTE (idêntico às outras páginas) === */
+body.high-contrast {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+body.high-contrast .header-governo {
+    background-color: #000000 !important;
+    border-bottom: 1px solid #ffff00 !important;
+}
+body.high-contrast .header-sistema {
+    background-color: #000000 !important;
+    border-bottom-color: #ffff00 !important;
+}
+body.high-contrast .navbar-principal {
+    background-color: #111111 !important;
+}
+body.high-contrast aside,
+body.high-contrast .bg-surface-container-lowest,
+body.high-contrast .bg-surface-container-low,
+body.high-contrast .border-outline-variant {
+    background-color: #111111 !important;
+    border-color: #ffffff !important;
+}
+body.high-contrast main h2,
+body.high-contrast main h3,
+body.high-contrast main h4 {
+    color: #ffff00 !important;
+}
+body.high-contrast main p,
+body.high-contrast main span:not(.material-symbols-outlined),
+body.high-contrast .text-secondary,
+body.high-contrast .text-on-surface-variant {
+    color: #dddddd !important;
+}
+body.high-contrast .toggle-checkbox:checked + .toggle-label {
+    background-color: #ffff00 !important;
+}
             .material-symbols-outlined {
                 font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             }
@@ -133,6 +194,7 @@
                 left: calc(100% - 2px);
                 transform: translateX(-100%);
             }
+
         </style>
     </head>
     <body class="bg-background text-on-background">
@@ -140,9 +202,7 @@
         <header class="header-governo">
             <div class="container header-gov-content">
                 <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
-                <div class="gov-top-links">
-                    <span>Acessibilidade</span> | <button onclick="alternarContraste()">Alto-Contraste</button>
-                </div>
+                <button class="btn-contraste" onclick="alternarContraste()">Alto Contraste</button>
             </div>
         </header>
         <!-- Segundo Header: Título do Sistema -->
@@ -197,7 +257,7 @@
             </aside>
     
             <!-- Main Content -->
-            <main class="flex-1 pt-24 px-lg pb-xl max-w-[1600px]">
+            <main class="flex-1 pt-lg px-lg pb-xl max-w-[1600px]">
                 <!-- Page Header com a inclusão dos dois novos botões operacionais -->
                 <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-md mb-xl border-b border-outline-variant pb-md">
                     <div>
