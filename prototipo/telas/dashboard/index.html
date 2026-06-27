@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-
-<html lang="pt-BR"><head>
+<html lang="pt-BR">
+<head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Painel de Problemas Públicos - Educação</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="../home/style.css">
+  <!-- Importa a folha de estilos padrão e idêntica da Home -->
+  <link rel="stylesheet" href="../home/style.css">
+  
   <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
+      corePlugins: {
+        // Desativamos o reset global e o container do Tailwind.
+        // Isso garante que o Cabeçalho/Navbar obedeçam EXATAMENTE ao style.css das outras páginas.
+        preflight: false,
+        container: false 
+      },
       theme: {
         extend: {
           "colors": {
@@ -69,10 +76,10 @@
             "full": "0.75rem"
           },
           "spacing": {
-            "card-padding": "24px",
+            "card-padding": "20px",
             "unit": "4px",
             "container-margin": "24px",
-            "sidebar-width": "280px",
+            "sidebar-width": "260px",
             "gutter": "16px"
           },
           "fontFamily": {
@@ -85,44 +92,115 @@
             "display-lg": ["rawline", "sans-serif"]
           },
           "fontSize": {
-            "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
-            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-            "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
-            "stat-lg": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
-            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-            "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            /* Tamanhos reduzidos proporcionalmente para não ficar gigante em relação ao resto do site */
+            "title-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+            "stat-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "display-lg": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
           }
         },
       },
     }
   </script>
+  
   <style>
     @font-face {
       font-family: 'rawline';
       src: url('https://fonts.cdnfonts.com/css/rawline') format('woff2');
     }
-    body { font-family: 'rawline', sans-serif; }
+    
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Como desativamos o preflight global, aplicamos um mini-reset APENAS dentro do Dashboard */
+    .dashboard-app *, .dashboard-app *::before, .dashboard-app *::after {
+      box-sizing: border-box;
+      border-width: 0;
+      border-style: solid;
+      border-color: #e5e7eb;
+    }
+    
+    .dashboard-app { font-family: 'rawline', sans-serif; }
+    
     .chart-container { position: relative; height: 160px; width: 100%; }
     .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #c3c6d5; border-radius: 10px; }
+    
+    /* Scrollbar restrita ao dashboard para não alterar o viewport (margem) da página inteira */
+    .dashboard-app ::-webkit-scrollbar { width: 6px; }
+    .dashboard-app ::-webkit-scrollbar-track { background: transparent; }
+    .dashboard-app ::-webkit-scrollbar-thumb { background: #c3c6d5; border-radius: 10px; }
+
+    /* Regras de Alto Contraste - escopadas para não quebrar o cabeçalho/navbar */
+    body.high-contrast {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+    }
+    body.high-contrast .header-governo { 
+      background-color: #000000 !important; 
+      border-bottom: 1px solid #ffff00 !important; 
+    }
+    body.high-contrast .header-sistema { 
+      background-color: #000000 !important; 
+      border-bottom-color: #ffff00 !important; 
+    }
+    body.high-contrast .navbar-principal { 
+      background-color: #111111 !important; 
+    }
+    body.high-contrast aside {
+      background-color: #111111 !important;
+      border-color: #ffffff !important;
+    }
+    body.high-contrast .bg-surface-container-lowest,
+    body.high-contrast .bg-surface-container-low {
+      background-color: #111111 !important;
+      border-color: #ffffff !important;
+    }
+    
+    body.high-contrast main h2, 
+    body.high-contrast main h3, 
+    body.high-contrast main h4 {
+      color: #ffff00 !important;
+    }
+    body.high-contrast main p,
+    body.high-contrast main span:not(.material-symbols-outlined) {
+      color: #ffffff !important;
+    }
+    .header-governo {
+        padding: 6px 0 !important;
+    }
+    .btn-contraste {
+        background-color: transparent;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        padding: 6px 10px;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: opacity 0.2s;
+        font-family: inherit;
+        font-size: 12px;
+        line-height: 1;
+        margin: 0;
+    }
+    .btn-contraste:hover {
+        opacity: 0.9;
+    }
   </style>
 </head>
 <body class="bg-background text-on-background min-h-screen flex flex-col">
-<!-- TopNavBar -->
-<!-- Primeiro Header: Governo do Estado do Paraná -->
+
     <header class="header-governo">
-        <div class="container header-gov-content">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
             <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
-            <div class="gov-top-links">
-                <span>Acessibilidade</span> | <span>Alto-Contraste</span>
-            </div>
+            <button class="btn-contraste" onclick="alternarContraste()">Alto Contraste</button>
         </div>
     </header>
-
-    <!-- Segundo Header: Título do Sistema -->
+    <!-- Segundo Header -->
     <header class="header-sistema">
         <div class="container header-sis-content">
             <div class="sistema-titulo-area">
@@ -131,25 +209,26 @@
             </div>
         </div>
     </header>
+    
     <!-- Navbar Extensível -->
     <nav class="navbar-principal">
         <div class="container nav-container">
             <ul class="nav-links">
-                <li><a href="../home/index.html" class="active">Página Inicial</a></li>
+                <li><a href="../home/index.html">Página Inicial</a></li>
                 <li><a href="../busca-filtro/busca-filtro.html">Busca/Filtros</a></li>
                 <li><a href="../indicadores/indicadores.html">Indicadores</a></li>
-                <li><a href="../dashboard/index.html">Dashboard</a></li>
+                <li><a href="../dashboard/index.html" class="active">Dashboard</a></li>
                 <li><a href="../painel-administrativo/adm.html">Painel Administrativo</a></li>
-                <!-- Novos links podem ser facilmente adicionados aqui -->
             </ul>
             <ul class="nav-auth">
                 <li><a href="../login/login.html" class="btn-login">Login</a></li>
             </ul>
         </div>
     </nav>
-<div class="flex flex-1 overflow-hidden">
+
+<div class="dashboard-app flex flex-1 overflow-hidden w-full">
 <!-- SideNavBar -->
-<aside class="hidden md:flex flex-col gap-4 p-card-padding h-[calc(100vh-112px)] overflow-y-auto w-[280px] bg-surface-container-low border-r border-surface-variant shrink-0">
+<aside class="hidden md:flex flex-col gap-4 p-card-padding h-[calc(100vh-112px)] overflow-y-auto w-[260px] bg-surface-container-low border-r border-surface-variant shrink-0">
   <div>
     <span class="text-label-caps font-label-caps text-on-surface-variant mb-4 block">PROBLEMAS PÚBLICOS</span>
     <nav class="flex flex-col gap-1">
@@ -196,10 +275,10 @@
       </button>
     </div>
   </div>
-  
 </aside>
+
 <!-- Main Content Canvas -->
-<main class="flex-1 overflow-y-auto p-container-margin">
+<main class="flex-1 overflow-y-auto p-container-margin w-full">
 <!-- Hero Header -->
 <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
   <div>
@@ -215,12 +294,12 @@
 </div>
 <!-- Page Section Heading -->
 <div class="flex items-center gap-3 mb-6">
-  <div class="w-1.5 h-8 bg-primary rounded-full"></div>
+  <div class="w-1.5 h-6 bg-primary rounded-full"></div>
   <h3 class="text-headline-md font-headline-md text-on-surface">Evasão Escolar</h3>
-  <span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed text-label-caps font-label-caps rounded-full">Problema Selecionado</span>
+  <span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed text-label-caps font-label-caps rounded-full">Problema Selecionado</span>
   <div class="ml-auto text-body-sm text-on-surface-variant opacity-60">Exibindo dados de 2018 a 2023</div>
 </div>
-<!-- KPI Cards Bento Grid --> <!-- -->
+
 <!-- Visualization Grid -->
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter mb-8">
 <!-- Chart Card 1 -->
@@ -236,44 +315,44 @@
     </div>
   </div>
   <div class="flex items-baseline gap-2 mb-4">
-    <span class="text-headline-md font-headline-md">6.8</span>
+    <span class="text-stat-lg font-stat-lg">6.8</span>
     <span class="text-body-sm font-body-sm text-on-surface-variant">% em 2023</span>
   </div>
 <!-- Chart Placeholder -->
 <div class="chart-container flex items-end justify-between px-2">
   <div class="flex flex-col items-center flex-1">
     <div class="w-full h-[60%] border-b-2 border-primary relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white"></div>
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
     </div>
     <span class="text-[10px] text-on-surface-variant mt-2">2018</span>
   </div>
   <div class="flex flex-col items-center flex-1">
     <div class="w-full h-[40%] border-b-2 border-primary relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white"></div>
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
     </div>
     <span class="text-[10px] text-on-surface-variant mt-2">2019</span>
   </div>
   <div class="flex flex-col items-center flex-1">
     <div class="w-full h-[80%] border-b-2 border-primary relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white"></div>
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
     </div>
     <span class="text-[10px] text-on-surface-variant mt-2">2020</span>
   </div>
   <div class="flex flex-col items-center flex-1">
     <div class="w-full h-[70%] border-b-2 border-primary relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white"></div>
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
     </div>
     <span class="text-[10px] text-on-surface-variant mt-2">2021</span>
   </div>
   <div class="flex flex-col items-center flex-1">
     <div class="w-full h-[30%] border-b-2 border-primary relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white"></div>
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
     </div>
     <span class="text-[10px] text-on-surface-variant mt-2">2022</span>
   </div>
   <div class="flex flex-col items-center flex-1">
     <div class="w-full h-[20%] border-b-2 border-primary relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full border-2 border-white"></div>
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
     </div>
     <span class="text-[10px] text-on-surface-variant mt-2">2023</span>
   </div>
@@ -292,64 +371,64 @@
     </div>
   </div>
   <div class="flex items-baseline gap-2 mb-4">
-    <span class="text-headline-md font-headline-md">12.3</span>
+    <span class="text-stat-lg font-stat-lg">12.3</span>
     <span class="text-body-sm font-body-sm text-on-surface-variant">% em 2023</span>
   </div>
 <!-- Chart Placeholder with red line -->
 <div class="chart-container flex items-end justify-between px-2">
   <div class="flex flex-col items-center flex-1">
     <div class="w-full h-[20%] border-b-2 border-error relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-error rounded-full border-2 border-white"></div>
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
     </div>
     <span class="text-[10px] text-on-surface-variant mt-2">2018</span>
   </div>
   <div class="flex flex-col items-center flex-1">
     <div class="w-full h-[10%] border-b-2 border-error relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-error rounded-full border-2 border-white"></div>
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
     </div>
     <span class="text-[10px] text-on-surface-variant mt-2">2019</span>
   </div>
   <div class="flex flex-col items-center flex-1">
     <div class="w-full h-[90%] border-b-2 border-error relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-error rounded-full border-2 border-white"></div>
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
     </div>
     <span class="text-[10px] text-on-surface-variant mt-2">2020</span>
   </div>
   <div class="flex flex-col items-center flex-1">
     <div class="w-full h-[75%] border-b-2 border-error relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-error rounded-full border-2 border-white"></div>
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
     </div>
     <span class="text-[10px] text-on-surface-variant mt-2">2021</span>
   </div>
   <div class="flex flex-col items-center flex-1">
     <div class="w-full h-[30%] border-b-2 border-error relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-error rounded-full border-2 border-white"></div>
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
     </div>
     <span class="text-[10px] text-on-surface-variant mt-2">2022</span>
   </div>
   <div class="flex flex-col items-center flex-1">
     <div class="w-full h-[55%] border-b-2 border-error relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-error rounded-full border-2 border-white"></div>
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
     </div>
     <span class="text-[10px] text-on-surface-variant mt-2">2023</span>
   </div>
 </div>
 </div>
-<!-- Chart Card 3 (Secondary) -->
+<!-- Chart Card 3 -->
 <div class="bg-surface-container-lowest border border-outline-variant p-card-padding rounded-xl group">
   <div class="flex justify-between items-start mb-4">
     <div>
       <h4 class="text-body-md font-bold text-on-surface">Distorção Idade-Série</h4>
-      <p class="text-[12px] text-on-surface-variant opacity-70">Anos Finais do Ensino Fundamental (%)</p>
+      <p class="text-[11px] text-on-surface-variant opacity-70">Anos Finais do Ensino Fundamental (%)</p>
     </div>
-    <div class="text-green-600 font-bold text-[12px] flex items-center gap-1">
+    <div class="text-green-600 font-bold text-[11px] flex items-center gap-1">
       <span class="material-symbols-outlined text-[14px]">trending_down</span>
       -3.5%
     </div>
   </div>
   <div class="flex items-baseline gap-2 mb-2">
     <span class="text-headline-md font-headline-md">24.2</span>
-    <span class="text-[12px] text-on-surface-variant">% em 2023</span>
+    <span class="text-[11px] text-on-surface-variant">% em 2023</span>
   </div>
   <div class="h-[100px] flex items-end justify-between px-2 overflow-hidden">
     <div class="flex-1 bg-surface-container-high h-full mx-1 rounded-t-sm relative transition-all group-hover:bg-primary-fixed"></div>
@@ -360,21 +439,21 @@
     <div class="flex-1 bg-primary h-[60%] mx-1 rounded-t-sm relative"></div>
   </div>
 </div>
-<!-- Chart Card 4 (Secondary) -->
+<!-- Chart Card 4 -->
 <div class="bg-surface-container-lowest border border-outline-variant p-card-padding rounded-xl group">
   <div class="flex justify-between items-start mb-4">
     <div>
       <h4 class="text-body-md font-bold text-on-surface">Alunos sem Matrícula Ativa</h4>
-      <p class="text-[12px] text-on-surface-variant opacity-70">Faixa etária 6–14 anos — Milhões</p>
+      <p class="text-[11px] text-on-surface-variant opacity-70">Faixa etária 6–14 anos — Milhões</p>
     </div>
-    <div class="text-green-600 font-bold text-[12px] flex items-center gap-1">
+    <div class="text-green-600 font-bold text-[11px] flex items-center gap-1">
       <span class="material-symbols-outlined text-[14px]">trending_down</span>
       -5.2%
     </div>
   </div>
   <div class="flex items-baseline gap-2 mb-2">
     <span class="text-headline-md font-headline-md">0.9</span>
-    <span class="text-[12px] text-on-surface-variant">M em 2023</span>
+    <span class="text-[11px] text-on-surface-variant">M em 2023</span>
   </div>
   <div class="h-[100px] flex items-end justify-between px-2 overflow-hidden">
     <div class="flex-1 bg-surface-container-high h-[40%] mx-1 rounded-t-sm relative group-hover:bg-primary-fixed"></div>
@@ -386,9 +465,9 @@
   </div>
 </div>
 </div>
-
 </main>
 </div>
+
 <!-- Footer -->
 <footer class="bg-surface-container-lowest border-t border-outline-variant flex justify-between items-center w-full px-container-margin py-unit h-12 z-50">
   <span class="text-body-sm font-body-sm text-on-surface-variant">© 2023 Governo Federal do Brasil</span>
@@ -398,6 +477,7 @@
     <a class="text-on-surface-variant hover:text-primary transition-colors text-body-sm font-body-sm" href="#">Mapa do Site</a>
   </div>
 </footer>
+
 <!-- VLibras Accessibility FAB -->
 <div class="fixed bottom-16 right-6 z-50 flex flex-col gap-2">
   <button class="w-12 h-12 bg-[#FFEB00] rounded-full shadow-lg flex items-center justify-center hover:opacity-90 transition-all hover:scale-110 active:scale-95 group" title="VLibras - Acessibilidade em Libras">
@@ -406,8 +486,9 @@
     </div>
   </button>
 </div>
+
 <script>
-        // Micro-interactions and simple state management
+  // Micro-interactions and simple state management
   document.querySelectorAll('aside nav a').forEach(link => {
     link.addEventListener('click', function(e) {
       document.querySelectorAll('aside nav a').forEach(l => {
@@ -419,7 +500,7 @@
     });
   });
 
-        // Year filter selection
+  // Year filter selection
   document.querySelectorAll('aside .grid button').forEach(btn => {
     btn.addEventListener('click', function() {
       document.querySelectorAll('aside .grid button').forEach(b => {
@@ -432,7 +513,10 @@
   });
 
   function alternarContraste() {
-      document.body.classList.toggle("high-contrast");
-    }
+    document.body.classList.toggle("high-contrast");
+    const isContrast = document.body.classList.contains("high-contrast");
+    localStorage.setItem('altoContraste', isContrast);
+  }
 </script>
-</body></html>
+</body>
+</html>
