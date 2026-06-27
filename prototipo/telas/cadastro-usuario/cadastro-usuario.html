@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário - Painel Administrativo</title>
+    
+    <link rel="stylesheet" href="../home/style.css">
+
+    <style>
+        /* Paleta de Cores e Definições Identitárias */
+        :root {
+            --bg-gov-first: #3f4e55;
+            --cedca-blue-dark: #002244;
+            --cedca-blue-medium: #003366;
+            --cedca-blue-light: #0066cc;
+            --cedca-green: #00875a;
+            --gov-gray: #f4f6f8;
+            --text-dark: #222222;
+            --border-color: #d1d5db;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--gov-gray);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header-governo {
+            padding: 6px 0 !important;
+        }
+
+        .btn-contraste {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            font-size: 12px;
+            line-height: 1;
+        }
+        .btn-contraste:hover {
+            opacity: 0.9;
+        }
+
+        .header-sistema {
+            background-color: var(--cedca-blue-dark);
+            color: white;
+            padding: 20px;
+            border-bottom: 4px solid var(--cedca-green);
+            text-align: center;
+        }
+
+        .header-sistema h1 { 
+            margin: 0; 
+            font-size: 1.5rem; 
+            font-weight: 800; 
+        }
+
+        /* Estrutura da Navbar */
+        .navbar-principal {
+            background-color: var(--cedca-blue-medium);
+        }
+
+        /* Container de Conteúdo */
+        .main-container {
+            flex: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            box-sizing: border-box;
+        }
+
+        .page-intro {
+            margin-bottom: 25px;
+        }
+
+        .page-intro h2 {
+            color: var(--cedca-blue-medium);
+            margin: 0 0 8px 0;
+        }
+
+        /* Formulário de Cadastro em formato de Card */
+        .form-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--cedca-blue-medium);
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 600px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            color: #444;
+        }
+
+        .form-group input, .form-group select {
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+            background-color: var(--card-bg);
+            color: var(--text-dark);
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--cedca-blue-light);
+        }
+
+        .form-instructions {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: -10px;
+            margin-bottom: 5px;
+        }
+
+        /* Ações do Formulário */
+        .actions-row {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--cedca-green);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Rodapé */
+        .cedca-footer {
+            background-color: #ffffff;
+            color: #666;
+            text-align: center;
+            padding: 15px 0;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.82rem;
+        }
+
+        /* ==========================================================================
+           REGRAS EXCLUSIVAS PARA O FUNCIONAMENTO DO ALTO CONTRASTE (Acessibilidade)
+           ========================================================================== */
+        body.high-contrast {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+        }
+        
+        body.high-contrast .header-governo {
+            background-color: #000000 !important;
+            border-bottom: 1px solid #ffff00 !important;
+        }
+        
+        body.high-contrast .header-sistema {
+            background-color: #000000 !important;
+            border-bottom-color: #ffff00 !important;
+        }
+
+        body.high-contrast .navbar-principal {
+            background-color: #111111 !important;
+        }
+
+        body.high-contrast .form-card {
+            background-color: #111111 !important;
+            border-color: #ffffff !important;
+            box-shadow: none !important;
+        }
+
+        body.high-contrast .page-intro h2,
+        body.high-contrast .form-group label {
+            color: #ffff00 !important;
+        }
+
+        body.high-contrast .form-instructions {
+            color: #ffffff !important;
+        }
+
+        body.high-contrast .form-group input,
+        body.high-contrast .form-group select {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+        }
+
+        body.high-contrast .form-group input:focus,
+        body.high-contrast .form-group select:focus {
+            border-color: #ffff00 !important;
+        }
+
+        body.high-contrast .btn-primary {
+            background-color: #ffff00 !important;
+            color: #000000 !important;
+        }
+
+        body.high-contrast .btn-secondary {
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+        }
+
+        body.high-contrast .cedca-footer {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            border-top-color: #ffff00 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-governo">
+        <div class="container header-gov-content">
+            <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
+            <button class="btn-contraste" onclick="alternarContraste()">Alto Contraste</button>
+        </div>
+    </header>
+
+    <header class="header-sistema">
+        <div class="container header-sis-content">
+            <h1>Sistema de Monitoramento</h1>
+            <p>Plano Decenal da Criança e do Adolescente</p>
+        </div>
+    </header>
+
+    <nav class="navbar-principal">
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="../home/index.html">Página Inicial</a></li>
+                <li><a href="../busca-filtro/busca-filtro.html">Busca/Filtros</a></li>
+                <li><a href="../indicadores/indicadores.html">Indicadores</a></li>
+                <li><a href="../painel-administrativo/adm.html" class="active">Painel Administrativo</a></li>
+            </ul>
+            <ul class="nav-auth">
+                <li><a href="../login/login.html" class="btn-login">Sair</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <section class="page-intro">
+            <h2>Controle de Acesso - Cadastrar Usuário</h2>
+            <p>Área restrita ao administrador. Preencha os campos para fornecer credenciais de acesso oficiais do plano.</p>
+        </section>
+
+        <div class="form-card">
+            <form onsubmit="realizarCadastro(event)">
+                <div class="form-grid">
+                    
+                    <div class="form-group">
+                        <label for="nome">Nome Completo (Identificador)</label>
+                        <input type="text" id="nome" required placeholder="Ex: João da Silva">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail Cadastrado</label>
+                        <input type="email" id="email" required placeholder="nome@instituicao.pr.gov.br">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="perfil">Perfil de Usuário</label>
+                        <select id="perfil" required>
+                            <option value="" disabled selected>Selecione um perfil...</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="SEDEF">Gestor SEDEF</option>
+                            <option value="Conselho Estadual/Secretaria">Conselho Estadual / Secretaria</option>
+                        </select>
+                    </div>
+
+                    <p class="form-instructions">
+                        * O sistema gerará e enviará automaticamente as credenciais de login iniciais para o e-mail informado.
+                    </p>
+
+                    <div class="actions-row">
+                        <button type="button" class="btn btn-secondary" onclick="window.location.href='../painel-administrativo/adm.html'">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar Usuário</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="cedca-footer">
+        <div class="container">
+            <p><strong>Conselho Estadual dos Direitos da Criança e do Adolescente (CEDCA-PR)</strong></p>
+            <small>Painel Administrativo de Controle de Permissões.</small>
+        </div>
+    </footer>
+
+    <script>
+        function alternarContraste() {
+            document.body.classList.toggle("high-contrast");
+        }
+
+        function realizarCadastro(event) {
+            event.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const perfil = document.getElementById('perfil').value;
+
+            // Simulação de Sucesso com base nos Requisitos HU17 e RN13
+            alert(`Usuário "${nome}" cadastrado com sucesso sob o perfil [${perfil}]!\nAs credenciais iniciais foram disparadas para o e-mail: ${email}.`);
+            
+            // Redireciona de volta para o painel administrativo após salvar
+            window.location.href = "../painel-administrativo/adm.html";
+        }
+    </script>
+</body>
+</html>
