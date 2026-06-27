@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Dados - Plano Decenal</title>
+    <link rel="stylesheet" href="../home/style.css">
+    <style>
+        :root {
+            --cedca-blue-dark: #002244;
+            --cedca-blue-medium: #003366;
+            --cedca-blue-light: #0066cc;
+            --cedca-green: #00875a;
+            --gov-gray: #f4f6f8;
+            --text-dark: #222222;
+            --text-muted: #555556;
+            --border-color: #d1d5db;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--gov-gray);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header-governo { padding: 6px 0 !important; }
+        .btn-contraste {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .header-sistema {
+            background-color: var(--cedca-blue-dark);
+            color: white;
+            padding: 20px;
+            border-bottom: 4px solid var(--cedca-green);
+            text-align: center;
+        }
+        .header-sistema h1 { margin: 0; font-size: 1.5rem; }
+
+        .navbar-principal { background-color: var(--cedca-blue-medium); }
+
+        .main-container {
+            flex: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            box-sizing: border-box;
+        }
+
+        .page-intro h2 { color: var(--cedca-blue-medium); margin-bottom: 8px; }
+
+        /* Abas de Navegação Interna */
+        .tabs-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            border: 1px solid transparent;
+            background: none;
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+            margin-bottom: -2px;
+        }
+
+        .tab-btn.active {
+            background-color: var(--card-bg);
+            border-color: var(--border-color);
+            color: var(--cedca-blue-medium);
+            border-bottom: 2px solid var(--card-bg);
+        }
+
+        .tab-content {
+            display: none;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 0 0 8px 8px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .tab-content.active { display: block; }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group { display: flex; flex-direction: column; }
+        .form-group.full-width { grid-column: 1 / -1; }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            background-color: var(--card-bg);
+            color: var(--text-dark);
+        }
+
+        .actions-row {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-primary { background-color: var(--cedca-green); color: white; }
+        .btn-secondary { background-color: transparent; border: 1px solid var(--border-color); color: var(--text-dark); }
+
+        /* Estilo da Tabela de Logs e Histórico Imutável */
+        .history-section {
+            margin-top: 40px;
+            border-top: 2px dashed var(--border-color);
+            padding-top: 20px;
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .history-table th, .history-table td {
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            text-align: left;
+        }
+
+        .history-table th { background-color: var(--gov-gray); color: var(--cedca-blue-medium); }
+
+        /* Alto Contraste */
+        body.high-contrast { background-color: #000000 !important; color: #ffffff !important; }
+        body.high-contrast .header-governo { background-color: #000000 !important; border-bottom: 1px solid #ffff00 !important; }
+        body.high-contrast .header-sistema { background-color: #000000 !important; border-bottom-color: #ffff00 !important; }
+        body.high-contrast .tab-content { background-color: #111111 !important; border-color: #ffffff !important; }
+        body.high-contrast .tab-btn.active { background-color: #111111 !important; color: #ffff00 !important; border-color: #ffffff #ffffff #111111 #ffffff; }
+        body.high-contrast .form-group input, body.high-contrast .form-group select, body.high-contrast .form-group textarea { background-color: #000000 !important; color: #ffffff !important; border-color: #ffffff !important; }
+        body.high-contrast .btn-primary { background-color: #ffff00 !important; color: #000000 !important; }
+        body.high-contrast .btn-secondary { color: #ffffff !important; border-color: #ffffff !important; }
+        body.high-contrast .history-table th { background-color: #222222 !important; color: #ffff00 !important; }
+    </style>
+</head>
+<body>
+
+    <header class="header-governo">
+        <div class="container header-gov-content">
+            <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
+            <button class="btn-contraste" onclick="alternarContraste()">Alto Contraste</button>
+        </div>
+    </header>
+
+    <header class="header-sistema">
+        <h1>Sistema de Monitoramento - Gestão de Dados</h1>
+    </header>
+
+    <!--
+    <nav class="navbar-principal">
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="../home/index.html">Página Inicial</a></li>
+                <li><a href="../busca-filtro/busca-filtro.html">Busca/Filtros</a></li>
+                <li><a href="../indicadores/indicadores.html">Indicadores</a></li>
+                <li><a href="../painel-administrativo/adm.html" class="active">Painel Administrativo</a></li>
+            </ul>
+            <ul class="nav-auth">
+                <li><a href="../login/login.html" class="btn-login">Sair</a></li>
+            </ul>
+        </div>
+    </nav>
+    -->
+
+    <main class="main-container">
+        <section class="page-intro">
+            <h2>Inserção e Edição do Plano</h2>
+            <p>Selecione a estrutura que deseja atualizar. Inserções são validadas em conformidade com as regras de integridade do plano.</p>
+        </section>
+
+        <div class="tabs-container">
+            <button class="tab-btn active" onclick="switchTab('tarefas')">Gerenciar Tarefas (Admin)</button>
+            <button class="tab-btn" onclick="switchTab('indicadores')">Gerenciar Indicadores (Secretarias/Conselho)</button>
+        </div>
+
+        <!-- ABA TAREFAS -->
+        <div id="tarefas" class="tab-content active">
+            <form onsubmit="salvarTarefa(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="tarefa-id">Vincular à Linha de Ação</label>
+                        <select id="tarefa-id" required>
+                            <option value="">Selecione uma Linha de Ação...</option>
+                            <option value="1">LA 1.1 - Qualificar os mecanismos de monitoramento educacional</option>
+                            <option value="2">LA 2.1 - Promover a integração das informações assistenciais</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tarefa-status">Status Atual da Tarefa</label>
+                        <select id="tarefa-status" required>
+                            <option value="Não Iniciada">Não Iniciada</option>
+                            <option value="Em Andamento">Em Andamento</option>
+                            <option value="Concluída">Concluída</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="tarefa-nome">Descrição Detalhada da Tarefa</label>
+                        <textarea id="tarefa-nome" rows="3" required placeholder="Descreva os marcos operacionais da tarefa pública..."></textarea>
+                    </div>
+                </div>
+
+                <div class="actions-row">
+                    <button type="button" class="btn btn-secondary">Limpar</button>
+                    <button type="submit" class="btn btn-primary">Salvar / Atualizar Tarefa</button>
+                </div>
+            </form>
+
+            <!-- Histórico Imutável de Auditoria (Restrito conforme RN09) -->
+            <div class="history-section">
+                <h3>Histórico de Atualizações da Tarefa</h3>
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Data/Hora</th>
+                            <th>Ação</th>
+                            <th>Usuário Responsável</th>
+                            <th>Modificação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>26/06/2026 14:22</td>
+                            <td>Alteração</td>
+                            <td>Carlos Silva (Admin)</td>
+                            <td>Status alterado para "Em Andamento"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ABA INDICADORES -->
+        <div id="indicadores" class="tab-content">
+            <form onsubmit="salvarIndicador(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="ind-vinculo">Vincular à Tarefa Operacional</label>
+                        <select id="ind-vinculo" required>
+                            <option value="">Selecione a tarefa correspondente...</option>
+                            <option value="1">Tarefa 1.1.1 - Mapeamento das taxas de evasão</option>
+                            <option value="2">Tarefa 2.1.2 - Consolidação do prontuário nutricional</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ind-nome">Nome do Indicador</label>
+                        <input type="text" id="ind-nome" required placeholder="Ex: Percentual de evasão escolar corrigida">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ind-tipo">Identidade Visual / Tipo de Métrica</label>
+                        <select id="ind-tipo" required>
+                            <option value="Percentual">Taxa / Percentual (%)</option>
+                            <option value="Absoluto">Índice Absoluto (Inteiro)</option>
+                            <option value="Cronograma">Evolução Temporal / Quadrimestre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ind-valor">Valor Atual Registrado</label>
+                        <input type="text" id="ind-valor" required placeholder="Insira o dado numérico ou percentual">
+                    </div>
+                </div>
+
+                <div class="actions-row">
+                    <button type="button" class="btn btn-secondary">Limpar</button>
+                    <button type="submit" class="btn btn-primary">Cadastrar / Modificar Indicador</button>
+                </div>
+            </form>
+
+            <div class="history-section">
+                <h3>Histórico de Atualizações do Indicador</h3>
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Data/Hora</th>
+                            <th>Ação</th>
+                            <th>Usuário Responsável</th>
+                            <th>Modificação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>25/06/2026 09:15</td>
+                            <td>Adição</td>
+                            <td>Ana Costa (SEED)</td>
+                            <td>Inserção inicial do indicador de evasão no sistema</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer class="cedca-footer">
+        <p><strong>Conselho Estadual dos Direitos da Criança e do Adolescente (CEDCA-PR)</strong></p>
+    </footer>
+
+    <script>
+        function alternarContraste() {
+            document.body.classList.toggle("high-contrast");
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function salvarTarefa(event) {
+            event.preventDefault();
+            alert("Operação validada com sucesso! Atualização gravada de forma imutável no histórico da tarefa.");
+        }
+
+        function salvarIndicador(event) {
+            event.preventDefault();
+            alert("Dados do indicador validados e salvos com sucesso no escopo da jurisdição.");
+        }
+    </script>
+</body>
+</html>
