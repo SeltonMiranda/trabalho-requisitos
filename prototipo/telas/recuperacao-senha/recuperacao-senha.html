@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Sistema de Monitoramento</title>
+    <title>Recuperar Senha - Sistema de Monitoramento</title>
     
-    <!-- AJUSTE DE ALINHAMENTO: Importando folha global para herdar as definições exatas de container das outras telas -->
     <link rel="stylesheet" href="../home/style.css">
 
     <style>
@@ -71,7 +70,7 @@
             font-weight: 800; 
         }
 
-        /* Container de Centralização do Login */
+        /* Container de Centralização */
         .login-wrapper {
             flex: 1;
             display: flex;
@@ -95,9 +94,16 @@
         .login-card h2 {
             color: var(--cedca-blue-medium);
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             font-size: 1.4rem;
             text-align: center;
+        }
+
+        .card-instructions {
+            font-size: 0.9rem;
+            color: #555;
+            text-align: center;
+            margin-bottom: 25px;
         }
 
         /* Estilização dos Inputs e Labels */
@@ -128,7 +134,7 @@
             border-color: var(--cedca-blue-light);
         }
 
-        /* Botão de Entrar */
+        /* Botão de Enviar */
         .btn-submit {
             width: 100%;
             background-color: var(--cedca-green);
@@ -147,7 +153,7 @@
         }
 
         .login-footer {
-            margin-top: 20px;
+            margin-top: 25px;
             text-align: center;
             font-size: 0.85rem;
         }
@@ -155,6 +161,7 @@
         .login-footer a {
             color: var(--cedca-blue-light);
             text-decoration: none;
+            font-weight: bold;
         }
 
         .login-footer a:hover {
@@ -199,6 +206,10 @@
             color: #ffff00 !important;
         }
 
+        body.high-contrast .card-instructions {
+            color: #ffffff !important;
+        }
+
         body.high-contrast .form-group label {
             color: #ffffff !important;
         }
@@ -231,7 +242,6 @@
 </head>
 <body>
 
-    <!-- Primeiro Header com classes idênticas para espelhar o comportamento das outras telas -->
     <header class="header-governo">
         <div class="container header-gov-content">
             <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
@@ -239,39 +249,30 @@
         </div>
     </header>
 
-    <!-- Segundo Header identitário -->
     <header class="header-sistema">
         <h1>Sistema de Monitoramento</h1>
     </header>
 
-    <!-- Área Central de Login -->
     <div class="login-wrapper">
         <div class="login-card">
-            <h2>Acesso ao Sistema</h2>
+            <h2>Recuperar Senha</h2>
+            <p class="card-instructions">Insira o e-mail cadastrado abaixo para receber as instruções de redefinição de acesso.</p>
             
-            <form action="../painel-administrativo/adm.html" method="GET">
+            <form onsubmit="enviarRecuperacao(event)">
                 <div class="form-group">
-                    <label for="email">E-mail</label>
+                    <label for="email">E-mail Cadastrado</label>
                     <input type="email" id="email" required placeholder="exemplo@email.com">
                 </div>
-                
-                <div class="form-group">
-                    <label for="password">Senha</label>
-                    <input type="password" id="password" required placeholder="Digite sua senha">
-                </div>
 
-                <button type="submit" class="btn-submit">Entrar</button>
+                <button type="submit" class="btn-submit">Enviar Link de Recuperação</button>
             </form>
 
             <div class="login-footer">
-                <a href="../recuperacao-senha/recuperacao-senha.html">Esqueceu sua senha?</a>
-                <br><br>
-                <span style="color: #666;">Acesso restrito a perfis autorizados.</span>
+                <a href="../login/login.html">← Voltar para o Login</a>
             </div>
         </div>
     </div>
 
-    <!-- Rodapé -->
     <footer class="cedca-footer">
         <p>Conselho Estadual dos Direitos da Criança e do Adolescente</p>
     </footer>
@@ -279,6 +280,15 @@
     <script>
         function alternarContraste() {
             document.body.classList.toggle("high-contrast");
+        }
+
+        function enviarRecuperacao(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            
+            // Aqui entraria a integração real. Exemplo simulado de feedback visual:
+            alert(`Caso o e-mail ${email} esteja cadastrado no sistema, um link de redefinição será enviado.`);
+            window.location.href = "login.html";
         }
     </script>
 </body>
