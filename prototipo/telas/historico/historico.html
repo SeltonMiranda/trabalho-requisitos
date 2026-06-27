@@ -12,6 +12,41 @@
     <link rel="stylesheet" href="../home/style.css">
 
     <style>
+.header-sistema {
+    background-color: var(--cedca-blue-dark, #002244);
+    color: white;
+    padding: 20px;
+    border-bottom: 4px solid var(--cedca-green, #00875a);
+    text-align: center;
+}
+.header-sistema h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+
+.header-governo {
+    padding: 6px 0 !important;
+}
+
+.btn-contraste {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1;
+    margin: 0;
+}
+.btn-contraste:hover {
+    opacity: 0.9;
+}
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f7f9fb;
@@ -60,21 +95,17 @@
     <header class="header-governo">
         <div class="container header-gov-content">
             <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
-            <div class="gov-top-links">
-                <span>Acessibilidade</span> | <button onclick="alternarContraste()">Alto-Contraste</button>
-            </div>
+            <button class ="btn-contraste" onclick = "alternarContraste()">Alto Contraste</button>
         </div>
     </header>
 
     <header class="header-sistema">
         <div class="container header-sis-content">
-            <div class="sistema-titulo-area">
-                <h1>Sistema de Monitoramento</h1>
-                <p>Plano Decenal da Criança e do Adolescente</p>
-            </div>
+            <h1>Sistema de Monitoramento - Histórico de Atualizações</h1>
         </div>
     </header>
 
+    <!--
     <nav class="navbar-principal">
         <div class="container nav-container">
             <ul class="nav-links">
@@ -89,6 +120,7 @@
             </ul>
         </div>
     </nav>
+    -->
 
     <main class="flex-1 container mx-auto px-lg py-lg max-w-[1200px]">
         
