@@ -1,63 +1,102 @@
 # Nome do Projeto
 
-Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente
+Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente.
 
-# Integrantes
+## Integrantes
 
-- Selton
-- Waldomiro
-- Andreus
-- Nikolas
+* Selton
+* Waldomiro
+* Andreus
+* Nikolas
 
-# Descrição do Sistema
+## Descrição do Sistema
 
-Sistema de monitoramento de compromissos decenais da criança e do adolescente, com visualização hierárquica de problemas públicos, compromissos, objetivos, linhas de ação e tarefas. Oferece busca, filtros, gerenciamento de dados com controle de permissões e acompanhamento periódico de indicadores.
+O sistema tem como objetivo apoiar o monitoramento dos compromissos decenais da criança e do adolescente, permitindo a visualização hierárquica de problemas públicos, compromissos, objetivos, linhas de ação, tarefas e indicadores.
 
-# Link do Protótipo
+A solução contempla consulta pública, busca e filtros, visualização de indicadores, dashboard, autenticação de usuários, recuperação de senha, painel administrativo, cadastro de usuários e gerenciamento de dados com controle de permissões.
 
-- em breve
+## Link do Protótipo
 
-# Organização das Pastas
+- EM BREVE
 
-```markdown
+## Telas disponíveis no protótipo
+
+* Home: `prototipo/telas/home/index.html`
+* Busca/Filtros: `prototipo/telas/busca-filtro/busca-filtro.html`
+* Indicadores: `prototipo/telas/indicadores/indicadores.html`
+* Dashboard: `prototipo/telas/dashboard/index.html`
+* Login: `prototipo/telas/login/login.html`
+* Recuperação de Senha: `prototipo/telas/recuperacao-senha/recuperacao-senha.html`
+* Painel Administrativo: `prototipo/telas/painel-administrativo/adm.html`
+* Cadastro de Usuário: `prototipo/telas/cadastro-usuario/cadastro-usuario.html`
+* Gerenciar Dados: `prototipo/telas/gerenciar-dados/gerenciar-dados.html`
+
+## Organização das Pastas
+
+```text
 trabalho-requisitos/
-├── README.md                     
-├── docs/                         
-│   ├── visao-geral.md            # escopo do sistema
-│   ├── requisitos.md             # Requisitos funcionais e não funcionais
-│   ├── historias-usuario.md      # histórias de usuário
-│   ├── regras-negocio.md         # Regras de negócio do sistema
-│   ├── casos-uso.md              # Casos de uso 
-│   ├── matriz-rastreabilidade.md # Rastreabilidade entre artefatos
-│   └── historico-versoes.md      # Registro de evoluções e decisões
+├── README.md
+├── docs/
+│   ├── atores.md
+│   ├── visao-geral.md
+│   ├── requisitos.md
+│   ├── historias-usuario.md
+│   ├── backlog.md
+│   ├── regras-negocio.md
+│   ├── casos-uso.md
+│   ├── matriz-rastreabilidade.md
+│   └── historico-versoes.md
 ├── prototipo/
-│   ├── telas/                    # arquivos de telas do protótipo
-│   ├── link-prototipo.md         # Link para o protótipo navegável
-│   └── descricao-prototipo.md    # Descrição das telas e fluxos
+│   ├── telas/
+│   │   ├── home/
+│   │   ├── busca-filtro/
+│   │   ├── indicadores/
+│   │   ├── dashboard/
+│   │   ├── login/
+│   │   ├── recuperacao-senha/
+│   │   ├── painel-administrativo/
+│   │   ├── cadastro-usuario/
+│   │   └── gerenciar-dados/
+│   ├── link-prototipo.md
+│   └── descricao-prototipo.md
 └── entregas/
-    └── semana-1.md               # Escopo, atores e inconsistências
+    ├── semana-1.md
+    ├── semana-2.md
+    └── semana-3.md
 ```
 
-# Instruções para acessar a documentação
+## Instruções para acessar a documentação
 
-1. Clone esse repositório:
+1. Clone o repositório:
+
 ```bash
 git clone git@github.com:SeltonMiranda/trabalho-requisitos.git
 cd trabalho-requisitos
 ```
 
-2. Acesse a pasta **docs/**
+2. Acesse a pasta `docs/`.
 
-3. Recomendação:
-    - Leia primeiro **docs/visao-geral.md** e **docs/regras-negocio.md** para compreender o sistema
-    - Leia **docs/requisitos.md** e **docs/historias-usuario.md**
-    - Leia **docs/casos-uso.md**
-    - Por fim, veja **docs/matriz-rastreabilidade.md** para ver a relação entre os artefatos
+3. Recomenda-se a leitura nesta ordem:
 
-4. Para acessar o protótipo, abra o link no arquivo **prototipo/link-prototipo.md**
+* `docs/visao-geral.md`
+* `docs/atores.md`
+* `docs/regras-negocio.md`
+* `docs/requisitos.md`
+* `docs/historias-usuario.md`
+* `docs/backlog.md`
+* `docs/casos-uso.md`
+* `docs/matriz-rastreabilidade.md`
+* `docs/historico-versoes.md`
 
-5. Para visualizar versões anteriores do sistema, veja **docs/historico-versoes.md**
+4. Para acessar o protótipo, consulte também:
 
-# Overview das versões do sistema
+* `prototipo/link-prototipo.md`
+* `prototipo/descricao-prototipo.md`
 
-- A fazer...
+## Overview das versões do sistema
+
+* Semana 1: definição de escopo, atores, revisão inicial dos requisitos e identificação de inconsistências.
+* Semana 2: criação do backlog, histórias de usuário, critérios de aceitação e regras de negócio.
+* Semana 3: criação e evolução do protótipo inicial, com telas de Home, Login, Busca/Filtros, Painel Administrativo, Indicadores, Dashboard, Recuperação de Senha, Cadastro de Usuário e Gerenciar Dados, além da atualização da matriz de rastreabilidade.
+* Entrega final: EM BREVE
+
