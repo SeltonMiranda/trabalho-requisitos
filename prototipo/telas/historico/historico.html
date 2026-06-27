@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Atualizações - Sistema de Monitoramento</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../home/style.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+            color: #191c1e;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Customizações de Alto Contraste para compatibilidade com as regras globais */
+        body.high-contrast {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+        }
+        body.high-contrast .header-governo {
+            background-color: #000000 !important;
+            border-bottom: 1px solid #ffff00 !important;
+        }
+        body.high-contrast .header-sistema {
+            background-color: #000000 !important;
+            border-bottom-color: #ffff00 !important;
+        }
+        body.high-contrast .navbar-principal {
+            background-color: #111111 !important;
+        }
+        body.high-contrast .bg-surface-container-lowest {
+            background-color: #111111 !important;
+            border-color: #ffffff !important;
+        }
+        body.high-contrast th {
+            background-color: #222222 !important;
+            color: #ffff00 !important;
+            border-color: #ffffff !important;
+        }
+        body.high-contrast td {
+            border-color: #ffffff !important;
+            color: #ffffff !important;
+        }
+        body.high-contrast .text-primary {
+            color: #ffff00 !important;
+        }
+    </style>
+</head>
+<body class="bg-[#f7f9fb] text-[#191c1e] flex flex-col min-h-screen">
+
+    <header class="header-governo">
+        <div class="container header-gov-content">
+            <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
+            <div class="gov-top-links">
+                <span>Acessibilidade</span> | <button onclick="alternarContraste()">Alto-Contraste</button>
+            </div>
+        </div>
+    </header>
+
+    <header class="header-sistema">
+        <div class="container header-sis-content">
+            <div class="sistema-titulo-area">
+                <h1>Sistema de Monitoramento</h1>
+                <p>Plano Decenal da Criança e do Adolescente</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar-principal">
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="../home/index.html">Página Inicial</a></li>
+                <li><a href="../busca-filtro/busca-filtro.html">Busca/Filtros</a></li>
+                <li><a href="../indicadores/indicadores.html">Indicadores</a></li>
+                <li><a href="../dashboard/index.html">Dashboard</a></li>
+                <li><a href="../painel-administrativo/adm.html" class="active">Painel Administrativo</a></li>
+            </ul>
+            <ul class="nav-auth">
+                <li><a href="../login/login.html" class="btn-login">Sair</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="flex-1 container mx-auto px-lg py-lg max-w-[1200px]">
+        
+        <div class="mb-xl border-b border-gray-200 pb-md flex items-center justify-between">
+            <div>
+                <h2 class="text-2xl font-bold text-[#00236f] text-primary">Histórico Imutável de Auditoria</h2>
+                <p class="text-gray-600 font-body-md mt-1">Consulta restrita a Administradores e Gestores SEDEF (RN09)</p>
+            </div>
+            <a href="../painel-administrativo/adm.html" class="inline-flex items-center gap-1 text-sm font-semibold text-[#0066cc] hover:underline">
+                <span class="material-symbols-outlined text-[18px]">arrow_back</span> Voltar ao Painel
+            </a>
+        </div>
+
+        <div class="mb-md bg-white border border-gray-200 rounded-xl p-1 flex gap-1 w-fit shadow-sm bg-surface-container-lowest">
+            <button class="tab-btn px-6 py-2 rounded-lg font-medium transition-all bg-[#00236f] text-white shadow-sm" id="tab-tarefas" onclick="switchTab('tarefas')">
+                Histórico de Tarefas
+            </button>
+            <button class="tab-btn px-6 py-2 rounded-lg font-medium text-gray-600 hover:bg-gray-100 transition-all" id="tab-indicadores" onclick="switchTab('indicadores')">
+                Histórico de Indicadores
+            </button>
+        </div>
+
+        <div id="conteudo-tarefas" class="section-content block bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm bg-surface-container-lowest">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-50 border-b border-gray-200 text-sm font-semibold text-gray-700">
+                            <th class="px-6 py-4">Data / Hora</th>
+                            <th class="px-6 py-4">Usuário / Responsável</th>
+                            <th class="px-6 py-4">Tipo de Ação (RN08)</th>
+                            <th class="px-6 py-4">Modificação Detalhada</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-sm text-gray-800">
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="px-6 py-4 whitespace-nowrap font-mono text-xs">27/06/2026 15:32:11</td>
+                            <td class="px-6 py-4">Carlos Silva (Admin)</td>
+                            <td class="px-6 py-4">
+                                <span class="px-2 py-1 bg-amber-100 text-amber-800 font-semibold text-xs rounded">ALTERAÇÃO</span>
+                            </td>
+                            <td class="px-6 py-4">Status da Tarefa 1.1.1 alterado de "Em Andamento" para "Concluída".</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="px-6 py-4 whitespace-nowrap font-mono text-xs">26/06/2026 11:14:02</td>
+                            <td class="px-6 py-4">Carlos Silva (Admin)</td>
+                            <td class="px-6 py-4">
+                                <span class="px-2 py-1 bg-green-100 text-green-800 font-semibold text-xs rounded">ADIÇÃO</span>
+                            </td>
+                            <td class="px-6 py-4">Criada nova tarefa operacional vinculada à Linha de Ação 2.1: "Mapeamento das demandas de proteção social regional".</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="conteudo-indicadores" class="section-content hidden bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm bg-surface-container-lowest">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-50 border-b border-gray-200 text-sm font-semibold text-gray-700">
+                            <th class="px-6 py-4">Data / Hora</th>
+                            <th class="px-6 py-4">Usuário / Responsável</th>
+                            <th class="px-6 py-4">Tipo de Ação (RN08)</th>
+                            <th class="px-6 py-4">Modificação Detalhada</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-sm text-gray-800">
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="px-6 py-4 whitespace-nowrap font-mono text-xs">27/06/2026 14:10:45</td>
+                            <td class="px-6 py-4">Ana Costa (SEED)</td>
+                            <td class="px-6 py-4">
+                                <span class="px-2 py-1 bg-amber-100 text-amber-800 font-semibold text-xs rounded">ALTERAÇÃO</span>
+                            </td>
+                            <td class="px-6 py-4">Valor do indicador "Taxa de evasão escolar corrigida" atualizado de 4.2% para 3.8% (Ano Base: 2025).</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50">
+                            <td class="px-6 py-4 whitespace-nowrap font-mono text-xs">25/06/2026 09:20:00</td>
+                            <td class="px-6 py-4">Marcos Souza (SESA)</td>
+                            <td class="px-6 py-4">
+                                <span class="px-2 py-1 bg-red-100 text-red-800 font-semibold text-xs rounded">REMOÇÃO</span>
+                            </td>
+                            <td class="px-6 py-4">Removido indicador duplicado "Atendimentos Caps Infantil Regionalizado" sob o escopo da tarefa 3.1.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="cedca-footer mt-auto">
+        <div class="container">
+            <p><strong>Conselho Estadual dos Direitos da Criança e do Adolescente (CEDCA-PR)</strong></p>
+            <small>Tratamento transparente e seguro de logs operacionais conforme as diretrizes do Plano Decenal.</small>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tabId) {
+            // Resetar estilos dos botões
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-[#00236f]', 'text-white', 'shadow-sm');
+                btn.classList.add('text-gray-600', 'hover:bg-gray-100');
+            });
+
+            // Ativar estilo do botão clicado
+            const activeBtn = document.getElementById('tab-' + tabId);
+            activeBtn.classList.add('bg-[#00236f]', 'text-white', 'shadow-sm');
+            activeBtn.classList.remove('text-gray-600', 'hover:bg-gray-100');
+
+            // Alternar visibilidade das seções de tabela
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.add('hidden');
+                section.classList.remove('block');
+            });
+
+            document.getElementById('conteudo-' + tabId).classList.remove('hidden');
+            document.getElementById('conteudo-' + tabId).classList.add('block');
+        }
+
+        function alternarContraste() {
+            document.body.classList.toggle("high-contrast");
+        }
+    </script>
+</body>
+</html>
