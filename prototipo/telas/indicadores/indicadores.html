@@ -93,62 +93,253 @@
       margin: 25px 0 15px 0;
     }
 
-    .indicator-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+    /* Cards de Tarefas - Lista Flex */
+    .tarefas-lista {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
 
-    .card {
+    .tarefa-card {
       border: 1px solid var(--border-color);
       border-radius: 8px;
       background-color: #ffffff;
-      padding: 18px;
+      padding: 20px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     }
 
-    .card h3 {
+    .tarefa-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .tarefa-titulo-area h3 {
       margin: 0 0 8px 0;
       color: var(--cedca-blue-dark);
+      font-size: 1.2rem;
+    }
+
+    .tarefa-meta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: #555556;
+    }
+
+    .meta-item strong {
+      color: #333;
+    }
+
+    .meta-icone {
+      font-size: 1rem;
+    }
+
+    .tarefa-status {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      background-color: #dbeafe;
+      color: #1e40af;
+    }
+
+    /* Grid de Indicadores dentro da Tarefa */
+    .indicadores-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .indicador-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      background-color: #f9fafb;
+      padding: 14px;
+    }
+
+    .indicador-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
     }
 
     .indicator-type {
       display: inline-block;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: bold;
       text-transform: uppercase;
-      padding: 4px 8px;
+      padding: 3px 8px;
       border-radius: 4px;
-      margin-bottom: 12px;
     }
 
     .tipo-resultado { background-color: #dbeafe; color: #1e40af; }
     .tipo-cobertura { background-color: #fef3c7; color: #92400e; }
     .tipo-atendimento { background-color: #ede9fe; color: #5b21b6; }
 
+    .indicador-atualizacao {
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    .indicador-card h4 {
+      margin: 0 0 10px 0;
+      font-size: 0.95rem;
+      color: var(--cedca-blue-dark);
+    }
+
     .progress-bar {
       width: 100%;
-      height: 20px;
+      height: 18px;
       background-color: #e5e7eb;
       border-radius: 12px;
       overflow: hidden;
-      margin: 12px 0;
+      margin: 10px 0;
     }
 
     .progress-value {
       height: 100%;
       color: #ffffff;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: bold;
       text-align: right;
       padding-right: 8px;
-      line-height: 20px;
+      line-height: 18px;
       background-color: var(--cedca-green);
     }
 
-    .card p {
+    .indicador-card p {
       color: #555556;
-      margin-bottom: 0;
+      font-size: 0.85rem;
+      margin: 0;
+    }
+
+    /* Botão Flutuante VLibras */
+    .vlibras-floating {
+      position: fixed;
+      bottom: 80px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .vlibras-button {
+      width: 48px;
+      height: 48px;
+      background-color: #FFEB00;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+
+    .vlibras-button:hover {
+      opacity: 0.9;
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .vlibras-button:active {
+      transform: scale(0.95);
+    }
+
+    .vlibras-button:focus-visible {
+      outline: 3px solid #1e40af;
+      outline-offset: 2px;
+    }
+
+    .vlibras-icon-wrapper {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .vlibras-icon {
+      font-size: 20px;
+      font-weight: bold;
+      color: #1e40af;
+      line-height: 1;
+      user-select: none;
+    }
+
+    /* Ajuste para Alto Contraste */
+    body.high-contrast .vlibras-button {
+      background-color: #ffff00 !important;
+      border: 2px solid #ffffff !important;
+      box-shadow: 0 0 0 2px #000000, 0 4px 12px rgba(255, 255, 255, 0.3) !important;
+    }
+
+    body.high-contrast .vlibras-icon-wrapper {
+      background-color: #000000 !important;
+      border-color: #ffff00 !important;
+    }
+
+    body.high-contrast .vlibras-icon {
+      color: #ffff00 !important;
+    }
+
+    /* Responsividade para dispositivos móveis */
+    @media (max-width: 768px) {
+      .vlibras-floating {
+        bottom: 70px;
+        right: 16px;
+      }
+      
+      .vlibras-button {
+        width: 44px;
+        height: 44px;
+      }
+      
+      .vlibras-icon-wrapper {
+        width: 28px;
+        height: 28px;
+      }
+      
+      .vlibras-icon {
+        font-size: 18px;
+      }
+    }
+
+    /* Animação de pulsar para chamar atenção */
+    @keyframes vlibras-pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 235, 0, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(255, 235, 0, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 235, 0, 0);
+      }
+    }
+
+    .vlibras-button.pulse-animation {
+      animation: vlibras-pulse 2s infinite;
     }
 
     /* Regras para o funcionamento do Alto Contraste nesta tela */
@@ -156,7 +347,6 @@
       background-color: #000000 !important;
       color: #ffffff !important;
     }
-    /* CORREÇÃO: Adicionada explicitamente a borda amarela fina embaixo do governo */
     body.high-contrast .header-governo { 
       background-color: #000000 !important; 
       border-bottom: 1px solid #ffff00 !important; 
@@ -167,18 +357,32 @@
     }
     body.high-contrast .navbar-principal { background-color: #111111 !important; }
     body.high-contrast .summary-card, 
-    body.high-contrast .card, 
-    body.high-contrast .filters-panel { background-color: #111111 !important; border-color: #ffffff !important; }
+    body.high-contrast .tarefa-card,
+    body.high-contrast .indicador-card, 
+    body.high-contrast .filters-panel { 
+      background-color: #111111 !important; 
+      border-color: #ffffff !important; 
+    }
+    body.high-contrast .indicador-card { background-color: #1a1a1a !important; }
     body.high-contrast .summary-card strong,
-    body.high-contrast .card h3,
+    body.high-contrast .tarefa-titulo-area h3,
+    body.high-contrast .indicador-card h4,
     body.high-contrast .dashboard-title,
     body.high-contrast .page-intro h2 { color: #ffff00 !important; }
     body.high-contrast .summary-card span,
-    body.high-contrast .card p { color: #eeeeee !important; }
-    body.high-contrast .filters-panel select { background-color: #000000 !important; color: #ffffff !important; border-color: #ffffff !important; }
+    body.high-contrast .meta-item,
+    body.high-contrast .indicador-card p,
+    body.high-contrast .indicador-atualizacao { color: #eeeeee !important; }
+    body.high-contrast .filters-panel select { 
+      background-color: #000000 !important; 
+      color: #ffffff !important; 
+      border-color: #ffffff !important; 
+    }
+    body.high-contrast .tarefa-header { border-bottom-color: #ffff00 !important; }
 
     @media (max-width: 850px) {
-      .filters-panel, .summary-cards, .indicator-grid { grid-template-columns: 1fr; }
+      .filters-panel, .summary-cards, .indicadores-grid { grid-template-columns: 1fr; }
+      .tarefa-header { flex-direction: column; gap: 12px; }
     }
   </style>
 </head>
@@ -209,7 +413,7 @@
         <li><a href="../home/index.html">Página Inicial</a></li>
         <li><a href="../busca-filtro/busca-filtro.html">Busca/Filtros</a></li>
         <li><a href="indicadores.html" class="active">Indicadores</a></li>
-                <li><a href="../dashboard/index.html">Dashboard</a></li>
+        <li><a href="../dashboard/index.html">Dashboard</a></li>
         <li><a href="../painel-administrativo/adm.html">Painel Administrativo</a></li>
       </ul>
 
@@ -224,8 +428,8 @@
     <section class="page-intro">
       <h2>Dashboard de Indicadores</h2>
       <p>
-        Selecione um problema público e um ano para visualizar os indicadores relacionados,
-        seus tipos e seus percentuais de progresso.
+        Selecione um problema público e um ano para visualizar as tarefas relacionadas,
+        seus indicadores e progressos.
       </p>
     </section>
 
@@ -251,28 +455,10 @@
       </div>
     </section>
 
-    <!-- Cards de Resumo -->
-    <section class="summary-cards">
-      <article class="summary-card">
-        <span>Status geral</span>
-        <strong id="statusGeral">Em andamento</strong>
-      </article>
+    <h2 class="dashboard-title">Tarefas do problema selecionado</h2>
 
-      <article class="summary-card">
-        <span>Progresso médio</span>
-        <strong id="progressoMedio">0%</strong>
-      </article>
-
-      <article class="summary-card">
-        <span>Indicadores exibidos</span>
-        <strong id="totalIndicadores">0</strong>
-      </article>
-    </section>
-
-    <h2 class="dashboard-title">Indicadores do problema selecionado</h2>
-
-    <!-- Grid de Cards -->
-    <section class="indicator-grid" id="indicadoresContainer">
+    <!-- Lista de Tarefas -->
+    <section class="tarefas-lista" id="tarefasContainer">
     </section>
   </main>
 
@@ -285,38 +471,121 @@
     </div>
   </footer>
 
+  <!-- Botão Flutuante VLibras -->
+  <div class="vlibras-floating">
+    <button class="vlibras-button" title="VLibras - Acessibilidade em Libras" aria-label="Abrir VLibras - Tradutor de Libras">
+      <div class="vlibras-icon-wrapper">
+        <span class="vlibras-icon" aria-hidden="true">🤟</span>
+      </div>
+    </button>
+  </div>
+
   <script>
     const dadosIndicadores = {
       "educacao": {
         status: "Em andamento",
-        indicadores: [
-          { nome: "Taxa de evasão escolar", tipo: "Resultado", valor: 42 },
-          { nome: "Frequência média mensal", tipo: "Cobertura", valor: 76 },
-          { nome: "Escolas com atualização mensal dos dados", tipo: "Atendimento", valor: 85 }
+        tarefas: [
+          {
+            titulo: "Mapeamento de alunos em risco de evasão",
+            responsavel: "SEED",
+            colaboradores: "Maria Silva, João Santos, Ana Oliveira",
+            ultimaAtualizacao: "26/06/2026 14:30",
+            indicadores: [
+              { nome: "Taxa de evasão escolar", tipo: "Resultado", valor: 42, ultimaAtualizacao: "26/06/2026 14:25" },
+              { nome: "Frequência média mensal", tipo: "Cobertura", valor: 76, ultimaAtualizacao: "25/06/2026 09:15" }
+            ]
+          },
+          {
+            titulo: "Programa de reforço escolar",
+            responsavel: "SEDEF",
+            colaboradores: "Carlos Pereira, Beatriz Lima",
+            ultimaAtualizacao: "25/06/2026 16:45",
+            indicadores: [
+              { nome: "Escolas com atualização mensal dos dados", tipo: "Atendimento", valor: 85, ultimaAtualizacao: "25/06/2026 16:40" },
+              { nome: "Alunos em recuperação paralela", tipo: "Cobertura", valor: 68, ultimaAtualizacao: "24/06/2026 11:20" }
+            ]
+          },
+          {
+            titulo: "Monitoramento de frequência escolar",
+            responsavel: "SESP",
+            colaboradores: "Patrícia Costa, Roberto Alves",
+            ultimaAtualizacao: "24/06/2026 10:00",
+            indicadores: [
+              { nome: "Visitas domiciliares realizadas", tipo: "Atendimento", valor: 90, ultimaAtualizacao: "24/06/2026 09:55" }
+            ]
+          }
         ]
       },
       "seguranca-alimentar": {
         status: "Em andamento",
-        indicadores: [
-          { nome: "Crianças em situação de insegurança alimentar", tipo: "Resultado", valor: 58 },
-          { nome: "Famílias acompanhadas", tipo: "Cobertura", valor: 64 },
-          { nome: "Avaliações nutricionais realizadas por mês", tipo: "Atendimento", valor: 71 }
+        tarefas: [
+          {
+            titulo: "Avaliação nutricional nas escolas",
+            responsavel: "SEMG",
+            colaboradores: "Lucia Ferreira, Marcos Vinicius",
+            ultimaAtualizacao: "26/06/2026 11:20",
+            indicadores: [
+              { nome: "Crianças em situação de insegurança alimentar", tipo: "Resultado", valor: 58, ultimaAtualizacao: "26/06/2026 11:15" },
+              { nome: "Avaliações nutricionais realizadas por mês", tipo: "Atendimento", valor: 71, ultimaAtualizacao: "25/06/2026 15:30" }
+            ]
+          },
+          {
+            titulo: "Distribuição de cestas básicas",
+            responsavel: "SEDEF",
+            colaboradores: "Renata Souza, Felipe Mendes, Carla Dias",
+            ultimaAtualizacao: "25/06/2026 08:45",
+            indicadores: [
+              { nome: "Famílias acompanhadas", tipo: "Cobertura", valor: 64, ultimaAtualizacao: "25/06/2026 08:40" }
+            ]
+          }
         ]
       },
       "saude-mental": {
         status: "Em andamento",
-        indicadores: [
-          { nome: "Atendimentos psicológicos realizados", tipo: "Atendimento", valor: 73 },
-          { nome: "Casos acompanhados continuamente", tipo: "Cobertura", valor: 61 },
-          { nome: "Encaminhamentos concluídos", tipo: "Resultado", valor: 54 }
+        tarefas: [
+          {
+            titulo: "Atendimento psicológico infantojuvenil",
+            responsavel: "SEPR",
+            colaboradores: "Fernanda Torres, Ricardo Nunes",
+            ultimaAtualizacao: "26/06/2026 13:15",
+            indicadores: [
+              { nome: "Atendimentos psicológicos realizados", tipo: "Atendimento", valor: 73, ultimaAtualizacao: "26/06/2026 13:10" },
+              { nome: "Casos acompanhados continuamente", tipo: "Cobertura", valor: 61, ultimaAtualizacao: "26/06/2026 12:00" }
+            ]
+          },
+          {
+            titulo: "Rede de apoio psicossocial",
+            responsavel: "SEED",
+            colaboradores: "Amanda Costa, Lucas Silveira, Julia Martins",
+            ultimaAtualizacao: "24/06/2026 17:30",
+            indicadores: [
+              { nome: "Encaminhamentos concluídos", tipo: "Resultado", valor: 54, ultimaAtualizacao: "24/06/2026 17:25" }
+            ]
+          }
         ]
       },
       "violencia": {
         status: "Em andamento",
-        indicadores: [
-          { nome: "Denúncias registradas", tipo: "Resultado", valor: 58 },
-          { nome: "Casos em acompanhamento", tipo: "Cobertura", valor: 67 },
-          { nome: "Casos encerrados", tipo: "Atendimento", valor: 49 }
+        tarefas: [
+          {
+            titulo: "Central de denúncias",
+            responsavel: "SEED",
+            colaboradores: "Rafael Oliveira, Sandra Gomes",
+            ultimaAtualizacao: "26/06/2026 09:50",
+            indicadores: [
+              { nome: "Denúncias registradas", tipo: "Resultado", valor: 58, ultimaAtualizacao: "26/06/2026 09:45" },
+              { nome: "Casos em acompanhamento", tipo: "Cobertura", valor: 67, ultimaAtualizacao: "26/06/2026 08:30" }
+            ]
+          },
+          {
+            titulo: "Acolhimento institucional",
+            responsavel: "SESP",
+            colaboradores: "Teresa Lima, Paulo Cesar, Monica Rocha",
+            ultimaAtualizacao: "25/06/2026 14:20",
+            indicadores: [
+              { nome: "Casos encerrados", tipo: "Atendimento", valor: 49, ultimaAtualizacao: "25/06/2026 14:15" }
+            ]
+          }
         ]
       }
     };
@@ -330,31 +599,67 @@
     function atualizarDashboard() {
       const problemaSelecionado = document.getElementById("problema").value;
       const dados = dadosIndicadores[problemaSelecionado];
-      const container = document.getElementById("indicadoresContainer");
+      const container = document.getElementById("tarefasContainer");
 
       container.innerHTML = "";
-      let soma = 0;
+      let somaTotal = 0;
+      let totalIndicadores = 0;
 
-      dados.indicadores.forEach(function(indicador) {
-        soma += indicador.valor;
-        const card = document.createElement("article");
-        card.className = "card";
+      dados.tarefas.forEach(function(tarefa) {
+        // Criar card da tarefa
+        const tarefaCard = document.createElement("article");
+        tarefaCard.className = "tarefa-card";
 
-        card.innerHTML = `
-          <span class="indicator-type ${classeTipo(indicador.tipo)}">${indicador.tipo}</span>
-          <h3>${indicador.nome}</h3>
-          <div class="progress-bar">
-            <div class="progress-value" style="width: ${indicador.valor}%">${indicador.valor}%</div>
+        // Construir HTML do cabeçalho da tarefa
+        let tarefaHTML = `
+          <div class="tarefa-header">
+            <div class="tarefa-titulo-area">
+              <h3>${tarefa.titulo}</h3>
+              <div class="tarefa-meta">
+                <div class="meta-item">
+                  <span><strong>Responsável:</strong> ${tarefa.responsavel}</span>
+                </div>
+                <div class="meta-item">
+                  <span><strong>Colaboradores:</strong> ${tarefa.colaboradores}</span>
+                </div>
+                <div class="meta-item">
+                  <span><strong>Última atualização:</strong> ${tarefa.ultimaAtualizacao}</span>
+                </div>
+                <br><div class="meta-item">
+                  <span><i>Atualizado a n dias</i></span>
+                </div>
+              </div>
+            </div>
+            <div class="tarefa-status">Em andamento</div>
           </div>
-          <p>Progresso do indicador no ano selecionado.</p>
         `;
-        container.appendChild(card);
-      });
 
-      const media = Math.round(soma / dados.indicadores.length);
-      document.getElementById("statusGeral").textContent = dados.status;
-      document.getElementById("progressoMedio").textContent = media + "%";
-      document.getElementById("totalIndicadores").textContent = dados.indicadores.length;
+        // Grid de indicadores
+        tarefaHTML += `<div class="indicadores-grid">`;
+
+        tarefa.indicadores.forEach(function(indicador) {
+          somaTotal += indicador.valor;
+          totalIndicadores++;
+
+          tarefaHTML += `
+            <div class="indicador-card">
+              <div class="indicador-header">
+                <span class="indicator-type ${classeTipo(indicador.tipo)}">${indicador.tipo}</span>
+                <span class="indicador-atualizacao">${indicador.ultimaAtualizacao}</span>
+              </div>
+              <h4>${indicador.nome}</h4>
+              <div class="progress-bar">
+                <div class="progress-value" style="width: ${indicador.valor}%">${indicador.valor}%</div>
+              </div>
+              <p>Progresso do indicador no ano selecionado.</p>
+            </div>
+          `;
+        });
+
+        tarefaHTML += `</div>`;
+        tarefaCard.innerHTML = tarefaHTML;
+        container.appendChild(tarefaCard);
+      });
     }
 
     function alternarContraste() {
