@@ -260,7 +260,7 @@
                     <input type="password" id="password" required placeholder="Digite sua senha">
                 </div>
 
-                <button type="submit" class="btn-submit">Entrar</button>
+                <button type="submit" class="btn-submit" id="login">Entrar</button>
             </form>
 
             <div class="login-footer">
@@ -277,6 +277,28 @@
     </footer>
 
     <script>
+        // elementos
+        const emailInput = document.getElementById('email');
+        const senhaInput = document.getElementById('password');
+        const loginButton = document.getElementById('login');
+
+        loginButton.addEventListener('click', () => {
+            if(emailInput.value === 'admin' && senhaInput.value === 'admin') {
+                // Login bem-sucedido
+                window.location.href = '../painel-administrativo/adm.html';
+            } else {
+                // Feedback de erro para o usuário
+                alert('Email ou senha incorretos. Tente novamente.');
+            }
+        });
+
+        // login com enter
+        senhaInput.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') {
+                loginButton.click();
+            }
+        });
+
         function alternarContraste() {
             document.body.classList.toggle("high-contrast");
         }

@@ -218,7 +218,6 @@
                 <li><a href="../busca-filtro/busca-filtro.html">Busca/Filtros</a></li>
                 <li><a href="../indicadores/indicadores.html">Indicadores</a></li>
                 <li><a href="../dashboard/index.html" class="active">Dashboard</a></li>
-                <li><a href="../painel-administrativo/adm.html">Painel Administrativo</a></li>
             </ul>
             <ul class="nav-auth">
                 <li><a href="../login/login.html" class="btn-login">Login</a></li>
@@ -227,245 +226,240 @@
     </nav>
 
 <div class="dashboard-app flex flex-1 overflow-hidden w-full">
-<!-- SideNavBar -->
-<aside class="hidden md:flex flex-col gap-4 p-card-padding h-[calc(100vh-112px)] overflow-y-auto w-[260px] bg-surface-container-low border-r border-surface-variant shrink-0">
-  <div>
-    <span class="text-label-caps font-label-caps text-on-surface-variant mb-4 block">PROBLEMAS PÚBLICOS</span>
-    <nav class="flex flex-col gap-1">
-      <a class="flex items-center gap-3 p-3 rounded text-primary font-bold bg-secondary-fixed border-l-4 border-primary scale-[0.99] transition-transform" href="#">
-        <span class="material-symbols-outlined" data-icon="school">school</span>
-        <span class="text-body-sm font-body-sm">Evasão Escolar</span>
-      </a>
-      <a class="flex items-center gap-3 p-3 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
-        <span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
-        <span class="text-body-sm font-body-sm">Desempenho no IDEB</span>
-      </a>
-      <a class="flex items-center gap-3 p-3 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
-        <span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
-        <span class="text-body-sm font-body-sm">Analfabetismo Funcional</span>
-      </a>
-      <a class="flex items-center gap-3 p-3 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
-        <span class="material-symbols-outlined" data-icon="cast_for_education">cast_for_education</span>
-        <span class="text-body-sm font-body-sm">Acesso ao Ensino Médio</span>
-      </a>
-      <a class="flex items-center gap-3 p-3 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
-        <span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
-        <span class="text-body-sm font-body-sm">Distorção Idade-Série</span>
-      </a>
-      <a class="flex items-center gap-3 p-3 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
-        <span class="material-symbols-outlined" data-icon="exit_to_app">exit_to_app</span>
-        <span class="text-body-sm font-body-sm">Abandono no EJA</span>
-      </a>
-    </nav>
-  </div>
-  <div class="mt-4 pt-4 border-t border-outline-variant">
-    <span class="text-label-caps font-label-caps text-on-surface-variant mb-4 block">FILTRAR POR ANO</span>
-    <div class="grid grid-cols-2 gap-2">
-      <button class="py-2 border border-outline text-body-sm font-bold rounded hover:bg-surface-variant">2018</button>
-      <button class="py-2 border border-outline text-body-sm font-bold rounded hover:bg-surface-variant">2019</button>
-      <button class="py-2 border border-outline text-body-sm font-bold rounded hover:bg-surface-variant">2020</button>
-      <button class="py-2 border border-outline text-body-sm font-bold rounded hover:bg-surface-variant">2021</button>
-      <button class="py-2 bg-primary text-white text-body-sm font-bold rounded">2022</button>
-      <button class="py-2 border border-outline text-body-sm font-bold rounded hover:bg-surface-variant">2023</button>
+  <!-- SideNavBar -->
+  <aside class="hidden md:flex flex-col gap-4 p-card-padding h-[calc(100vh-112px)] overflow-y-auto w-[260px] bg-surface-container-low border-r border-surface-variant shrink-0">
+    <div>
+      <span class="text-label-caps font-label-caps text-on-surface-variant mb-4 block">PROBLEMAS PÚBLICOS</span>
+      <nav class="flex flex-col gap-1">
+        <a class="flex items-center gap-3 p-3 rounded text-primary font-bold bg-secondary-fixed border-l-4 border-primary scale-[0.99] transition-transform" href="#">
+          <span class="material-symbols-outlined" data-icon="school">school</span>
+          <span class="text-body-sm font-body-sm">Evasão Escolar</span>
+        </a>
+        <a class="flex items-center gap-3 p-3 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+          <span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+          <span class="text-body-sm font-body-sm">Desempenho no IDEB</span>
+        </a>
+        <a class="flex items-center gap-3 p-3 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+          <span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+          <span class="text-body-sm font-body-sm">Analfabetismo Funcional</span>
+        </a>
+        <a class="flex items-center gap-3 p-3 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+          <span class="material-symbols-outlined" data-icon="cast_for_education">cast_for_education</span>
+          <span class="text-body-sm font-body-sm">Acesso ao Ensino Médio</span>
+        </a>
+        <a class="flex items-center gap-3 p-3 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+          <span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+          <span class="text-body-sm font-body-sm">Distorção Idade-Série</span>
+        </a>
+        <a class="flex items-center gap-3 p-3 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+          <span class="material-symbols-outlined" data-icon="exit_to_app">exit_to_app</span>
+          <span class="text-body-sm font-body-sm">Abandono no EJA</span>
+        </a>
+      </nav>
     </div>
-    <div class="mt-4">
-      <button class="w-full flex items-center justify-between p-2 border border-outline rounded text-body-sm">
-        <span>Todos os anos</span>
-        <span class="material-symbols-outlined">expand_more</span>
-      </button>
+    <div class="mt-4 pt-4 border-t border-outline-variant">
+      <span class="text-label-caps font-label-caps text-on-surface-variant mb-4 block">FILTRAR POR ANO</span>
+      <div class="grid grid-cols-2 gap-2">
+        <button class="py-2 border border-outline text-body-sm font-bold rounded hover:bg-surface-variant">2018</button>
+        <button class="py-2 border border-outline text-body-sm font-bold rounded hover:bg-surface-variant">2019</button>
+        <button class="py-2 border border-outline text-body-sm font-bold rounded hover:bg-surface-variant">2020</button>
+        <button class="py-2 border border-outline text-body-sm font-bold rounded hover:bg-surface-variant">2021</button>
+        <button class="py-2 bg-primary text-white text-body-sm font-bold rounded">2022</button>
+        <button class="py-2 border border-outline text-body-sm font-bold rounded hover:bg-surface-variant">2023</button>
+      </div>
+      <div class="mt-4">
+        <button class="w-full flex items-center justify-between p-2 border border-outline rounded text-body-sm">
+          <span>Todos os anos</span>
+          <span class="material-symbols-outlined">expand_more</span>
+        </button>
+      </div>
     </div>
-  </div>
-</aside>
+  </aside>
 
-<!-- Main Content Canvas -->
-<main class="flex-1 overflow-y-auto p-container-margin w-full">
-<!-- Hero Header -->
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-  <div>
-    <h2 class="text-display-lg font-display-lg text-primary mb-1">Painel de Problemas Públicos</h2>
-    <p class="text-body-md font-body-md text-on-surface-variant">Ministério da Educação · Dados atualizados em dezembro de 2023</p>
+  <!-- Main Content Canvas -->
+  <main class="flex-1 overflow-y-auto p-container-margin w-full">
+  <!-- Hero Header -->
+  <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+    <div>
+      <h2 class="text-display-lg font-display-lg text-primary mb-1">Painel de Problemas Públicos</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">Ministério da Educação · Dados atualizados em dezembro de 2023</p>
+    </div>
+      
   </div>
-  <div class="flex items-center gap-3">
-    <button class="md:hidden bg-primary text-white p-3 rounded-lg flex items-center gap-2">
-      <span class="material-symbols-outlined">download</span>
-      Relatório
-    </button>
+  <!-- Page Section Heading -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-1.5 h-6 bg-primary rounded-full"></div>
+    <h3 class="text-headline-md font-headline-md text-on-surface">Evasão Escolar</h3>
+    <span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed text-label-caps font-label-caps rounded-full">Problema Selecionado</span>
+    <div class="ml-auto text-body-sm text-on-surface-variant opacity-60">Exibindo dados de 2018 a 2023</div>
   </div>
-</div>
-<!-- Page Section Heading -->
-<div class="flex items-center gap-3 mb-6">
-  <div class="w-1.5 h-6 bg-primary rounded-full"></div>
-  <h3 class="text-headline-md font-headline-md text-on-surface">Evasão Escolar</h3>
-  <span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed text-label-caps font-label-caps rounded-full">Problema Selecionado</span>
-  <div class="ml-auto text-body-sm text-on-surface-variant opacity-60">Exibindo dados de 2018 a 2023</div>
-</div>
 
-<!-- Visualization Grid -->
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter mb-8">
-<!-- Chart Card 1 -->
-<div class="bg-surface-container-lowest border border-outline-variant p-card-padding rounded-xl relative overflow-hidden group">
-  <div class="flex justify-between items-start mb-6">
-    <div>
-      <h4 class="text-title-sm font-title-sm text-on-surface">Taxa de Evasão Escolar</h4>
-      <p class="text-body-sm font-body-sm text-on-surface-variant opacity-70">Ensino Fundamental — Brasil (%)</p>
+  <!-- Visualization Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter mb-8">
+  <!-- Chart Card 1 -->
+  <div class="bg-surface-container-lowest border border-outline-variant p-card-padding rounded-xl relative overflow-hidden group">
+    <div class="flex justify-between items-start mb-6">
+      <div>
+        <h4 class="text-title-sm font-title-sm text-on-surface">Taxa de Evasão Escolar</h4>
+        <p class="text-body-sm font-body-sm text-on-surface-variant opacity-70">Ensino Fundamental — Brasil (%)</p>
+      </div>
+      <div class="bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold text-body-sm flex items-center gap-1">
+        <span class="material-symbols-outlined text-[16px]">trending_down</span>
+        -2.1%
+      </div>
     </div>
-    <div class="bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold text-body-sm flex items-center gap-1">
-      <span class="material-symbols-outlined text-[16px]">trending_down</span>
-      -2.1%
+    <div class="flex items-baseline gap-2 mb-4">
+      <span class="text-stat-lg font-stat-lg">6.8</span>
+      <span class="text-body-sm font-body-sm text-on-surface-variant">% em 2023</span>
     </div>
-  </div>
-  <div class="flex items-baseline gap-2 mb-4">
-    <span class="text-stat-lg font-stat-lg">6.8</span>
-    <span class="text-body-sm font-body-sm text-on-surface-variant">% em 2023</span>
-  </div>
-<!-- Chart Placeholder -->
-<div class="chart-container flex items-end justify-between px-2">
-  <div class="flex flex-col items-center flex-1">
-    <div class="w-full h-[60%] border-b-2 border-primary relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
+  <!-- Chart Placeholder -->
+  <div class="chart-container flex items-end justify-between px-2">
+    <div class="flex flex-col items-center flex-1">
+      <div class="w-full h-[60%] border-b-2 border-primary relative">
+        <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
+      </div>
+      <span class="text-[10px] text-on-surface-variant mt-2">2018</span>
     </div>
-    <span class="text-[10px] text-on-surface-variant mt-2">2018</span>
-  </div>
-  <div class="flex flex-col items-center flex-1">
-    <div class="w-full h-[40%] border-b-2 border-primary relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
+    <div class="flex flex-col items-center flex-1">
+      <div class="w-full h-[40%] border-b-2 border-primary relative">
+        <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
+      </div>
+      <span class="text-[10px] text-on-surface-variant mt-2">2019</span>
     </div>
-    <span class="text-[10px] text-on-surface-variant mt-2">2019</span>
-  </div>
-  <div class="flex flex-col items-center flex-1">
-    <div class="w-full h-[80%] border-b-2 border-primary relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
+    <div class="flex flex-col items-center flex-1">
+      <div class="w-full h-[80%] border-b-2 border-primary relative">
+        <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
+      </div>
+      <span class="text-[10px] text-on-surface-variant mt-2">2020</span>
     </div>
-    <span class="text-[10px] text-on-surface-variant mt-2">2020</span>
-  </div>
-  <div class="flex flex-col items-center flex-1">
-    <div class="w-full h-[70%] border-b-2 border-primary relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
+    <div class="flex flex-col items-center flex-1">
+      <div class="w-full h-[70%] border-b-2 border-primary relative">
+        <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
+      </div>
+      <span class="text-[10px] text-on-surface-variant mt-2">2021</span>
     </div>
-    <span class="text-[10px] text-on-surface-variant mt-2">2021</span>
-  </div>
-  <div class="flex flex-col items-center flex-1">
-    <div class="w-full h-[30%] border-b-2 border-primary relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
+    <div class="flex flex-col items-center flex-1">
+      <div class="w-full h-[30%] border-b-2 border-primary relative">
+        <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
+      </div>
+      <span class="text-[10px] text-on-surface-variant mt-2">2022</span>
     </div>
-    <span class="text-[10px] text-on-surface-variant mt-2">2022</span>
-  </div>
-  <div class="flex flex-col items-center flex-1">
-    <div class="w-full h-[20%] border-b-2 border-primary relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
-    </div>
-    <span class="text-[10px] text-on-surface-variant mt-2">2023</span>
-  </div>
-</div>
-</div>
-<!-- Chart Card 2 -->
-<div class="bg-surface-container-lowest border border-outline-variant p-card-padding rounded-xl relative overflow-hidden group">
-  <div class="flex justify-between items-start mb-6">
-    <div>
-      <h4 class="text-title-sm font-title-sm text-on-surface">Taxa de Evasão — Ensino Médio</h4>
-      <p class="text-body-sm font-body-sm text-on-surface-variant opacity-70">Rede Pública — Brasil (%)</p>
-    </div>
-    <div class="bg-error-container text-on-error-container px-3 py-1 rounded-full font-bold text-body-sm flex items-center gap-1">
-      <span class="material-symbols-outlined text-[16px]">trending_up</span>
-      +0.8%
+    <div class="flex flex-col items-center flex-1">
+      <div class="w-full h-[20%] border-b-2 border-primary relative">
+        <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full border border-white"></div>
+      </div>
+      <span class="text-[10px] text-on-surface-variant mt-2">2023</span>
     </div>
   </div>
-  <div class="flex items-baseline gap-2 mb-4">
-    <span class="text-stat-lg font-stat-lg">12.3</span>
-    <span class="text-body-sm font-body-sm text-on-surface-variant">% em 2023</span>
   </div>
-<!-- Chart Placeholder with red line -->
-<div class="chart-container flex items-end justify-between px-2">
-  <div class="flex flex-col items-center flex-1">
-    <div class="w-full h-[20%] border-b-2 border-error relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
+  <!-- Chart Card 2 -->
+  <div class="bg-surface-container-lowest border border-outline-variant p-card-padding rounded-xl relative overflow-hidden group">
+    <div class="flex justify-between items-start mb-6">
+      <div>
+        <h4 class="text-title-sm font-title-sm text-on-surface">Taxa de Evasão — Ensino Médio</h4>
+        <p class="text-body-sm font-body-sm text-on-surface-variant opacity-70">Rede Pública — Brasil (%)</p>
+      </div>
+      <div class="bg-error-container text-on-error-container px-3 py-1 rounded-full font-bold text-body-sm flex items-center gap-1">
+        <span class="material-symbols-outlined text-[16px]">trending_up</span>
+        +0.8%
+      </div>
     </div>
-    <span class="text-[10px] text-on-surface-variant mt-2">2018</span>
-  </div>
-  <div class="flex flex-col items-center flex-1">
-    <div class="w-full h-[10%] border-b-2 border-error relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
+    <div class="flex items-baseline gap-2 mb-4">
+      <span class="text-stat-lg font-stat-lg">12.3</span>
+      <span class="text-body-sm font-body-sm text-on-surface-variant">% em 2023</span>
     </div>
-    <span class="text-[10px] text-on-surface-variant mt-2">2019</span>
-  </div>
-  <div class="flex flex-col items-center flex-1">
-    <div class="w-full h-[90%] border-b-2 border-error relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
+  <!-- Chart Placeholder with red line -->
+  <div class="chart-container flex items-end justify-between px-2">
+    <div class="flex flex-col items-center flex-1">
+      <div class="w-full h-[20%] border-b-2 border-error relative">
+        <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
+      </div>
+      <span class="text-[10px] text-on-surface-variant mt-2">2018</span>
     </div>
-    <span class="text-[10px] text-on-surface-variant mt-2">2020</span>
-  </div>
-  <div class="flex flex-col items-center flex-1">
-    <div class="w-full h-[75%] border-b-2 border-error relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
+    <div class="flex flex-col items-center flex-1">
+      <div class="w-full h-[10%] border-b-2 border-error relative">
+        <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
+      </div>
+      <span class="text-[10px] text-on-surface-variant mt-2">2019</span>
     </div>
-    <span class="text-[10px] text-on-surface-variant mt-2">2021</span>
-  </div>
-  <div class="flex flex-col items-center flex-1">
-    <div class="w-full h-[30%] border-b-2 border-error relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
+    <div class="flex flex-col items-center flex-1">
+      <div class="w-full h-[90%] border-b-2 border-error relative">
+        <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
+      </div>
+      <span class="text-[10px] text-on-surface-variant mt-2">2020</span>
     </div>
-    <span class="text-[10px] text-on-surface-variant mt-2">2022</span>
-  </div>
-  <div class="flex flex-col items-center flex-1">
-    <div class="w-full h-[55%] border-b-2 border-error relative">
-      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
+    <div class="flex flex-col items-center flex-1">
+      <div class="w-full h-[75%] border-b-2 border-error relative">
+        <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
+      </div>
+      <span class="text-[10px] text-on-surface-variant mt-2">2021</span>
     </div>
-    <span class="text-[10px] text-on-surface-variant mt-2">2023</span>
-  </div>
-</div>
-</div>
-<!-- Chart Card 3 -->
-<div class="bg-surface-container-lowest border border-outline-variant p-card-padding rounded-xl group">
-  <div class="flex justify-between items-start mb-4">
-    <div>
-      <h4 class="text-body-md font-bold text-on-surface">Distorção Idade-Série</h4>
-      <p class="text-[11px] text-on-surface-variant opacity-70">Anos Finais do Ensino Fundamental (%)</p>
+    <div class="flex flex-col items-center flex-1">
+      <div class="w-full h-[30%] border-b-2 border-error relative">
+        <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
+      </div>
+      <span class="text-[10px] text-on-surface-variant mt-2">2022</span>
     </div>
-    <div class="text-green-600 font-bold text-[11px] flex items-center gap-1">
-      <span class="material-symbols-outlined text-[14px]">trending_down</span>
-      -3.5%
-    </div>
-  </div>
-  <div class="flex items-baseline gap-2 mb-2">
-    <span class="text-headline-md font-headline-md">24.2</span>
-    <span class="text-[11px] text-on-surface-variant">% em 2023</span>
-  </div>
-  <div class="h-[100px] flex items-end justify-between px-2 overflow-hidden">
-    <div class="flex-1 bg-surface-container-high h-full mx-1 rounded-t-sm relative transition-all group-hover:bg-primary-fixed"></div>
-    <div class="flex-1 bg-surface-container-high h-[90%] mx-1 rounded-t-sm relative transition-all group-hover:bg-primary-fixed"></div>
-    <div class="flex-1 bg-surface-container-high h-[82%] mx-1 rounded-t-sm relative transition-all group-hover:bg-primary-fixed"></div>
-    <div class="flex-1 bg-surface-container-high h-[75%] mx-1 rounded-t-sm relative transition-all group-hover:bg-primary-fixed"></div>
-    <div class="flex-1 bg-surface-container-high h-[68%] mx-1 rounded-t-sm relative transition-all group-hover:bg-primary-fixed"></div>
-    <div class="flex-1 bg-primary h-[60%] mx-1 rounded-t-sm relative"></div>
-  </div>
-</div>
-<!-- Chart Card 4 -->
-<div class="bg-surface-container-lowest border border-outline-variant p-card-padding rounded-xl group">
-  <div class="flex justify-between items-start mb-4">
-    <div>
-      <h4 class="text-body-md font-bold text-on-surface">Alunos sem Matrícula Ativa</h4>
-      <p class="text-[11px] text-on-surface-variant opacity-70">Faixa etária 6–14 anos — Milhões</p>
-    </div>
-    <div class="text-green-600 font-bold text-[11px] flex items-center gap-1">
-      <span class="material-symbols-outlined text-[14px]">trending_down</span>
-      -5.2%
+    <div class="flex flex-col items-center flex-1">
+      <div class="w-full h-[55%] border-b-2 border-error relative">
+        <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-error rounded-full border border-white"></div>
+      </div>
+      <span class="text-[10px] text-on-surface-variant mt-2">2023</span>
     </div>
   </div>
-  <div class="flex items-baseline gap-2 mb-2">
-    <span class="text-headline-md font-headline-md">0.9</span>
-    <span class="text-[11px] text-on-surface-variant">M em 2023</span>
   </div>
-  <div class="h-[100px] flex items-end justify-between px-2 overflow-hidden">
-    <div class="flex-1 bg-surface-container-high h-[40%] mx-1 rounded-t-sm relative group-hover:bg-primary-fixed"></div>
-    <div class="flex-1 bg-surface-container-high h-[35%] mx-1 rounded-t-sm relative group-hover:bg-primary-fixed"></div>
-    <div class="flex-1 bg-surface-container-high h-[85%] mx-1 rounded-t-sm relative group-hover:bg-primary-fixed"></div>
-    <div class="flex-1 bg-surface-container-high h-[75%] mx-1 rounded-t-sm relative group-hover:bg-primary-fixed"></div>
-    <div class="flex-1 bg-surface-container-high h-[50%] mx-1 rounded-t-sm relative group-hover:bg-primary-fixed"></div>
-    <div class="flex-1 bg-primary h-[30%] mx-1 rounded-t-sm relative"></div>
+  <!-- Chart Card 3 -->
+  <div class="bg-surface-container-lowest border border-outline-variant p-card-padding rounded-xl group">
+    <div class="flex justify-between items-start mb-4">
+      <div>
+        <h4 class="text-body-md font-bold text-on-surface">Distorção Idade-Série</h4>
+        <p class="text-[11px] text-on-surface-variant opacity-70">Anos Finais do Ensino Fundamental (%)</p>
+      </div>
+      <div class="text-green-600 font-bold text-[11px] flex items-center gap-1">
+        <span class="material-symbols-outlined text-[14px]">trending_down</span>
+        -3.5%
+      </div>
+    </div>
+    <div class="flex items-baseline gap-2 mb-2">
+      <span class="text-headline-md font-headline-md">24.2</span>
+      <span class="text-[11px] text-on-surface-variant">% em 2023</span>
+    </div>
+    <div class="h-[100px] flex items-end justify-between px-2 overflow-hidden">
+      <div class="flex-1 bg-surface-container-high h-full mx-1 rounded-t-sm relative transition-all group-hover:bg-primary-fixed"></div>
+      <div class="flex-1 bg-surface-container-high h-[90%] mx-1 rounded-t-sm relative transition-all group-hover:bg-primary-fixed"></div>
+      <div class="flex-1 bg-surface-container-high h-[82%] mx-1 rounded-t-sm relative transition-all group-hover:bg-primary-fixed"></div>
+      <div class="flex-1 bg-surface-container-high h-[75%] mx-1 rounded-t-sm relative transition-all group-hover:bg-primary-fixed"></div>
+      <div class="flex-1 bg-surface-container-high h-[68%] mx-1 rounded-t-sm relative transition-all group-hover:bg-primary-fixed"></div>
+      <div class="flex-1 bg-primary h-[60%] mx-1 rounded-t-sm relative"></div>
+    </div>
   </div>
-</div>
-</div>
-</main>
+  <!-- Chart Card 4 -->
+  <div class="bg-surface-container-lowest border border-outline-variant p-card-padding rounded-xl group">
+    <div class="flex justify-between items-start mb-4">
+      <div>
+        <h4 class="text-body-md font-bold text-on-surface">Alunos sem Matrícula Ativa</h4>
+        <p class="text-[11px] text-on-surface-variant opacity-70">Faixa etária 6–14 anos — Milhões</p>
+      </div>
+      <div class="text-green-600 font-bold text-[11px] flex items-center gap-1">
+        <span class="material-symbols-outlined text-[14px]">trending_down</span>
+        -5.2%
+      </div>
+    </div>
+    <div class="flex items-baseline gap-2 mb-2">
+      <span class="text-headline-md font-headline-md">0.9</span>
+      <span class="text-[11px] text-on-surface-variant">M em 2023</span>
+    </div>
+    <div class="h-[100px] flex items-end justify-between px-2 overflow-hidden">
+      <div class="flex-1 bg-surface-container-high h-[40%] mx-1 rounded-t-sm relative group-hover:bg-primary-fixed"></div>
+      <div class="flex-1 bg-surface-container-high h-[35%] mx-1 rounded-t-sm relative group-hover:bg-primary-fixed"></div>
+      <div class="flex-1 bg-surface-container-high h-[85%] mx-1 rounded-t-sm relative group-hover:bg-primary-fixed"></div>
+      <div class="flex-1 bg-surface-container-high h-[75%] mx-1 rounded-t-sm relative group-hover:bg-primary-fixed"></div>
+      <div class="flex-1 bg-surface-container-high h-[50%] mx-1 rounded-t-sm relative group-hover:bg-primary-fixed"></div>
+      <div class="flex-1 bg-primary h-[30%] mx-1 rounded-t-sm relative"></div>
+    </div>
+  </div>
+  </div>
+  </main>
 </div>
 
 <!-- Footer -->
