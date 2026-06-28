@@ -20,304 +20,304 @@
         }
 
 ```
-    body {
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        transition: background-color 0.3s, color 0.3s;
-    }
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
 
-    /* Ajuste de precisão idêntico a indicadores.html e login.html */
-    .header-governo {
-        padding: 6px 0 !important;
-    }
+/* Ajuste de precisão idêntico a indicadores.html e login.html */
+.header-governo {
+    padding: 6px 0 !important;
+}
 
-    .btn-contraste {
-        background-color: transparent;
-        color: #ffffff;
-        border: 1px solid #ffffff;
-        padding: 6px 10px;
-        border-radius: 4px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: opacity 0.2s;
-        font-family: inherit;
-        font-size: 12px;
-        line-height: 1;
-        margin: 0;
-    }
+.btn-contraste {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1;
+    margin: 0;
+}
 
-    .btn-contraste:hover {
-        opacity: 0.9;
-    }
+.btn-contraste:hover {
+    opacity: 0.9;
+}
 
-    /* Espaçamentos do bloco de conteúdo principal */
-    .page-intro {
-        margin: 25px 0 15px 0;
-    }
+/* Espaçamentos do bloco de conteúdo principal */
+.page-intro {
+    margin: 25px 0 15px 0;
+}
 
-    .page-intro h2 {
-        color: var(--primary-color);
-        margin-bottom: 8px;
-    }
+.page-intro h2 {
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
 
-    /* Estrutura interna de busca e filtros (Mantendo as funcionalidades funcionais) */
-    .search-filter-container {
-        background-color: var(--card-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 25px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    }
+/* Estrutura interna de busca e filtros (Mantendo as funcionalidades funcionais) */
+.search-filter-container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
 
-    .search-group {
-        margin-bottom: 1.5rem;
-    }
+.search-group {
+    margin-bottom: 1.5rem;
+}
 
-    .search-group label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 6px;
-    }
+.search-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
 
-    .search-input-wrapper input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid var(--border-color);
-        border-radius: 4px;
-        font-size: 1rem;
-        background-color: var(--card-bg);
-        color: var(--text-color);
-        box-sizing: border-box;
-    }
+.search-input-wrapper input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    box-sizing: border-box;
+}
 
+.filters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border-color);
+}
+
+.filter-item label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: var(--text-muted);
+}
+
+.filter-item select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.actions-row {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primary { 
+    background-color: var(--cedca-green, #00875a); 
+    color: white; 
+}
+
+.btn-secondary { 
+    background-color: transparent; 
+    border: 1px solid var(--border-color); 
+    color: var(--text-color); 
+}
+
+.export-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.export-label {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+body.high-contrast .export-label {
+    color: #ffffff !important;
+}
+
+.results-count {
+    margin: 25px 0 15px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Layout de Cards em Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.plan-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.badge-primary { background-color: #dbeafe; color: #1e40af; }
+.badge-accent { background-color: #fef3c7; color: #92400e; }
+
+.card-section {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.section-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.section-content {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.indicator-pill {
+    display: inline-block;
+    font-size: 0.75rem;
+    background-color: #f3f4f6;
+    padding: 4px 8px;
+    margin: 2px;
+    border-radius: 4px;
+    border: 1px solid #e5e7eb;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+}
+
+/* Espelhamento absoluto das regras de Alto Contraste de indicadores.html */
+body.high-contrast {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+body.high-contrast .header-governo { 
+    background-color: #000000 !important; 
+    border-bottom: 1px solid #ffff00 !important; 
+}
+
+body.high-contrast .header-sistema { 
+    background-color: #000000 !important; 
+    border-bottom-color: #ffff00 !important; 
+}
+
+body.high-contrast .navbar-principal { 
+    background-color: #111111 !important; 
+}
+
+body.high-contrast .search-filter-container,
+body.high-contrast .plan-card {
+    background-color: #111111 !important;
+    border-color: #ffffff !important;
+}
+
+body.high-contrast .page-intro h2,
+body.high-contrast .results-count,
+body.high-contrast .section-label {
+    color: #ffff00 !important;
+}
+
+body.high-contrast .filter-item select,
+body.high-contrast .search-input-wrapper input {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+body.high-contrast .indicator-pill {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+body.high-contrast .btn-primary {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+}
+
+@media (max-width: 850px) {
     .filters-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 1rem;
-        padding-top: 1rem;
-        border-top: 1px dashed var(--border-color);
+        grid-template-columns: 1fr;
     }
 
-    .filter-item label {
-        display: block;
-        font-size: 0.85rem;
-        font-weight: bold;
-        margin-bottom: 6px;
-        color: var(--text-muted);
-    }
-
-    .filter-item select {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid var(--border-color);
-        border-radius: 4px;
-        background-color: var(--card-bg);
-        color: var(--text-color);
-        font-size: 0.95rem;
+    .cards-grid {
+        grid-template-columns: 1fr;
     }
 
     .actions-row {
-        margin-top: 1.5rem;
-        display: flex;
-        justify-content: flex-end;
-        gap: 1rem;
-    }
-
-    .btn {
-        padding: 0.6rem 1.5rem;
-        border: none;
-        border-radius: 4px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .btn-primary { 
-        background-color: var(--cedca-green, #00875a); 
-        color: white; 
-    }
-
-    .btn-secondary { 
-        background-color: transparent; 
-        border: 1px solid var(--border-color); 
-        color: var(--text-color); 
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .export-actions {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
+        width: 100%;
     }
-
-    .export-label {
-        font-weight: 600;
-        color: var(--text-color);
-        font-size: 0.95rem;
-    }
-
-    body.high-contrast .export-label {
-        color: #ffffff !important;
-    }
-
-    .results-count {
-        margin: 25px 0 15px 0;
-        font-size: 1.1rem;
-        font-weight: bold;
-        color: var(--primary-color);
-    }
-
-    /* Layout de Cards em Grid */
-    .cards-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-        gap: 18px;
-        margin-bottom: 25px;
-    }
-
-    .plan-card {
-        background-color: var(--card-bg);
-        border: 1px solid var(--border-color);
-        border-top: 4px solid var(--primary-color);
-        border-radius: 8px;
-        padding: 18px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .card-meta-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.4rem;
-        margin-bottom: 1rem;
-    }
-
-    .badge {
-        font-size: 0.75rem;
-        padding: 4px 8px;
-        border-radius: 4px;
-        font-weight: bold;
-        text-transform: uppercase;
-        background-color: #e5e7eb;
-        color: #374151;
-    }
-
-    .badge-primary { background-color: #dbeafe; color: #1e40af; }
-    .badge-accent { background-color: #fef3c7; color: #92400e; }
-
-    .card-section {
-        margin-bottom: 0.75rem;
-        padding-bottom: 0.75rem;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .section-label {
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        color: var(--accent-color);
-        font-weight: bold;
-        margin-bottom: 0.25rem;
-    }
-
-    .section-content {
-        font-size: 0.9rem;
-        color: var(--text-color);
-    }
-
-    .indicator-pill {
-        display: inline-block;
-        font-size: 0.75rem;
-        background-color: #f3f4f6;
-        padding: 4px 8px;
-        margin: 2px;
-        border-radius: 4px;
-        border: 1px solid #e5e7eb;
-    }
-
-    .no-results {
-        grid-column: 1 / -1;
-        text-align: center;
-        padding: 3rem;
-        color: var(--text-muted);
-    }
-
-    /* Espelhamento absoluto das regras de Alto Contraste de indicadores.html */
-    body.high-contrast {
-        background-color: #000000 !important;
-        color: #ffffff !important;
-    }
-
-    body.high-contrast .header-governo { 
-        background-color: #000000 !important; 
-        border-bottom: 1px solid #ffff00 !important; 
-    }
-
-    body.high-contrast .header-sistema { 
-        background-color: #000000 !important; 
-        border-bottom-color: #ffff00 !important; 
-    }
-
-    body.high-contrast .navbar-principal { 
-        background-color: #111111 !important; 
-    }
-
-    body.high-contrast .search-filter-container,
-    body.high-contrast .plan-card {
-        background-color: #111111 !important;
-        border-color: #ffffff !important;
-    }
-
-    body.high-contrast .page-intro h2,
-    body.high-contrast .results-count,
-    body.high-contrast .section-label {
-        color: #ffff00 !important;
-    }
-
-    body.high-contrast .filter-item select,
-    body.high-contrast .search-input-wrapper input {
-        background-color: #000000 !important;
-        color: #ffffff !important;
-        border-color: #ffffff !important;
-    }
-
-    body.high-contrast .indicator-pill {
-        background-color: #000000 !important;
-        color: #ffffff !important;
-        border-color: #ffffff !important;
-    }
-
-    body.high-contrast .btn-primary {
-        background-color: #ffff00 !important;
-        color: #000000 !important;
-    }
-
-    @media (max-width: 850px) {
-        .filters-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .cards-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .actions-row {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .export-actions {
-            width: 100%;
-        }
-    }
-</style>
+}
 ```
+
+</style>
 
 </head>
 <body>
 
-```
 <header class="header-governo">
     <div class="container header-gov-content">
         <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
@@ -343,10 +343,13 @@
             <li><a href="../dashboard/index.html">Dashboard</a></li>
         </ul>
 
-        <ul class="nav-auth">
-            <li><a href="../login/login.html" class="btn-login">Login</a></li>
-        </ul>
-    </div>
+```
+    <ul class="nav-auth">
+        <li><a href="../login/login.html" class="btn-login">Login</a></li>
+    </ul>
+</div>
+```
+
 </nav>
 
 <main class="container">
@@ -355,95 +358,98 @@
         <p>Utilize os filtros abaixo para localizar metas, problemas públicos e linhas de ação estruturadas.</p>
     </section>
 
-    <section class="search-filter-container">
-        <div class="search-group">
-            <label for="searchTxt">Pesquisa Textual</label>
-            <div class="search-input-wrapper">
-                <input type="text" id="searchTxt" oninput="applyFilters()" placeholder="Pesquise por termo no problema público, compromisso, linha de ação...">
-            </div>
+```
+<section class="search-filter-container">
+    <div class="search-group">
+        <label for="searchTxt">Pesquisa Textual</label>
+        <div class="search-input-wrapper">
+            <input type="text" id="searchTxt" oninput="applyFilters()" placeholder="Pesquise por termo no problema público, compromisso, linha de ação...">
+        </div>
+    </div>
+
+    <div class="filters-grid">
+        <div class="filter-item">
+            <label for="filterCompromisso">Compromisso</label>
+            <select id="filterCompromisso" onchange="applyFilters()">
+                <option value="">Todos</option>
+                <option value="permanência escolar">Permanência Escolar</option>
+                <option value="proteção social">Proteção Social e Nutricional</option>
+                <option value="psicossocial">Atenção Psicossocial</option>
+                <option value="violência">Rede de Proteção contra Violência</option>
+            </select>
         </div>
 
-        <div class="filters-grid">
-            <div class="filter-item">
-                <label for="filterCompromisso">Compromisso</label>
-                <select id="filterCompromisso" onchange="applyFilters()">
-                    <option value="">Todos</option>
-                    <option value="permanência escolar">Permanência Escolar</option>
-                    <option value="proteção social">Proteção Social e Nutricional</option>
-                    <option value="psicossocial">Atenção Psicossocial</option>
-                    <option value="violência">Rede de Proteção contra Violência</option>
-                </select>
-            </div>
-
-            <div class="filter-item">
-                <label for="filterIndicador">Indicador</label>
-                <select id="filterIndicador" onchange="applyFilters()">
-                    <option value="">Todos</option>
-                    <option value="evasão">Evasão / Abandono</option>
-                    <option value="nutricional">Insegurança / Avaliação Nutricional</option>
-                    <option value="atendimentos">Atendimentos Saúde Mental</option>
-                    <option value="denúncias">Denúncias Registradas</option>
-                </select>
-            </div>
-
-            <div class="filter-item">
-                <label for="filterAno">Período (Ano Base)</label>
-                <select id="filterAno" onchange="applyFilters()">
-                    <option value="">Todos</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                    <option value="2026">2026</option>
-                </select>
-            </div>
-
-            <div class="filter-item">
-                <label for="filterResponsavel">Responsável</label>
-                <select id="filterResponsavel" onchange="applyFilters()">
-                    <option value="">Todos</option>
-                    <option value="SEED">SEED</option>
-                    <option value="SEDEF">SEDEF</option>
-                    <option value="SESA">SESA</option>
-                    <option value="SESP">SESP</option>
-                </select>
-            </div>
-
-            <div class="filter-item">
-                <label for="filterMunicipio">Município</label>
-                <select id="filterMunicipio" onchange="applyFilters()">
-                    <option value="">Todos</option>
-                    <option value="Curitiba">Curitiba</option>
-                    <option value="Londrina">Londrina</option>
-                    <option value="Cascavel">Cascavel</option>
-                    <option value="Foz do Iguaçu">Foz do Iguaçu</option>
-                </select>
-            </div>
-
-            <div class="filter-item">
-                <label for="filterRegiao">Região</label>
-                <select id="filterRegiao" onchange="applyFilters()">
-                    <option value="">Todas</option>
-                    <option value="RMC">RMC</option>
-                    <option value="Norte">Norte Paranaense</option>
-                    <option value="Oeste">Oeste Paranaense</option>
-                </select>
-            </div>
+        <div class="filter-item">
+            <label for="filterIndicador">Indicador</label>
+            <select id="filterIndicador" onchange="applyFilters()">
+                <option value="">Todos</option>
+                <option value="evasão">Evasão / Abandono</option>
+                <option value="nutricional">Insegurança / Avaliação Nutricional</option>
+                <option value="atendimentos">Atendimentos Saúde Mental</option>
+                <option value="denúncias">Denúncias Registradas</option>
+            </select>
         </div>
 
-        <div class="actions-row">
-            <button class="btn btn-secondary" onclick="clearFilters()">Limpar Filtros</button>
-
-            <div class="export-actions">
-                <span class="export-label">Exportar resultados:</span>
-                <button class="btn btn-primary" onclick="exportarDados('csv')">CSV</button>
-                <button class="btn btn-primary" onclick="exportarDados('xlsx')">Excel</button>
-                <button class="btn btn-primary" onclick="exportarDados('pdf')">PDF</button>
-            </div>
+        <div class="filter-item">
+            <label for="filterAno">Período (Ano Base)</label>
+            <select id="filterAno" onchange="applyFilters()">
+                <option value="">Todos</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+            </select>
         </div>
-    </section>
 
-    <h2 class="results-count" id="countDisplay">Carregando dados...</h2>
-    
-    <section class="cards-grid" id="cardsContainer"></section>
+        <div class="filter-item">
+            <label for="filterResponsavel">Responsável</label>
+            <select id="filterResponsavel" onchange="applyFilters()">
+                <option value="">Todos</option>
+                <option value="SEED">SEED</option>
+                <option value="SEDEF">SEDEF</option>
+                <option value="SESA">SESA</option>
+                <option value="SESP">SESP</option>
+            </select>
+        </div>
+
+        <div class="filter-item">
+            <label for="filterMunicipio">Município</label>
+            <select id="filterMunicipio" onchange="applyFilters()">
+                <option value="">Todos</option>
+                <option value="Curitiba">Curitiba</option>
+                <option value="Londrina">Londrina</option>
+                <option value="Cascavel">Cascavel</option>
+                <option value="Foz do Iguaçu">Foz do Iguaçu</option>
+            </select>
+        </div>
+
+        <div class="filter-item">
+            <label for="filterRegiao">Região</label>
+            <select id="filterRegiao" onchange="applyFilters()">
+                <option value="">Todas</option>
+                <option value="RMC">RMC</option>
+                <option value="Norte">Norte Paranaense</option>
+                <option value="Oeste">Oeste Paranaense</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="actions-row">
+        <button class="btn btn-secondary" onclick="clearFilters()">Limpar Filtros</button>
+
+        <div class="export-actions">
+            <span class="export-label">Exportar resultados:</span>
+            <button class="btn btn-primary" onclick="exportarDados('csv')">CSV</button>
+            <button class="btn btn-primary" onclick="exportarDados('xlsx')">Excel</button>
+            <button class="btn btn-primary" onclick="exportarDados('pdf')">PDF</button>
+        </div>
+    </div>
+</section>
+
+<h2 class="results-count" id="countDisplay">Carregando dados...</h2>
+
+<section class="cards-grid" id="cardsContainer"></section>
+```
+
 </main>
 
 <footer class="cedca-footer">
@@ -591,7 +597,6 @@
 
     window.onload = () => displayCards(mockData);
 </script>
-```
 
 </body>
 </html>
