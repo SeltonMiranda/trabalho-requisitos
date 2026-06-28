@@ -1,11 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Indicadores - Sistema de Monitoramento</title>
-  
+
   <!-- Importa a folha de estilos padrão e idêntica da Home -->
+
   <link rel="stylesheet" href="../home/style.css">
 
   <style>
@@ -93,6 +95,16 @@
       margin: 25px 0 15px 0;
     }
 
+    .prototype-note {
+      background-color: #eef6ff;
+      border-left: 4px solid var(--cedca-blue-light);
+      padding: 12px 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      color: #1f2937;
+    }
+
     /* Cards de Tarefas - Lista Flex */
     .tarefas-lista {
       display: flex;
@@ -174,6 +186,7 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 10px;
+      gap: 10px;
     }
 
     .indicator-type {
@@ -192,6 +205,7 @@
     .indicador-atualizacao {
       font-size: 0.75rem;
       color: #6b7280;
+      text-align: right;
     }
 
     .indicador-card h4 {
@@ -224,6 +238,21 @@
       color: #555556;
       font-size: 0.85rem;
       margin: 0;
+    }
+
+    .indicador-info-publica {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.8rem;
+      color: #555556;
+    }
+
+    .indicador-info-publica strong {
+      color: #333333;
     }
 
     /* Botão Flutuante VLibras */
@@ -359,7 +388,8 @@
     body.high-contrast .summary-card, 
     body.high-contrast .tarefa-card,
     body.high-contrast .indicador-card, 
-    body.high-contrast .filters-panel { 
+    body.high-contrast .filters-panel,
+    body.high-contrast .prototype-note { 
       background-color: #111111 !important; 
       border-color: #ffffff !important; 
     }
@@ -372,19 +402,27 @@
     body.high-contrast .summary-card span,
     body.high-contrast .meta-item,
     body.high-contrast .indicador-card p,
-    body.high-contrast .indicador-atualizacao { color: #eeeeee !important; }
+    body.high-contrast .indicador-atualizacao,
+    body.high-contrast .prototype-note,
+    body.high-contrast .indicador-info-publica { color: #eeeeee !important; }
+    body.high-contrast .meta-item strong,
+    body.high-contrast .indicador-info-publica strong { color: #ffff00 !important; }
     body.high-contrast .filters-panel select { 
       background-color: #000000 !important; 
       color: #ffffff !important; 
       border-color: #ffffff !important; 
     }
     body.high-contrast .tarefa-header { border-bottom-color: #ffff00 !important; }
+    body.high-contrast .indicador-info-publica { border-top-color: #ffff00 !important; }
 
     @media (max-width: 850px) {
       .filters-panel, .summary-cards, .indicadores-grid { grid-template-columns: 1fr; }
       .tarefa-header { flex-direction: column; gap: 12px; }
+      .indicador-header { align-items: flex-start; }
+      .indicador-atualizacao { text-align: left; }
     }
   </style>
+
 </head>
 
 <body>
@@ -397,6 +435,7 @@
   </header>
 
   <!-- Segundo Header -->
+
   <header class="header-sistema">
     <div class="container header-sis-content">
       <div class="sistema-titulo-area">
@@ -407,6 +446,7 @@
   </header>
 
   <!-- Navbar Extensível -->
+
   <nav class="navbar-principal">
     <div class="container nav-container">
       <ul class="nav-links">
@@ -416,13 +456,17 @@
         <li><a href="../dashboard/index.html">Dashboard</a></li>
       </ul>
 
-      <ul class="nav-auth">
-        <li><a href="../login/login.html" class="btn-login">Login</a></li>
-      </ul>
-    </div>
+```
+  <ul class="nav-auth">
+    <li><a href="../login/login.html" class="btn-login">Login</a></li>
+  </ul>
+</div>
+```
+
   </nav>
 
   <!-- Conteúdo Principal -->
+
   <main class="container">
     <section class="page-intro">
       <h2>Dashboard de Indicadores</h2>
@@ -432,36 +476,44 @@
       </p>
     </section>
 
-    <!-- Filtros -->
-    <section class="filters-panel">
-      <div>
-        <label for="problema">Problema público</label>
-        <select id="problema" onchange="atualizarDashboard()">
-          <option value="educacao">Evasão escolar</option>
-          <option value="seguranca-alimentar">Segurança alimentar</option>
-          <option value="saude-mental">Saúde mental</option>
-          <option value="violencia">Violência infantil</option>
-        </select>
-      </div>
+```
+<div class="prototype-note">
+  Os dados exibidos nesta tela são simulados para fins de protótipo. Cada indicador apresenta data, horário, responsável pela atualização e fonte do dado.
+</div>
 
-      <div>
-        <label for="ano">Ano</label>
-        <select id="ano" onchange="atualizarDashboard()">
-          <option value="2026">2026</option>
-          <option value="2025">2025</option>
-          <option value="2024">2024</option>
-        </select>
-      </div>
-    </section>
+<!-- Filtros -->
+<section class="filters-panel">
+  <div>
+    <label for="problema">Problema público</label>
+    <select id="problema" onchange="atualizarDashboard()">
+      <option value="educacao">Evasão escolar</option>
+      <option value="seguranca-alimentar">Segurança alimentar</option>
+      <option value="saude-mental">Saúde mental</option>
+      <option value="violencia">Violência infantil</option>
+    </select>
+  </div>
 
-    <h2 class="dashboard-title">Tarefas do problema selecionado</h2>
+  <div>
+    <label for="ano">Ano</label>
+    <select id="ano" onchange="atualizarDashboard()">
+      <option value="2026">2026</option>
+      <option value="2025">2025</option>
+      <option value="2024">2024</option>
+    </select>
+  </div>
+</section>
 
-    <!-- Lista de Tarefas -->
-    <section class="tarefas-lista" id="tarefasContainer">
-    </section>
+<h2 class="dashboard-title">Tarefas do problema selecionado</h2>
+
+<!-- Lista de Tarefas -->
+<section class="tarefas-lista" id="tarefasContainer">
+</section>
+```
+
   </main>
 
   <!-- Rodapé -->
+
   <footer class="cedca-footer">
     <div class="container">
       <p><strong>Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente</strong></p>
@@ -471,6 +523,7 @@
   </footer>
 
   <!-- Botão Flutuante VLibras -->
+
   <div class="vlibras-floating">
     <button class="vlibras-button" title="VLibras - Acessibilidade em Libras" aria-label="Abrir VLibras - Tradutor de Libras">
       <div class="vlibras-icon-wrapper">
@@ -490,8 +543,22 @@
             colaboradores: "Maria Silva, João Santos, Ana Oliveira",
             ultimaAtualizacao: "26/06/2026 14:30",
             indicadores: [
-              { nome: "Taxa de evasão escolar", tipo: "Resultado", valor: 42, ultimaAtualizacao: "26/06/2026 14:25" },
-              { nome: "Frequência média mensal", tipo: "Cobertura", valor: 76, ultimaAtualizacao: "25/06/2026 09:15" }
+              { 
+                nome: "Taxa de evasão escolar", 
+                tipo: "Resultado", 
+                valor: 42, 
+                ultimaAtualizacao: "26/06/2026 14:25",
+                responsavelAtualizacao: "SEED",
+                fonteDado: "Secretaria de Estado da Educação"
+              },
+              { 
+                nome: "Frequência média mensal", 
+                tipo: "Cobertura", 
+                valor: 76, 
+                ultimaAtualizacao: "25/06/2026 09:15",
+                responsavelAtualizacao: "SEED",
+                fonteDado: "Rede Estadual de Ensino"
+              }
             ]
           },
           {
@@ -500,8 +567,22 @@
             colaboradores: "Carlos Pereira, Beatriz Lima",
             ultimaAtualizacao: "25/06/2026 16:45",
             indicadores: [
-              { nome: "Escolas com atualização mensal dos dados", tipo: "Atendimento", valor: 85, ultimaAtualizacao: "25/06/2026 16:40" },
-              { nome: "Alunos em recuperação paralela", tipo: "Cobertura", valor: 68, ultimaAtualizacao: "24/06/2026 11:20" }
+              { 
+                nome: "Escolas com atualização mensal dos dados", 
+                tipo: "Atendimento", 
+                valor: 85, 
+                ultimaAtualizacao: "25/06/2026 16:40",
+                responsavelAtualizacao: "SEDEF",
+                fonteDado: "Sistema de Acompanhamento Intersetorial"
+              },
+              { 
+                nome: "Alunos em recuperação paralela", 
+                tipo: "Cobertura", 
+                valor: 68, 
+                ultimaAtualizacao: "24/06/2026 11:20",
+                responsavelAtualizacao: "SEED",
+                fonteDado: "Secretaria de Estado da Educação"
+              }
             ]
           },
           {
@@ -510,7 +591,14 @@
             colaboradores: "Patrícia Costa, Roberto Alves",
             ultimaAtualizacao: "24/06/2026 10:00",
             indicadores: [
-              { nome: "Visitas domiciliares realizadas", tipo: "Atendimento", valor: 90, ultimaAtualizacao: "24/06/2026 09:55" }
+              { 
+                nome: "Visitas domiciliares realizadas", 
+                tipo: "Atendimento", 
+                valor: 90, 
+                ultimaAtualizacao: "24/06/2026 09:55",
+                responsavelAtualizacao: "SESP",
+                fonteDado: "Rede de Proteção e Segurança Pública"
+              }
             ]
           }
         ]
@@ -524,8 +612,22 @@
             colaboradores: "Lucia Ferreira, Marcos Vinicius",
             ultimaAtualizacao: "26/06/2026 11:20",
             indicadores: [
-              { nome: "Crianças em situação de insegurança alimentar", tipo: "Resultado", valor: 58, ultimaAtualizacao: "26/06/2026 11:15" },
-              { nome: "Avaliações nutricionais realizadas por mês", tipo: "Atendimento", valor: 71, ultimaAtualizacao: "25/06/2026 15:30" }
+              { 
+                nome: "Crianças em situação de insegurança alimentar", 
+                tipo: "Resultado", 
+                valor: 58, 
+                ultimaAtualizacao: "26/06/2026 11:15",
+                responsavelAtualizacao: "SEDEF",
+                fonteDado: "Secretaria de Desenvolvimento Social e Família"
+              },
+              { 
+                nome: "Avaliações nutricionais realizadas por mês", 
+                tipo: "Atendimento", 
+                valor: 71, 
+                ultimaAtualizacao: "25/06/2026 15:30",
+                responsavelAtualizacao: "SESA",
+                fonteDado: "Secretaria de Estado da Saúde"
+              }
             ]
           },
           {
@@ -534,7 +636,14 @@
             colaboradores: "Renata Souza, Felipe Mendes, Carla Dias",
             ultimaAtualizacao: "25/06/2026 08:45",
             indicadores: [
-              { nome: "Famílias acompanhadas", tipo: "Cobertura", valor: 64, ultimaAtualizacao: "25/06/2026 08:40" }
+              { 
+                nome: "Famílias acompanhadas", 
+                tipo: "Cobertura", 
+                valor: 64, 
+                ultimaAtualizacao: "25/06/2026 08:40",
+                responsavelAtualizacao: "SEDEF",
+                fonteDado: "Cadastro e Acompanhamento Socioassistencial"
+              }
             ]
           }
         ]
@@ -548,8 +657,22 @@
             colaboradores: "Fernanda Torres, Ricardo Nunes",
             ultimaAtualizacao: "26/06/2026 13:15",
             indicadores: [
-              { nome: "Atendimentos psicológicos realizados", tipo: "Atendimento", valor: 73, ultimaAtualizacao: "26/06/2026 13:10" },
-              { nome: "Casos acompanhados continuamente", tipo: "Cobertura", valor: 61, ultimaAtualizacao: "26/06/2026 12:00" }
+              { 
+                nome: "Atendimentos psicológicos realizados", 
+                tipo: "Atendimento", 
+                valor: 73, 
+                ultimaAtualizacao: "26/06/2026 13:10",
+                responsavelAtualizacao: "SESA",
+                fonteDado: "Rede de Atenção Psicossocial"
+              },
+              { 
+                nome: "Casos acompanhados continuamente", 
+                tipo: "Cobertura", 
+                valor: 61, 
+                ultimaAtualizacao: "26/06/2026 12:00",
+                responsavelAtualizacao: "SESA",
+                fonteDado: "Serviços de Saúde Mental Infantojuvenil"
+              }
             ]
           },
           {
@@ -558,7 +681,14 @@
             colaboradores: "Amanda Costa, Lucas Silveira, Julia Martins",
             ultimaAtualizacao: "24/06/2026 17:30",
             indicadores: [
-              { nome: "Encaminhamentos concluídos", tipo: "Resultado", valor: 54, ultimaAtualizacao: "24/06/2026 17:25" }
+              { 
+                nome: "Encaminhamentos concluídos", 
+                tipo: "Resultado", 
+                valor: 54, 
+                ultimaAtualizacao: "24/06/2026 17:25",
+                responsavelAtualizacao: "SEED",
+                fonteDado: "Rede Escolar e Serviços de Apoio"
+              }
             ]
           }
         ]
@@ -572,8 +702,22 @@
             colaboradores: "Rafael Oliveira, Sandra Gomes",
             ultimaAtualizacao: "26/06/2026 09:50",
             indicadores: [
-              { nome: "Denúncias registradas", tipo: "Resultado", valor: 58, ultimaAtualizacao: "26/06/2026 09:45" },
-              { nome: "Casos em acompanhamento", tipo: "Cobertura", valor: 67, ultimaAtualizacao: "26/06/2026 08:30" }
+              { 
+                nome: "Denúncias registradas", 
+                tipo: "Resultado", 
+                valor: 58, 
+                ultimaAtualizacao: "26/06/2026 09:45",
+                responsavelAtualizacao: "SESP",
+                fonteDado: "Rede de Proteção contra Violência"
+              },
+              { 
+                nome: "Casos em acompanhamento", 
+                tipo: "Cobertura", 
+                valor: 67, 
+                ultimaAtualizacao: "26/06/2026 08:30",
+                responsavelAtualizacao: "SEDEF",
+                fonteDado: "Sistema de Acompanhamento da Rede de Proteção"
+              }
             ]
           },
           {
@@ -582,7 +726,14 @@
             colaboradores: "Teresa Lima, Paulo Cesar, Monica Rocha",
             ultimaAtualizacao: "25/06/2026 14:20",
             indicadores: [
-              { nome: "Casos encerrados", tipo: "Atendimento", valor: 49, ultimaAtualizacao: "25/06/2026 14:15" }
+              { 
+                nome: "Casos encerrados", 
+                tipo: "Atendimento", 
+                valor: 49, 
+                ultimaAtualizacao: "25/06/2026 14:15",
+                responsavelAtualizacao: "SESP",
+                fonteDado: "Serviços de Acolhimento Institucional"
+              }
             ]
           }
         ]
@@ -622,7 +773,7 @@
                   <span><strong>Colaboradores:</strong> ${tarefa.colaboradores}</span>
                 </div>
                 <div class="meta-item">
-                  <span><strong>Última atualização:</strong> ${tarefa.ultimaAtualizacao}</span>
+                  <span><strong>Última atualização da tarefa:</strong> ${tarefa.ultimaAtualizacao}</span>
                 </div>
                 <br><div class="meta-item">
                   <span><i>Atualizado a n dias</i></span>
@@ -644,13 +795,19 @@
             <div class="indicador-card">
               <div class="indicador-header">
                 <span class="indicator-type ${classeTipo(indicador.tipo)}">${indicador.tipo}</span>
-                <span class="indicador-atualizacao">${indicador.ultimaAtualizacao}</span>
+                <span class="indicador-atualizacao">Atualizado em ${indicador.ultimaAtualizacao}</span>
               </div>
               <h4>${indicador.nome}</h4>
               <div class="progress-bar">
                 <div class="progress-value" style="width: ${indicador.valor}%">${indicador.valor}%</div>
               </div>
               <p>Progresso do indicador no ano selecionado.</p>
+
+              <div class="indicador-info-publica">
+                <span><strong>Última atualização:</strong> ${indicador.ultimaAtualizacao}</span>
+                <span><strong>Atualizado por:</strong> ${indicador.responsavelAtualizacao}</span>
+                <span><strong>Fonte do dado:</strong> ${indicador.fonteDado}</span>
+              </div>
             </div>
           `;
         });
@@ -668,5 +825,6 @@
     // Inicialização do Dashboard
     atualizarDashboard();
   </script>
+
 </body>
 </html>
