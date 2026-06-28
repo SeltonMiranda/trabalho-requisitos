@@ -31,6 +31,7 @@
       line-height: 1;
       margin: 0;
     }
+
     .btn-contraste:hover {
       opacity: 0.9;
     }
@@ -165,6 +166,28 @@
       font-weight: bold;
       background-color: #dbeafe;
       color: #1e40af;
+    }
+
+    .tarefa-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-end;
+    }
+
+    .btn-detalhamento {
+      display: inline-block;
+      padding: 8px 12px;
+      background-color: var(--cedca-green);
+      color: #ffffff;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .btn-detalhamento:hover {
+      opacity: 0.9;
     }
 
     /* Grid de Indicadores dentro da Tarefa */
@@ -376,15 +399,21 @@
       background-color: #000000 !important;
       color: #ffffff !important;
     }
+
     body.high-contrast .header-governo { 
       background-color: #000000 !important; 
       border-bottom: 1px solid #ffff00 !important; 
     }
+
     body.high-contrast .header-sistema { 
       background-color: #000000 !important; 
       border-bottom-color: #ffff00 !important; 
     }
-    body.high-contrast .navbar-principal { background-color: #111111 !important; }
+
+    body.high-contrast .navbar-principal {
+      background-color: #111111 !important;
+    }
+
     body.high-contrast .summary-card, 
     body.high-contrast .tarefa-card,
     body.high-contrast .indicador-card, 
@@ -393,33 +422,75 @@
       background-color: #111111 !important; 
       border-color: #ffffff !important; 
     }
-    body.high-contrast .indicador-card { background-color: #1a1a1a !important; }
+
+    body.high-contrast .indicador-card {
+      background-color: #1a1a1a !important;
+    }
+
     body.high-contrast .summary-card strong,
     body.high-contrast .tarefa-titulo-area h3,
     body.high-contrast .indicador-card h4,
     body.high-contrast .dashboard-title,
-    body.high-contrast .page-intro h2 { color: #ffff00 !important; }
+    body.high-contrast .page-intro h2 {
+      color: #ffff00 !important;
+    }
+
     body.high-contrast .summary-card span,
     body.high-contrast .meta-item,
     body.high-contrast .indicador-card p,
     body.high-contrast .indicador-atualizacao,
     body.high-contrast .prototype-note,
-    body.high-contrast .indicador-info-publica { color: #eeeeee !important; }
+    body.high-contrast .indicador-info-publica {
+      color: #eeeeee !important;
+    }
+
     body.high-contrast .meta-item strong,
-    body.high-contrast .indicador-info-publica strong { color: #ffff00 !important; }
+    body.high-contrast .indicador-info-publica strong {
+      color: #ffff00 !important;
+    }
+
     body.high-contrast .filters-panel select { 
       background-color: #000000 !important; 
       color: #ffffff !important; 
       border-color: #ffffff !important; 
     }
-    body.high-contrast .tarefa-header { border-bottom-color: #ffff00 !important; }
-    body.high-contrast .indicador-info-publica { border-top-color: #ffff00 !important; }
+
+    body.high-contrast .tarefa-header {
+      border-bottom-color: #ffff00 !important;
+    }
+
+    body.high-contrast .indicador-info-publica {
+      border-top-color: #ffff00 !important;
+    }
+
+    body.high-contrast .btn-detalhamento {
+      background-color: #ffff00 !important;
+      color: #000000 !important;
+    }
 
     @media (max-width: 850px) {
-      .filters-panel, .summary-cards, .indicadores-grid { grid-template-columns: 1fr; }
-      .tarefa-header { flex-direction: column; gap: 12px; }
-      .indicador-header { align-items: flex-start; }
-      .indicador-atualizacao { text-align: left; }
+      .filters-panel,
+      .summary-cards,
+      .indicadores-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tarefa-header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .tarefa-actions {
+        align-items: flex-start;
+      }
+
+      .indicador-header {
+        align-items: flex-start;
+      }
+
+      .indicador-atualizacao {
+        text-align: left;
+      }
     }
   </style>
 
@@ -603,6 +674,7 @@
           }
         ]
       },
+
       "seguranca-alimentar": {
         status: "Em andamento",
         tarefas: [
@@ -648,6 +720,7 @@
           }
         ]
       },
+
       "saude-mental": {
         status: "Em andamento",
         tarefas: [
@@ -693,6 +766,7 @@
           }
         ]
       },
+
       "violencia": {
         status: "Em andamento",
         tarefas: [
@@ -741,8 +815,14 @@
     };
 
     function classeTipo(tipo) {
-      if (tipo === "Resultado") { return "tipo-resultado"; }
-      if (tipo === "Cobertura") { return "tipo-cobertura"; }
+      if (tipo === "Resultado") {
+        return "tipo-resultado";
+      }
+
+      if (tipo === "Cobertura") {
+        return "tipo-cobertura";
+      }
+
       return "tipo-atendimento";
     }
 
@@ -756,11 +836,9 @@
       let totalIndicadores = 0;
 
       dados.tarefas.forEach(function(tarefa) {
-        // Criar card da tarefa
         const tarefaCard = document.createElement("article");
         tarefaCard.className = "tarefa-card";
 
-        // Construir HTML do cabeçalho da tarefa
         let tarefaHTML = `
           <div class="tarefa-header">
             <div class="tarefa-titulo-area">
@@ -780,11 +858,13 @@
                 </div>
               </div>
             </div>
-            <div class="tarefa-status">Em andamento</div>
+            <div class="tarefa-actions">
+              <div class="tarefa-status">Em andamento</div>
+              <a href="../detalhamento/detalhamento.html" class="btn-detalhamento">Ver detalhamento</a>
+            </div>
           </div>
         `;
 
-        // Grid de indicadores
         tarefaHTML += `<div class="indicadores-grid">`;
 
         tarefa.indicadores.forEach(function(indicador) {
@@ -822,7 +902,6 @@
       document.body.classList.toggle("high-contrast");
     }
 
-    // Inicialização do Dashboard
     atualizarDashboard();
   </script>
 
