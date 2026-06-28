@@ -215,7 +215,6 @@
 </head>
 <body>
 
-```
 <header class="header-governo">
     <div class="container header-gov-content">
         <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
@@ -256,146 +255,149 @@
         </div>
     </section>
 
-    <div class="tabs-container">
-        <button class="tab-btn active" onclick="switchTab('tarefas')">Gerenciar Tarefas (Admin)</button>
-        <button class="tab-btn" onclick="switchTab('indicadores')">Gerenciar Indicadores (Secretarias/Conselho)</button>
-    </div>
+```
+<div class="tabs-container">
+    <button class="tab-btn active" onclick="switchTab('tarefas')">Gerenciar Tarefas (Admin)</button>
+    <button class="tab-btn" onclick="switchTab('indicadores')">Gerenciar Indicadores (Secretarias/Conselho)</button>
+</div>
 
-    <!-- ABA TAREFAS -->
-    <div id="tarefas" class="tab-content active">
-        <form onsubmit="salvarTarefa(event)">
-            <div class="form-grid">
-                <div class="form-group">
-                    <label for="tarefa-id">Vincular à Linha de Ação</label>
-                    <select id="tarefa-id" required>
-                        <option value="">Selecione uma Linha de Ação...</option>
-                        <option value="1">LA 1.1 - Qualificar os mecanismos de monitoramento educacional</option>
-                        <option value="2">LA 2.1 - Promover a integração das informações assistenciais</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="tarefa-status">Status Atual da Tarefa</label>
-                    <select id="tarefa-status" required>
-                        <option value="Não Iniciada">Não Iniciada</option>
-                        <option value="Em Andamento">Em Andamento</option>
-                        <option value="Concluída">Concluída</option>
-                    </select>
-                </div>
-
-                <div class="form-group full-width">
-                    <label for="tarefa-nome">Descrição Detalhada da Tarefa</label>
-                    <textarea id="tarefa-nome" rows="3" required placeholder="Descreva os marcos operacionais da tarefa pública..."></textarea>
-                </div>
+<!-- ABA TAREFAS -->
+<div id="tarefas" class="tab-content active">
+    <form onsubmit="salvarTarefa(event)">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="tarefa-id">Vincular à Linha de Ação</label>
+                <select id="tarefa-id" required>
+                    <option value="">Selecione uma Linha de Ação...</option>
+                    <option value="1">LA 1.1 - Qualificar os mecanismos de monitoramento educacional</option>
+                    <option value="2">LA 2.1 - Promover a integração das informações assistenciais</option>
+                </select>
             </div>
 
-            <div class="actions-row">
-                <button type="button" class="btn btn-secondary">Limpar</button>
-                <button type="submit" class="btn btn-primary">Salvar / Atualizar Tarefa</button>
+            <div class="form-group">
+                <label for="tarefa-status">Status Atual da Tarefa</label>
+                <select id="tarefa-status" required>
+                    <option value="Não Iniciada">Não Iniciada</option>
+                    <option value="Em Andamento">Em Andamento</option>
+                    <option value="Concluída">Concluída</option>
+                </select>
             </div>
-        </form>
 
-        <!-- Histórico Imutável de Auditoria (Restrito conforme RN09) -->
-         <!--
-        <div class="history-section">
-            <h3>Histórico de Atualizações da Tarefa</h3>
-            <table class="history-table">
-                <thead>
-                    <tr>
-                        <th>Data/Hora</th>
-                        <th>Ação</th>
-                        <th>Usuário Responsável</th>
-                        <th>Modificação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>26/06/2026 14:22</td>
-                        <td>Alteração</td>
-                        <td>Carlos Silva (Admin)</td>
-                        <td>Status alterado para "Em Andamento"</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="form-group full-width">
+                <label for="tarefa-nome">Descrição Detalhada da Tarefa</label>
+                <textarea id="tarefa-nome" rows="3" required placeholder="Descreva os marcos operacionais da tarefa pública..."></textarea>
+            </div>
         </div>
-        -->
-    </div>
 
-    <!-- ABA INDICADORES -->
-    <div id="indicadores" class="tab-content">
-        <form onsubmit="salvarIndicador(event)">
-            <div class="form-grid">
-                <div class="form-group">
-                    <label for="ind-vinculo">Vincular à Tarefa Operacional</label>
-                    <select id="ind-vinculo" required>
-                        <option value="">Selecione a tarefa correspondente...</option>
-                        <option value="1">Tarefa 1.1.1 - Mapeamento das taxas de evasão</option>
-                        <option value="2">Tarefa 2.1.2 - Consolidação do prontuário nutricional</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="ind-nome">Nome do Indicador</label>
-                    <input type="text" id="ind-nome" required placeholder="Ex: Percentual de evasão escolar corrigida">
-                </div>
-
-                <div class="form-group">
-                    <label for="ind-tipo">Identidade Visual / Tipo de Métrica</label>
-                    <select id="ind-tipo" required>
-                        <option value="Percentual">Taxa / Percentual (%)</option>
-                        <option value="Absoluto">Índice Absoluto (Inteiro)</option>
-                        <option value="Cronograma">Evolução Temporal / Quadrimestre</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="ind-valor">Valor Atual Registrado</label>
-                    <input type="text" id="ind-valor" required placeholder="Insira o dado numérico ou percentual">
-                </div>
-
-                <div class="import-box">
-                    <h3>Importar dados de indicadores</h3>
-                    <p>Envie um arquivo para atualizar ou complementar indicadores vinculados às tarefas. Os dados serão validados antes do registro.</p>
-
-                    <div class="form-group">
-                        <label for="arquivo-indicadores">Arquivo de importação</label>
-                        <input type="file" id="arquivo-indicadores" accept=".csv,.xlsx,.pdf">
-                        <span class="import-help">Formatos aceitos: CSV, XLSX e PDF.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="actions-row">
-                <button type="button" class="btn btn-secondary">Limpar</button>
-                <button type="button" class="btn btn-secondary" onclick="importarIndicadores()">Importar Arquivo</button>
-                <button type="submit" class="btn btn-primary">Cadastrar / Modificar Indicador</button>
-            </div>
-        </form>
-
-        <!---
-        <div class="history-section">
-            <h3>Histórico de Atualizações do Indicador</h3>
-            <table class="history-table">
-                <thead>
-                    <tr>
-                        <th>Data/Hora</th>
-                        <th>Ação</th>
-                        <th>Usuário Responsável</th>
-                        <th>Modificação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>25/06/2026 09:15</td>
-                        <td>Adição</td>
-                        <td>Ana Costa (SEED)</td>
-                        <td>Inserção inicial do indicador de evasão no sistema</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="actions-row">
+            <button type="button" class="btn btn-secondary">Limpar</button>
+            <button type="submit" class="btn btn-primary">Salvar / Atualizar Tarefa</button>
         </div>
-        -->
+    </form>
+
+    <!-- Histórico Imutável de Auditoria (Restrito conforme RN09) -->
+     <!--
+    <div class="history-section">
+        <h3>Histórico de Atualizações da Tarefa</h3>
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Data/Hora</th>
+                    <th>Ação</th>
+                    <th>Usuário Responsável</th>
+                    <th>Modificação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>26/06/2026 14:22</td>
+                    <td>Alteração</td>
+                    <td>Carlos Silva (Admin)</td>
+                    <td>Status alterado para "Em Andamento"</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+    -->
+</div>
+
+<!-- ABA INDICADORES -->
+<div id="indicadores" class="tab-content">
+    <form onsubmit="salvarIndicador(event)">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="ind-vinculo">Vincular à Tarefa Operacional</label>
+                <select id="ind-vinculo" required>
+                    <option value="">Selecione a tarefa correspondente...</option>
+                    <option value="1">Tarefa 1.1.1 - Mapeamento das taxas de evasão</option>
+                    <option value="2">Tarefa 2.1.2 - Consolidação do prontuário nutricional</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ind-nome">Nome do Indicador</label>
+                <input type="text" id="ind-nome" required placeholder="Ex: Percentual de evasão escolar corrigida">
+            </div>
+
+            <div class="form-group">
+                <label for="ind-tipo">Identidade Visual / Tipo de Métrica</label>
+                <select id="ind-tipo" required>
+                    <option value="Percentual">Taxa / Percentual (%)</option>
+                    <option value="Absoluto">Índice Absoluto (Inteiro)</option>
+                    <option value="Cronograma">Evolução Temporal / Quadrimestre</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ind-valor">Valor Atual Registrado</label>
+                <input type="text" id="ind-valor" required placeholder="Insira o dado numérico ou percentual">
+            </div>
+
+            <div class="import-box">
+                <h3>Importar dados de indicadores</h3>
+                <p>Envie um arquivo para atualizar ou complementar indicadores vinculados às tarefas. Os dados serão validados antes do registro.</p>
+
+                <div class="form-group">
+                    <label for="arquivo-indicadores">Arquivo de importação</label>
+                    <input type="file" id="arquivo-indicadores" accept=".csv,.xlsx,.pdf">
+                    <span class="import-help">Formatos aceitos: CSV, XLSX e PDF.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions-row">
+            <button type="button" class="btn btn-secondary">Limpar</button>
+            <button type="button" class="btn btn-secondary" onclick="importarIndicadores()">Importar Arquivo</button>
+            <button type="submit" class="btn btn-primary">Cadastrar / Modificar Indicador</button>
+        </div>
+    </form>
+
+    <!---
+    <div class="history-section">
+        <h3>Histórico de Atualizações do Indicador</h3>
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Data/Hora</th>
+                    <th>Ação</th>
+                    <th>Usuário Responsável</th>
+                    <th>Modificação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>25/06/2026 09:15</td>
+                    <td>Adição</td>
+                    <td>Ana Costa (SEED)</td>
+                    <td>Inserção inicial do indicador de evasão no sistema</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    -->
+</div>
+```
+
 </main>
 
 <footer class="cedca-footer">
@@ -436,7 +438,6 @@
         alert(`Arquivo "${arquivo.name}" recebido. Os dados serão validados antes de serem salvos no sistema.`);
     }
 </script>
-```
 
 </body>
 </html>
