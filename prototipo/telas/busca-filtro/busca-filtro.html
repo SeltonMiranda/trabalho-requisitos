@@ -45,6 +45,7 @@
         line-height: 1;
         margin: 0;
     }
+
     .btn-contraste:hover {
         opacity: 0.9;
     }
@@ -135,6 +136,7 @@
         background-color: var(--cedca-green, #00875a); 
         color: white; 
     }
+
     .btn-secondary { 
         background-color: transparent; 
         border: 1px solid var(--border-color); 
@@ -219,7 +221,10 @@
         margin-bottom: 0.25rem;
     }
 
-    .section-content { font-size: 0.9rem; color: var(--text-color); }
+    .section-content {
+        font-size: 0.9rem;
+        color: var(--text-color);
+    }
 
     .indicator-pill {
         display: inline-block;
@@ -231,53 +236,71 @@
         border: 1px solid #e5e7eb;
     }
 
-    .no-results { grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--text-muted); }
+    .no-results {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 3rem;
+        color: var(--text-muted);
+    }
 
     /* Espelhamento absoluto das regras de Alto Contraste de indicadores.html */
     body.high-contrast {
         background-color: #000000 !important;
         color: #ffffff !important;
     }
+
     body.high-contrast .header-governo { 
         background-color: #000000 !important; 
         border-bottom: 1px solid #ffff00 !important; 
     }
+
     body.high-contrast .header-sistema { 
         background-color: #000000 !important; 
         border-bottom-color: #ffff00 !important; 
     }
+
     body.high-contrast .navbar-principal { 
         background-color: #111111 !important; 
     }
+
     body.high-contrast .search-filter-container,
     body.high-contrast .plan-card {
         background-color: #111111 !important;
         border-color: #ffffff !important;
     }
+
     body.high-contrast .page-intro h2,
     body.high-contrast .results-count,
     body.high-contrast .section-label {
         color: #ffff00 !important;
     }
+
     body.high-contrast .filter-item select,
     body.high-contrast .search-input-wrapper input {
         background-color: #000000 !important;
         color: #ffffff !important;
         border-color: #ffffff !important;
     }
+
     body.high-contrast .indicator-pill {
         background-color: #000000 !important;
         color: #ffffff !important;
         border-color: #ffffff !important;
     }
+
     body.high-contrast .btn-primary {
         background-color: #ffff00 !important;
         color: #000000 !important;
     }
 
     @media (max-width: 850px) {
-        .filters-grid { grid-template-columns: 1fr; }
-        .cards-grid { grid-template-columns: 1fr; }
+        .filters-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .cards-grid {
+            grid-template-columns: 1fr;
+        }
 
         .actions-row {
             flex-direction: column;
@@ -420,8 +443,7 @@
 
     <h2 class="results-count" id="countDisplay">Carregando dados...</h2>
     
-    <section class="cards-grid" id="cardsContainer">
-        </section>
+    <section class="cards-grid" id="cardsContainer"></section>
 </main>
 
 <footer class="cedca-footer">
