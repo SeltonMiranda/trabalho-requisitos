@@ -1,4 +1,4 @@
-# Nome do Projeto EM BREVE
+# Nome do Projeto 
 
 Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente.
 
@@ -17,7 +17,7 @@ A solução contempla consulta pública, busca e filtros, visualização de indi
 
 ## Link do Protótipo
 
-EM BREVE
+Vá para prototipo/link-prototipo.md
 
 ## Telas disponíveis no protótipo
 
@@ -101,5 +101,5 @@ cd trabalho-requisitos
 
 * Semana 1: definição de escopo, atores, revisão inicial dos requisitos e identificação de inconsistências.
 * Semana 2: criação do backlog, histórias de usuário, critérios de aceitação e regras de negócio.
-* Semana 3: criação e evolução do protótipo, com telas de Home, Busca/Filtros, Indicadores, Dashboard, Detalhamento, Login, Recuperação de Senha, Painel Administrativo, Cadastro de Usuário, Gerenciar Dados e Histórico, além de importação simulada, exportação simulada e atualização da matriz de rastreabilidade.
-* Entrega final: EM BREVE
+* Semana 3: criação e evolução do protótipo, com telas de Home, Busca/Filtros, Indicadores, Painel Administrativo e matriz de rastreabilidade parcial.
+* Entrega final: Criação das telas DashBoard, Detalhamento, Login, Recuperação de senha, Cadastro de Usuário, Gerenciar dados, Histórico. Atualização da matriz de rastreabilidade. Versão final do protótipo.
