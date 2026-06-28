@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -18,507 +19,557 @@
             --border-color: #d1d5db;
         }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.3s, color 0.3s;
-        }
+```
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+    }
 
-        /* Ajuste de precisão idêntico a indicadores.html e login.html */
-        .header-governo {
-            padding: 6px 0 !important;
-        }
+    /* Ajuste de precisão idêntico a indicadores.html e login.html */
+    .header-governo {
+        padding: 6px 0 !important;
+    }
 
-        .btn-contraste {
-            background-color: transparent;
-            color: #ffffff;
-            border: 1px solid #ffffff;
-            padding: 6px 10px;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: opacity 0.2s;
-            font-family: inherit;
-            font-size: 12px;
-            line-height: 1;
-            margin: 0;
-        }
-        .btn-contraste:hover {
-            opacity: 0.9;
-        }
+    .btn-contraste {
+        background-color: transparent;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        padding: 6px 10px;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: opacity 0.2s;
+        font-family: inherit;
+        font-size: 12px;
+        line-height: 1;
+        margin: 0;
+    }
+    .btn-contraste:hover {
+        opacity: 0.9;
+    }
 
-        /* Espaçamentos do bloco de conteúdo principal */
-        .page-intro {
-            margin: 25px 0 15px 0;
-        }
+    /* Espaçamentos do bloco de conteúdo principal */
+    .page-intro {
+        margin: 25px 0 15px 0;
+    }
 
-        .page-intro h2 {
-            color: var(--primary-color);
-            margin-bottom: 8px;
-        }
+    .page-intro h2 {
+        color: var(--primary-color);
+        margin-bottom: 8px;
+    }
 
-        /* Estrutura interna de busca e filtros (Mantendo as funcionalidades funcionais) */
-        .search-filter-container {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        }
+    /* Estrutura interna de busca e filtros (Mantendo as funcionalidades funcionais) */
+    .search-filter-container {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
 
-        .search-group {
-            margin-bottom: 1.5rem;
-        }
+    .search-group {
+        margin-bottom: 1.5rem;
+    }
 
-        .search-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 6px;
-        }
+    .search-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 6px;
+    }
 
-        .search-input-wrapper input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-size: 1rem;
-            background-color: var(--card-bg);
-            color: var(--text-color);
-            box-sizing: border-box;
-        }
+    .search-input-wrapper input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        font-size: 1rem;
+        background-color: var(--card-bg);
+        color: var(--text-color);
+        box-sizing: border-box;
+    }
 
-        .filters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1rem;
-            padding-top: 1rem;
-            border-top: 1px dashed var(--border-color);
-        }
+    .filters-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+        padding-top: 1rem;
+        border-top: 1px dashed var(--border-color);
+    }
 
-        .filter-item label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 6px;
-            color: var(--text-muted);
-        }
+    .filter-item label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: bold;
+        margin-bottom: 6px;
+        color: var(--text-muted);
+    }
 
-        .filter-item select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            background-color: var(--card-bg);
-            color: var(--text-color);
-            font-size: 0.95rem;
-        }
+    .filter-item select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        background-color: var(--card-bg);
+        color: var(--text-color);
+        font-size: 0.95rem;
+    }
+
+    .actions-row {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+    }
+
+    .btn {
+        padding: 0.6rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .btn-primary { 
+        background-color: var(--cedca-green, #00875a); 
+        color: white; 
+    }
+    .btn-secondary { 
+        background-color: transparent; 
+        border: 1px solid var(--border-color); 
+        color: var(--text-color); 
+    }
+
+    .export-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .export-label {
+        font-weight: 600;
+        color: var(--text-color);
+        font-size: 0.95rem;
+    }
+
+    body.high-contrast .export-label {
+        color: #ffffff !important;
+    }
+
+    .results-count {
+        margin: 25px 0 15px 0;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+
+    /* Layout de Cards em Grid */
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+        gap: 18px;
+        margin-bottom: 25px;
+    }
+
+    .plan-card {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-top: 4px solid var(--primary-color);
+        border-radius: 8px;
+        padding: 18px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-meta-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .badge {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: #e5e7eb;
+        color: #374151;
+    }
+
+    .badge-primary { background-color: #dbeafe; color: #1e40af; }
+    .badge-accent { background-color: #fef3c7; color: #92400e; }
+
+    .card-section {
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .section-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: var(--accent-color);
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+    }
+
+    .section-content { font-size: 0.9rem; color: var(--text-color); }
+
+    .indicator-pill {
+        display: inline-block;
+        font-size: 0.75rem;
+        background-color: #f3f4f6;
+        padding: 4px 8px;
+        margin: 2px;
+        border-radius: 4px;
+        border: 1px solid #e5e7eb;
+    }
+
+    .no-results { grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--text-muted); }
+
+    /* Espelhamento absoluto das regras de Alto Contraste de indicadores.html */
+    body.high-contrast {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+    }
+    body.high-contrast .header-governo { 
+        background-color: #000000 !important; 
+        border-bottom: 1px solid #ffff00 !important; 
+    }
+    body.high-contrast .header-sistema { 
+        background-color: #000000 !important; 
+        border-bottom-color: #ffff00 !important; 
+    }
+    body.high-contrast .navbar-principal { 
+        background-color: #111111 !important; 
+    }
+    body.high-contrast .search-filter-container,
+    body.high-contrast .plan-card {
+        background-color: #111111 !important;
+        border-color: #ffffff !important;
+    }
+    body.high-contrast .page-intro h2,
+    body.high-contrast .results-count,
+    body.high-contrast .section-label {
+        color: #ffff00 !important;
+    }
+    body.high-contrast .filter-item select,
+    body.high-contrast .search-input-wrapper input {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+        border-color: #ffffff !important;
+    }
+    body.high-contrast .indicator-pill {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+        border-color: #ffffff !important;
+    }
+    body.high-contrast .btn-primary {
+        background-color: #ffff00 !important;
+        color: #000000 !important;
+    }
+
+    @media (max-width: 850px) {
+        .filters-grid { grid-template-columns: 1fr; }
+        .cards-grid { grid-template-columns: 1fr; }
 
         .actions-row {
-            margin-top: 1.5rem;
-            display: flex;
-            justify-content: flex-end;
-            gap: 1rem;
-        }
-
-        .btn {
-            padding: 0.6rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .btn-primary { 
-            background-color: var(--cedca-green, #00875a); 
-            color: white; 
-        }
-        .btn-secondary { 
-            background-color: transparent; 
-            border: 1px solid var(--border-color); 
-            color: var(--text-color); 
-        }
-
-        .results-count {
-            margin: 25px 0 15px 0;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        /* Layout de Cards em Grid */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-            gap: 18px;
-            margin-bottom: 25px;
-        }
-
-        .plan-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--primary-color);
-            border-radius: 8px;
-            padding: 18px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            align-items: flex-start;
         }
 
-        .card-meta-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-bottom: 1rem;
+        .export-actions {
+            width: 100%;
         }
+    }
+</style>
+```
 
-        .badge {
-            font-size: 0.75rem;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            text-transform: uppercase;
-            background-color: #e5e7eb;
-            color: #374151;
-        }
-
-        .badge-primary { background-color: #dbeafe; color: #1e40af; }
-        .badge-accent { background-color: #fef3c7; color: #92400e; }
-
-        .card-section {
-            margin-bottom: 0.75rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .section-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--accent-color);
-            font-weight: bold;
-            margin-bottom: 0.25rem;
-        }
-
-        .section-content { font-size: 0.9rem; color: var(--text-color); }
-
-        .indicator-pill {
-            display: inline-block;
-            font-size: 0.75rem;
-            background-color: #f3f4f6;
-            padding: 4px 8px;
-            margin: 2px;
-            border-radius: 4px;
-            border: 1px solid #e5e7eb;
-        }
-
-        .no-results { grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--text-muted); }
-
-        /* Espelhamento absoluto das regras de Alto Contraste de indicadores.html */
-        body.high-contrast {
-            background-color: #000000 !important;
-            color: #ffffff !important;
-        }
-        body.high-contrast .header-governo { 
-            background-color: #000000 !important; 
-            border-bottom: 1px solid #ffff00 !important; 
-        }
-        body.high-contrast .header-sistema { 
-            background-color: #000000 !important; 
-            border-bottom-color: #ffff00 !important; 
-        }
-        body.high-contrast .navbar-principal { 
-            background-color: #111111 !important; 
-        }
-        body.high-contrast .search-filter-container,
-        body.high-contrast .plan-card {
-            background-color: #111111 !important;
-            border-color: #ffffff !important;
-        }
-        body.high-contrast .page-intro h2,
-        body.high-contrast .results-count,
-        body.high-contrast .section-label {
-            color: #ffff00 !important;
-        }
-        body.high-contrast .filter-item select,
-        body.high-contrast .search-input-wrapper input {
-            background-color: #000000 !important;
-            color: #ffffff !important;
-            border-color: #ffffff !important;
-        }
-        body.high-contrast .indicator-pill {
-            background-color: #000000 !important;
-            color: #ffffff !important;
-            border-color: #ffffff !important;
-        }
-        body.high-contrast .btn-primary {
-            background-color: #ffff00 !important;
-            color: #000000 !important;
-        }
-
-        @media (max-width: 850px) {
-            .filters-grid { grid-template-columns: 1fr; }
-            .cards-grid { grid-template-columns: 1fr; }
-        }
-    </style>
 </head>
 <body>
 
-    <header class="header-governo">
-        <div class="container header-gov-content">
-            <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
-            <button class="btn-contraste" onclick="alternarContraste()">Alto Contraste</button>
-        </div>
-    </header>
+```
+<header class="header-governo">
+    <div class="container header-gov-content">
+        <span class="gov-logo-text">GOVERNO DO ESTADO DO PARANÁ</span>
+        <button class="btn-contraste" onclick="alternarContraste()">Alto Contraste</button>
+    </div>
+</header>
 
-    <header class="header-sistema">
-        <div class="container header-sis-content">
-            <div class="sistema-titulo-area">
-                <h1>Sistema de Monitoramento</h1>
-                <p>Plano Decenal da Criança e do Adolescente</p>
+<header class="header-sistema">
+    <div class="container header-sis-content">
+        <div class="sistema-titulo-area">
+            <h1>Sistema de Monitoramento</h1>
+            <p>Plano Decenal da Criança e do Adolescente</p>
+        </div>
+    </div>
+</header>
+
+<nav class="navbar-principal">
+    <div class="container nav-container">
+        <ul class="nav-links">
+            <li><a href="../home/index.html">Página Inicial</a></li>
+            <li><a href="../busca-filtro/busca-filtro.html" class="active">Busca/Filtros</a></li>
+            <li><a href="../indicadores/indicadores.html">Indicadores</a></li>
+            <li><a href="../dashboard/index.html">Dashboard</a></li>
+        </ul>
+
+        <ul class="nav-auth">
+            <li><a href="../login/login.html" class="btn-login">Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="container">
+    <section class="page-intro">
+        <h2>Painel de Monitoramento</h2>
+        <p>Utilize os filtros abaixo para localizar metas, problemas públicos e linhas de ação estruturadas.</p>
+    </section>
+
+    <section class="search-filter-container">
+        <div class="search-group">
+            <label for="searchTxt">Pesquisa Textual</label>
+            <div class="search-input-wrapper">
+                <input type="text" id="searchTxt" oninput="applyFilters()" placeholder="Pesquise por termo no problema público, compromisso, linha de ação...">
             </div>
         </div>
-    </header>
 
-    <nav class="navbar-principal">
-        <div class="container nav-container">
-            <ul class="nav-links">
-                <li><a href="../home/index.html">Página Inicial</a></li>
-                <li><a href="../busca-filtro/busca-filtro.html" class="active">Busca/Filtros</a></li>
-                <li><a href="../indicadores/indicadores.html">Indicadores</a></li>
-                <li><a href="../dashboard/index.html">Dashboard</a></li>
-            </ul>
+        <div class="filters-grid">
+            <div class="filter-item">
+                <label for="filterCompromisso">Compromisso</label>
+                <select id="filterCompromisso" onchange="applyFilters()">
+                    <option value="">Todos</option>
+                    <option value="permanência escolar">Permanência Escolar</option>
+                    <option value="proteção social">Proteção Social e Nutricional</option>
+                    <option value="psicossocial">Atenção Psicossocial</option>
+                    <option value="violência">Rede de Proteção contra Violência</option>
+                </select>
+            </div>
 
-            <ul class="nav-auth">
-                <li><a href="../login/login.html" class="btn-login">Login</a></li>
-            </ul>
+            <div class="filter-item">
+                <label for="filterIndicador">Indicador</label>
+                <select id="filterIndicador" onchange="applyFilters()">
+                    <option value="">Todos</option>
+                    <option value="evasão">Evasão / Abandono</option>
+                    <option value="nutricional">Insegurança / Avaliação Nutricional</option>
+                    <option value="atendimentos">Atendimentos Saúde Mental</option>
+                    <option value="denúncias">Denúncias Registradas</option>
+                </select>
+            </div>
+
+            <div class="filter-item">
+                <label for="filterAno">Período (Ano Base)</label>
+                <select id="filterAno" onchange="applyFilters()">
+                    <option value="">Todos</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                </select>
+            </div>
+
+            <div class="filter-item">
+                <label for="filterResponsavel">Responsável</label>
+                <select id="filterResponsavel" onchange="applyFilters()">
+                    <option value="">Todos</option>
+                    <option value="SEED">SEED</option>
+                    <option value="SEDEF">SEDEF</option>
+                    <option value="SESA">SESA</option>
+                    <option value="SESP">SESP</option>
+                </select>
+            </div>
+
+            <div class="filter-item">
+                <label for="filterMunicipio">Município</label>
+                <select id="filterMunicipio" onchange="applyFilters()">
+                    <option value="">Todos</option>
+                    <option value="Curitiba">Curitiba</option>
+                    <option value="Londrina">Londrina</option>
+                    <option value="Cascavel">Cascavel</option>
+                    <option value="Foz do Iguaçu">Foz do Iguaçu</option>
+                </select>
+            </div>
+
+            <div class="filter-item">
+                <label for="filterRegiao">Região</label>
+                <select id="filterRegiao" onchange="applyFilters()">
+                    <option value="">Todas</option>
+                    <option value="RMC">RMC</option>
+                    <option value="Norte">Norte Paranaense</option>
+                    <option value="Oeste">Oeste Paranaense</option>
+                </select>
+            </div>
         </div>
-    </nav>
 
-    <main class="container">
-        <section class="page-intro">
-            <h2>Painel de Monitoramento</h2>
-            <p>Utilize os filtros abaixo para localizar metas, problemas públicos e linhas de ação estruturadas.</p>
+        <div class="actions-row">
+            <button class="btn btn-secondary" onclick="clearFilters()">Limpar Filtros</button>
+
+            <div class="export-actions">
+                <span class="export-label">Exportar resultados:</span>
+                <button class="btn btn-primary" onclick="exportarDados('csv')">CSV</button>
+                <button class="btn btn-primary" onclick="exportarDados('xlsx')">Excel</button>
+                <button class="btn btn-primary" onclick="exportarDados('pdf')">PDF</button>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="results-count" id="countDisplay">Carregando dados...</h2>
+    
+    <section class="cards-grid" id="cardsContainer">
         </section>
+</main>
 
-        <section class="search-filter-container">
-            <div class="search-group">
-                <label for="searchTxt">Pesquisa Textual</label>
-                <div class="search-input-wrapper">
-                    <input type="text" id="searchTxt" oninput="applyFilters()" placeholder="Pesquise por termo no problema público, compromisso, linha de ação...">
+<footer class="cedca-footer">
+    <div class="container">
+        <p><strong>Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente</strong></p>
+        <p>Governo do Estado do Paraná</p>
+        <small>Desenvolvido com foco em acessibilidade e transparência pública.</small>
+    </div>
+</footer>
+
+<script>
+    const mockData = [
+        {
+            id: "1", municipio: "Curitiba", regiao: "RMC", responsavel: "SEED", ano: "2024",
+            problema: "Persistência da evasão e do abandono escolar entre adolescentes em situação de vulnerabilidade social e territorial.",
+            compromisso: "Fortalecer a permanência escolar de adolescentes, promovendo acompanhamento contínuo e articulação entre educação, assistência social e rede de proteção.",
+            linhaAcao: "Qualificar os mecanismos de monitoramento educacional e integração entre os órgãos responsáveis pelo acompanhamento dos estudantes.",
+            indicators: ["taxa de evasão escolar", "taxa de abandono escolar", "percentual de estudantes com frequência abaixo do mínimo"]
+        },
+        {
+            id: "2", municipio: "Londrina", regiao: "Norte", responsavel: "SEDEF", ano: "2025",
+            problema: "Persistência da insegurança alimentar entre crianças em situação de vulnerabilidade social.",
+            compromisso: "Fortalecer a proteção social e nutricional de crianças em situação de vulnerabilidade por meio da integração das políticas públicas.",
+            linhaAcao: "Promover a integração das informações próximas pelas áreas de saúde, assistência social e educação para apoiar a tomada de decisão.",
+            indicators: ["percentual de crianças em situação de insegurança alimentar", "quantidade de famílias acompanhadas", "número de avaliações nutricionais realizadas"]
+        },
+        {
+            id: "3", municipio: "Cascavel", regiao: "Oeste", responsavel: "SESA", ano: "2026",
+            problema: "Dificuldade de acompanhamento contínuo de adolescentes em situação de sofrimento psíquico na rede pública.",
+            compromisso: "Fortalecer a atenção psicossocial voltada à infância e adolescência, promovendo continuidade do cuidado e integração da rede de atendimento.",
+            linhaAcao: "Qualificar os processos de registro, acompanhamento e articulação dos serviços que compõem a rede de atenção psicossocial.",
+            indicators: ["quantidade de atendimentos realizados", "tempo médio de espera para atendimento", "percentual de casos acompanhados continuamente"]
+        },
+        {
+            id: "4", municipio: "Foz do Iguaçu", regiao: "Oeste", responsavel: "SESP", ano: "2025",
+            problema: "Subnotificação e fragmentação das informações relacionadas aos casos de violência contra crianças e adolescentes.",
+            compromisso: "Fortalecer a rede de proteção à criança e ao adolescente por meio da melhoria dos mecanismos de notificação, acompanhamento e resposta às situações de violência.",
+            linhaAcao: "Promover a integração dos fluxos de informação e acompanhamento entre os órgãos que compõem a rede de proteção.",
+            indicators: ["quantidade de denúncias registradas", "percentual de casos em acompanhamento", "tempo médio de resposta às denúncias"]
+        }
+    ];
+
+    function displayCards(data) {
+        const container = document.getElementById('cardsContainer');
+        const countDisplay = document.getElementById('countDisplay');
+        container.innerHTML = '';
+        countDisplay.innerText = `${data.length} card(s) de problema público encontrado(s)`;
+
+        if (data.length === 0) {
+            container.innerHTML = `<div class="no-results">Nenhum problema atende aos critérios de filtragem selecionados.</div>`;
+            return;
+        }
+
+        data.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'plan-card';
+            card.innerHTML = `
+                <div>
+                    <div class="card-meta-tags">
+                        <span class="badge badge-primary">${item.responsavel}</span>
+                        <span class="badge badge-accent">Ano: ${item.ano}</span>
+                        <span class="badge">${item.municipio} - ${item.regiao}</span>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-label">Problema Público</div>
+                        <div class="section-content"><strong>${item.problema}</strong></div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="section-label">Compromisso</div>
+                        <div class="section-content">${item.compromisso}</div>
+                    </div>
+
+                    <div class="card-section">
+                        <div class="section-label">Linha de Ação</div>
+                        <div class="section-content">${item.linhaAcao}</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="filters-grid">
-                <div class="filter-item">
-                    <label for="filterCompromisso">Compromisso</label>
-                    <select id="filterCompromisso" onchange="applyFilters()">
-                        <option value="">Todos</option>
-                        <option value="permanência escolar">Permanência Escolar</option>
-                        <option value="proteção social">Proteção Social e Nutricional</option>
-                        <option value="psicossocial">Atenção Psicossocial</option>
-                        <option value="violência">Rede de Proteção contra Violência</option>
-                    </select>
-                </div>
-
-                <div class="filter-item">
-                    <label for="filterIndicador">Indicador</label>
-                    <select id="filterIndicador" onchange="applyFilters()">
-                        <option value="">Todos</option>
-                        <option value="evasão">Evasão / Abandono</option>
-                        <option value="nutricional">Insegurança / Avaliação Nutricional</option>
-                        <option value="atendimentos">Atendimentos Saúde Mental</option>
-                        <option value="denúncias">Denúncias Registradas</option>
-                    </select>
-                </div>
-
-                <div class="filter-item">
-                    <label for="filterAno">Período (Ano Base)</label>
-                    <select id="filterAno" onchange="applyFilters()">
-                        <option value="">Todos</option>
-                        <option value="2024">2024</option>
-                        <option value="2025">2025</option>
-                        <option value="2026">2026</option>
-                    </select>
-                </div>
-
-                <div class="filter-item">
-                    <label for="filterResponsavel">Responsável</label>
-                    <select id="filterResponsavel" onchange="applyFilters()">
-                        <option value="">Todos</option>
-                        <option value="SEED">SEED</option>
-                        <option value="SEDEF">SEDEF</option>
-                        <option value="SESA">SESA</option>
-                        <option value="SESP">SESP</option>
-                    </select>
-                </div>
-
-                <div class="filter-item">
-                    <label for="filterMunicipio">Município</label>
-                    <select id="filterMunicipio" onchange="applyFilters()">
-                        <option value="">Todos</option>
-                        <option value="Curitiba">Curitiba</option>
-                        <option value="Londrina">Londrina</option>
-                        <option value="Cascavel">Cascavel</option>
-                        <option value="Foz do Iguaçu">Foz do Iguaçu</option>
-                    </select>
-                </div>
-
-                <div class="filter-item">
-                    <label for="filterRegiao">Região</label>
-                    <select id="filterRegiao" onchange="applyFilters()">
-                        <option value="">Todas</option>
-                        <option value="RMC">RMC</option>
-                        <option value="Norte">Norte Paranaense</option>
-                        <option value="Oeste">Oeste Paranaense</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="actions-row">
-                <button class="btn btn-secondary" onclick="clearFilters()">Limpar Filtros</button>
-            </div>
-        </section>
-
-        <h2 class="results-count" id="countDisplay">Carregando dados...</h2>
-        
-        <section class="cards-grid" id="cardsContainer">
-            </section>
-    </main>
-
-    <footer class="cedca-footer">
-        <div class="container">
-            <p><strong>Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente</strong></p>
-            <p>Governo do Estado do Paraná</p>
-            <small>Desenvolvido com foco em acessibilidade e transparência pública.</small>
-        </div>
-    </footer>
-
-    <script>
-        const mockData = [
-            {
-                id: "1", municipio: "Curitiba", regiao: "RMC", responsavel: "SEED", ano: "2024",
-                problema: "Persistência da evasão e do abandono escolar entre adolescentes em situação de vulnerabilidade social e territorial.",
-                compromisso: "Fortalecer a permanência escolar de adolescentes, promovendo acompanhamento contínuo e articulação entre educação, assistência social e rede de proteção.",
-                linhaAcao: "Qualificar os mecanismos de monitoramento educacional e integração entre os órgãos responsáveis pelo acompanhamento dos estudantes.",
-                indicators: ["taxa de evasão escolar", "taxa de abandono escolar", "percentual de estudantes com frequência abaixo do mínimo"]
-            },
-            {
-                id: "2", municipio: "Londrina", regiao: "Norte", responsavel: "SEDEF", ano: "2025",
-                problema: "Persistência da insegurança alimentar entre crianças em situação de vulnerabilidade social.",
-                compromisso: "Fortalecer a proteção social e nutricional de crianças em situação de vulnerabilidade por meio da integração das políticas públicas.",
-                linhaAcao: "Promover a integração das informações próximas pelas áreas de saúde, assistência social e educação para apoiar a tomada de decisão.",
-                indicators: ["percentual de crianças em situação de insegurança alimentar", "quantidade de famílias acompanhadas", "número de avaliações nutricionais realizadas"]
-            },
-            {
-                id: "3", municipio: "Cascavel", regiao: "Oeste", responsavel: "SESA", ano: "2026",
-                problema: "Dificuldade de acompanhamento contínuo de adolescentes em situação de sofrimento psíquico na rede pública.",
-                compromisso: "Fortalecer a atenção psicossocial voltada à infância e adolescência, promovendo continuidade do cuidado e integração da rede de atendimento.",
-                linhaAcao: "Qualificar os processos de registro, acompanhamento e articulação dos serviços que compõem a rede de atenção psicossocial.",
-                indicators: ["quantidade de atendimentos realizados", "tempo médio de espera para atendimento", "percentual de casos acompanhados continuamente"]
-            },
-            {
-                id: "4", municipio: "Foz do Iguaçu", regiao: "Oeste", responsavel: "SESP", ano: "2025",
-                problema: "Subnotificação e fragmentação das informações relacionadas aos casos de violência contra crianças e adolescentes.",
-                compromisso: "Fortalecer a rede de proteção à criança e ao adolescente por meio da melhoria dos mecanismos de notificação, acompanhamento e resposta às situações de violência.",
-                linhaAcao: "Promover a integração dos fluxos de informação e acompanhamento entre os órgãos que compõem a rede de proteção.",
-                indicators: ["quantidade de denúncias registradas", "percentual de casos em acompanhamento", "tempo médio de resposta às denúncias"]
-            }
-        ];
-
-        function displayCards(data) {
-            const container = document.getElementById('cardsContainer');
-            const countDisplay = document.getElementById('countDisplay');
-            container.innerHTML = '';
-            countDisplay.innerText = `${data.length} card(s) de problema público encontrado(s)`;
-
-            if (data.length === 0) {
-                container.innerHTML = `<div class="no-results">Nenhum problema atende aos critérios de filtragem selecionados.</div>`;
-                return;
-            }
-
-            data.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'plan-card';
-                card.innerHTML = `
+                <div style="margin-top: 10px;">
+                    <div class="section-label">Indicadores Relacionados</div>
                     <div>
-                        <div class="card-meta-tags">
-                            <span class="badge badge-primary">${item.responsavel}</span>
-                            <span class="badge badge-accent">Ano: ${item.ano}</span>
-                            <span class="badge">${item.municipio} - ${item.regiao}</span>
-                        </div>
-                        
-                        <div class="card-section">
-                            <div class="section-label">Problema Público</div>
-                            <div class="section-content"><strong>${item.problema}</strong></div>
-                        </div>
-
-                        <div class="card-section">
-                            <div class="section-label">Compromisso</div>
-                            <div class="section-content">${item.compromisso}</div>
-                        </div>
-
-                        <div class="card-section">
-                            <div class="section-label">Linha de Ação</div>
-                            <div class="section-content">${item.linhaAcao}</div>
-                        </div>
+                        ${item.indicators.map(ind => `<span class="indicator-pill">${ind}</span>`).join('')}
                     </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
 
-                    <div style="margin-top: 10px;">
-                        <div class="section-label">Indicadores Relacionados</div>
-                        <div>
-                            ${item.indicators.map(ind => `<span class="indicator-pill">${ind}</span>`).join('')}
-                        </div>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
+    function applyFilters() {
+        const searchText = document.getElementById('searchTxt').value.toLowerCase();
+        const filterCompromisso = document.getElementById('filterCompromisso').value;
+        const filterIndicador = document.getElementById('filterIndicador').value;
+        const filterAno = document.getElementById('filterAno').value;
+        const filterResponsavel = document.getElementById('filterResponsavel').value;
+        const filterMunicipio = document.getElementById('filterMunicipio').value;
+        const filterRegiao = document.getElementById('filterRegiao').value;
+
+        const filtered = mockData.filter(item => {
+            const matchesSearch = searchText === "" || 
+                item.problema.toLowerCase().includes(searchText) ||
+                item.compromisso.toLowerCase().includes(searchText) ||
+                item.linhaAcao.toLowerCase().includes(searchText);
+
+            const matchesCompromisso = filterCompromisso === "" || item.compromisso.toLowerCase().includes(filterCompromisso.toLowerCase());
+            const matchesIndicador = filterIndicador === "" || item.indicators.some(ind => ind.toLowerCase().includes(filterIndicador));
+            const matchesAno = filterAno === "" || item.ano === filterAno;
+            const matchesResponsavel = filterResponsavel === "" || item.responsavel === filterResponsavel;
+            const matchesMunicipio = filterMunicipio === "" || item.municipio === filterMunicipio;
+            const matchesRegiao = filterRegiao === "" || item.regiao === filterRegiao;
+
+            return matchesSearch && matchesCompromisso && matchesIndicador && matchesAno && matchesResponsavel && matchesMunicipio && matchesRegiao;
+        });
+
+        displayCards(filtered);
+    }
+
+    function clearFilters() {
+        document.getElementById('searchTxt').value = "";
+        document.getElementById('filterCompromisso').value = "";
+        document.getElementById('filterIndicador').value = "";
+        document.getElementById('filterAno').value = "";
+        document.getElementById('filterResponsavel').value = "";
+        document.getElementById('filterMunicipio').value = "";
+        document.getElementById('filterRegiao').value = "";
+        displayCards(mockData);
+    }
+
+    function exportarDados(formato) {
+        const totalResultados = document.querySelectorAll('.plan-card').length;
+
+        if (totalResultados === 0) {
+            alert("Não há dados disponíveis para exportação com os filtros selecionados.");
+            return;
         }
 
-        function applyFilters() {
-            const searchText = document.getElementById('searchTxt').value.toLowerCase();
-            const filterCompromisso = document.getElementById('filterCompromisso').value;
-            const filterIndicador = document.getElementById('filterIndicador').value;
-            const filterAno = document.getElementById('filterAno').value;
-            const filterResponsavel = document.getElementById('filterResponsavel').value;
-            const filterMunicipio = document.getElementById('filterMunicipio').value;
-            const filterRegiao = document.getElementById('filterRegiao').value;
+        alert(`Exportação simulada em formato ${formato.toUpperCase()}. Os dados exportados correspondem aos filtros aplicados na tela.`);
+    }
 
-            const filtered = mockData.filter(item => {
-                const matchesSearch = searchText === "" || 
-                    item.problema.toLowerCase().includes(searchText) ||
-                    item.compromisso.toLowerCase().includes(searchText) ||
-                    item.linhaAcao.toLowerCase().includes(searchText);
+    function alternarContraste() {
+        document.body.classList.toggle("high-contrast");
+    }
 
-                const matchesCompromisso = filterCompromisso === "" || item.compromisso.toLowerCase().includes(filterCompromisso.toLowerCase());
-                const matchesIndicador = filterIndicador === "" || item.indicators.some(ind => ind.toLowerCase().includes(filterIndicador));
-                const matchesAno = filterAno === "" || item.ano === filterAno;
-                const matchesResponsavel = filterResponsavel === "" || item.responsavel === filterResponsavel;
-                const matchesMunicipio = filterMunicipio === "" || item.municipio === filterMunicipio;
-                const matchesRegiao = filterRegiao === "" || item.regiao === filterRegiao;
+    window.onload = () => displayCards(mockData);
+</script>
+```
 
-                return matchesSearch && matchesCompromisso && matchesIndicador && matchesAno && matchesResponsavel && matchesMunicipio && matchesRegiao;
-            });
-
-            displayCards(filtered);
-        }
-
-        function clearFilters() {
-            document.getElementById('searchTxt').value = "";
-            document.getElementById('filterCompromisso').value = "";
-            document.getElementById('filterIndicador').value = "";
-            document.getElementById('filterAno').value = "";
-            document.getElementById('filterResponsavel').value = "";
-            document.getElementById('filterMunicipio').value = "";
-            document.getElementById('filterRegiao').value = "";
-            displayCards(mockData);
-        }
-
-        function alternarContraste() {
-            document.body.classList.toggle("high-contrast");
-        }
-
-        window.onload = () => displayCards(mockData);
-    </script>
 </body>
 </html>
