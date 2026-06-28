@@ -20,197 +20,198 @@
         }
 
 ```
-    body {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        color: var(--text-dark);
-        background-color: var(--gov-gray);
-        margin: 0;
-        padding: 0;
-        line-height: 1.5;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: var(--text-dark);
+    background-color: var(--gov-gray);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-    .header-governo { padding: 6px 0 !important; }
-    .btn-contraste {
-        background-color: transparent;
-        color: #ffffff;
-        border: 1px solid #ffffff;
-        padding: 6px 10px;
-        border-radius: 4px;
-        font-weight: bold;
-        cursor: pointer;
-        font-size: 12px;
-    }
+.header-governo { padding: 6px 0 !important; }
+.btn-contraste {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 12px;
+}
 
-    .header-sistema {
-        background-color: var(--cedca-blue-dark);
-        color: white;
-        padding: 20px;
-        border-bottom: 4px solid var(--cedca-green);
-        text-align: center;
-    }
-    .header-sistema h1 { margin: 0; font-size: 1.5rem; }
+.header-sistema {
+    background-color: var(--cedca-blue-dark);
+    color: white;
+    padding: 20px;
+    border-bottom: 4px solid var(--cedca-green);
+    text-align: center;
+}
+.header-sistema h1 { margin: 0; font-size: 1.5rem; }
 
-    .navbar-principal { background-color: var(--cedca-blue-medium); }
+.navbar-principal { background-color: var(--cedca-blue-medium); }
 
-    .main-container {
-        flex: 1;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 30px 20px;
-        box-sizing: border-box;
-    }
+.main-container {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
 
-    .page-intro h2 { color: var(--cedca-blue-medium); margin-bottom: 8px; }
+.page-intro h2 { color: var(--cedca-blue-medium); margin-bottom: 8px; }
 
-    /* Abas de Navegação Interna */
-    .tabs-container {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
-        border-bottom: 2px solid var(--border-color);
-    }
+/* Abas de Navegação Interna */
+.tabs-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+}
 
-    .tab-btn {
-        padding: 10px 20px;
-        border: 1px solid transparent;
-        background: none;
-        font-size: 1rem;
-        font-weight: bold;
-        color: var(--text-muted);
-        cursor: pointer;
-        border-bottom: none;
-        border-radius: 4px 4px 0 0;
-        margin-bottom: -2px;
-    }
+.tab-btn {
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    background: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    margin-bottom: -2px;
+}
 
-    .tab-btn.active {
-        background-color: var(--card-bg);
-        border-color: var(--border-color);
-        color: var(--cedca-blue-medium);
-        border-bottom: 2px solid var(--card-bg);
-    }
+.tab-btn.active {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--cedca-blue-medium);
+    border-bottom: 2px solid var(--card-bg);
+}
 
-    .tab-content {
-        display: none;
-        background-color: var(--card-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 0 0 8px 8px;
-        padding: 30px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
+.tab-content {
+    display: none;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0 0 8px 8px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
 
-    .tab-content.active { display: block; }
+.tab-content.active { display: block; }
 
-    .form-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-    }
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
 
-    .form-group { display: flex; flex-direction: column; }
-    .form-group.full-width { grid-column: 1 / -1; }
+.form-group { display: flex; flex-direction: column; }
+.form-group.full-width { grid-column: 1 / -1; }
 
-    .form-group label {
-        font-weight: 600;
-        font-size: 0.9rem;
-        margin-bottom: 6px;
-    }
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
 
-    .form-group input, .form-group select, .form-group textarea {
-        padding: 10px;
-        border: 1px solid var(--border-color);
-        border-radius: 4px;
-        font-size: 0.95rem;
-        background-color: var(--card-bg);
-        color: var(--text-dark);
-    }
+.form-group input, .form-group select, .form-group textarea {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    background-color: var(--card-bg);
+    color: var(--text-dark);
+}
 
-    .import-box {
-        grid-column: 1 / -1;
-        background-color: #f8fafc;
-        border: 1px dashed var(--border-color);
-        border-radius: 8px;
-        padding: 18px;
-    }
+.import-box {
+    grid-column: 1 / -1;
+    background-color: #f8fafc;
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 18px;
+}
 
-    .import-box h3 {
-        margin: 0 0 8px 0;
-        color: var(--cedca-blue-medium);
-        font-size: 1rem;
-    }
+.import-box h3 {
+    margin: 0 0 8px 0;
+    color: var(--cedca-blue-medium);
+    font-size: 1rem;
+}
 
-    .import-box p {
-        margin: 0 0 12px 0;
-        color: var(--text-muted);
-        font-size: 0.9rem;
-    }
+.import-box p {
+    margin: 0 0 12px 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
 
-    .import-help {
-        margin-top: 6px;
-        font-size: 0.85rem;
-        color: var(--text-muted);
-    }
+.import-help {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
 
-    .actions-row {
-        display: flex;
-        justify-content: flex-end;
-        gap: 15px;
-        margin-top: 20px;
-        flex-wrap: wrap;
-    }
+.actions-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
 
-    .btn {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-    .btn-primary { background-color: var(--cedca-green); color: white; }
-    .btn-secondary { background-color: transparent; border: 1px solid var(--border-color); color: var(--text-dark); }
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn-primary { background-color: var(--cedca-green); color: white; }
+.btn-secondary { background-color: transparent; border: 1px solid var(--border-color); color: var(--text-dark); }
 
-    /* Estilo da Tabela de Logs e Histórico Imutável */
-    .history-section {
-        margin-top: 40px;
-        border-top: 2px dashed var(--border-color);
-        padding-top: 20px;
-    }
+/* Estilo da Tabela de Logs e Histórico Imutável */
+.history-section {
+    margin-top: 40px;
+    border-top: 2px dashed var(--border-color);
+    padding-top: 20px;
+}
 
-    .history-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px;
-        font-size: 0.9rem;
-    }
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
 
-    .history-table th, .history-table td {
-        border: 1px solid var(--border-color);
-        padding: 10px;
-        text-align: left;
-    }
+.history-table th, .history-table td {
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    text-align: left;
+}
 
-    .history-table th { background-color: var(--gov-gray); color: var(--cedca-blue-medium); }
+.history-table th { background-color: var(--gov-gray); color: var(--cedca-blue-medium); }
 
-    /* Alto Contraste */
-    body.high-contrast { background-color: #000000 !important; color: #ffffff !important; }
-    body.high-contrast .header-governo { background-color: #000000 !important; border-bottom: 1px solid #ffff00 !important; }
-    body.high-contrast .header-sistema { background-color: #000000 !important; border-bottom-color: #ffff00 !important; }
-    body.high-contrast .tab-content { background-color: #111111 !important; border-color: #ffffff !important; }
-    body.high-contrast .tab-btn.active { background-color: #111111 !important; color: #ffff00 !important; border-color: #ffffff #ffffff #111111 #ffffff; }
-    body.high-contrast .form-group input, body.high-contrast .form-group select, body.high-contrast .form-group textarea { background-color: #000000 !important; color: #ffffff !important; border-color: #ffffff !important; }
-    body.high-contrast .btn-primary { background-color: #ffff00 !important; color: #000000 !important; }
-    body.high-contrast .btn-secondary { color: #ffffff !important; border-color: #ffffff !important; }
-    body.high-contrast .history-table th { background-color: #222222 !important; color: #ffff00 !important; }
-    body.high-contrast .import-box { background-color: #111111 !important; border-color: #ffffff !important; }
-    body.high-contrast .import-box h3 { color: #ffff00 !important; }
-    body.high-contrast .import-box p,
-    body.high-contrast .import-help { color: #ffffff !important; }
-</style>
+/* Alto Contraste */
+body.high-contrast { background-color: #000000 !important; color: #ffffff !important; }
+body.high-contrast .header-governo { background-color: #000000 !important; border-bottom: 1px solid #ffff00 !important; }
+body.high-contrast .header-sistema { background-color: #000000 !important; border-bottom-color: #ffff00 !important; }
+body.high-contrast .tab-content { background-color: #111111 !important; border-color: #ffffff !important; }
+body.high-contrast .tab-btn.active { background-color: #111111 !important; color: #ffff00 !important; border-color: #ffffff #ffffff #111111 #ffffff; }
+body.high-contrast .form-group input, body.high-contrast .form-group select, body.high-contrast .form-group textarea { background-color: #000000 !important; color: #ffffff !important; border-color: #ffffff !important; }
+body.high-contrast .btn-primary { background-color: #ffff00 !important; color: #000000 !important; }
+body.high-contrast .btn-secondary { color: #ffffff !important; border-color: #ffffff !important; }
+body.high-contrast .history-table th { background-color: #222222 !important; color: #ffff00 !important; }
+body.high-contrast .import-box { background-color: #111111 !important; border-color: #ffffff !important; }
+body.high-contrast .import-box h3 { color: #ffff00 !important; }
+body.high-contrast .import-box p,
+body.high-contrast .import-help { color: #ffffff !important; }
 ```
+
+</style>
 
 </head>
 <body>
@@ -255,13 +256,13 @@
         </div>
     </section>
 
-```
 <div class="tabs-container">
     <button class="tab-btn active" onclick="switchTab('tarefas')">Gerenciar Tarefas (Admin)</button>
     <button class="tab-btn" onclick="switchTab('indicadores')">Gerenciar Indicadores (Secretarias/Conselho)</button>
 </div>
 
 <!-- ABA TAREFAS -->
+
 <div id="tarefas" class="tab-content active">
     <form onsubmit="salvarTarefa(event)">
         <div class="form-grid">
@@ -274,54 +275,58 @@
                 </select>
             </div>
 
-            <div class="form-group">
-                <label for="tarefa-status">Status Atual da Tarefa</label>
-                <select id="tarefa-status" required>
-                    <option value="Não Iniciada">Não Iniciada</option>
-                    <option value="Em Andamento">Em Andamento</option>
-                    <option value="Concluída">Concluída</option>
-                </select>
-            </div>
-
-            <div class="form-group full-width">
-                <label for="tarefa-nome">Descrição Detalhada da Tarefa</label>
-                <textarea id="tarefa-nome" rows="3" required placeholder="Descreva os marcos operacionais da tarefa pública..."></textarea>
-            </div>
+```
+        <div class="form-group">
+            <label for="tarefa-status">Status Atual da Tarefa</label>
+            <select id="tarefa-status" required>
+                <option value="Não Iniciada">Não Iniciada</option>
+                <option value="Em Andamento">Em Andamento</option>
+                <option value="Concluída">Concluída</option>
+            </select>
         </div>
 
-        <div class="actions-row">
-            <button type="button" class="btn btn-secondary">Limpar</button>
-            <button type="submit" class="btn btn-primary">Salvar / Atualizar Tarefa</button>
+        <div class="form-group full-width">
+            <label for="tarefa-nome">Descrição Detalhada da Tarefa</label>
+            <textarea id="tarefa-nome" rows="3" required placeholder="Descreva os marcos operacionais da tarefa pública..."></textarea>
         </div>
-    </form>
-
-    <!-- Histórico Imutável de Auditoria (Restrito conforme RN09) -->
-     <!--
-    <div class="history-section">
-        <h3>Histórico de Atualizações da Tarefa</h3>
-        <table class="history-table">
-            <thead>
-                <tr>
-                    <th>Data/Hora</th>
-                    <th>Ação</th>
-                    <th>Usuário Responsável</th>
-                    <th>Modificação</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>26/06/2026 14:22</td>
-                    <td>Alteração</td>
-                    <td>Carlos Silva (Admin)</td>
-                    <td>Status alterado para "Em Andamento"</td>
-                </tr>
-            </tbody>
-        </table>
     </div>
-    -->
+
+    <div class="actions-row">
+        <button type="button" class="btn btn-secondary">Limpar</button>
+        <button type="submit" class="btn btn-primary">Salvar / Atualizar Tarefa</button>
+    </div>
+</form>
+
+<!-- Histórico Imutável de Auditoria (Restrito conforme RN09) -->
+ <!--
+<div class="history-section">
+    <h3>Histórico de Atualizações da Tarefa</h3>
+    <table class="history-table">
+        <thead>
+            <tr>
+                <th>Data/Hora</th>
+                <th>Ação</th>
+                <th>Usuário Responsável</th>
+                <th>Modificação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>26/06/2026 14:22</td>
+                <td>Alteração</td>
+                <td>Carlos Silva (Admin)</td>
+                <td>Status alterado para "Em Andamento"</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+-->
+```
+
 </div>
 
 <!-- ABA INDICADORES -->
+
 <div id="indicadores" class="tab-content">
     <form onsubmit="salvarIndicador(event)">
         <div class="form-grid">
@@ -334,69 +339,71 @@
                 </select>
             </div>
 
-            <div class="form-group">
-                <label for="ind-nome">Nome do Indicador</label>
-                <input type="text" id="ind-nome" required placeholder="Ex: Percentual de evasão escolar corrigida">
-            </div>
-
-            <div class="form-group">
-                <label for="ind-tipo">Identidade Visual / Tipo de Métrica</label>
-                <select id="ind-tipo" required>
-                    <option value="Percentual">Taxa / Percentual (%)</option>
-                    <option value="Absoluto">Índice Absoluto (Inteiro)</option>
-                    <option value="Cronograma">Evolução Temporal / Quadrimestre</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="ind-valor">Valor Atual Registrado</label>
-                <input type="text" id="ind-valor" required placeholder="Insira o dado numérico ou percentual">
-            </div>
-
-            <div class="import-box">
-                <h3>Importar dados de indicadores</h3>
-                <p>Envie um arquivo para atualizar ou complementar indicadores vinculados às tarefas. Os dados serão validados antes do registro.</p>
-
-                <div class="form-group">
-                    <label for="arquivo-indicadores">Arquivo de importação</label>
-                    <input type="file" id="arquivo-indicadores" accept=".csv,.xlsx,.pdf">
-                    <span class="import-help">Formatos aceitos: CSV, XLSX e PDF.</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="actions-row">
-            <button type="button" class="btn btn-secondary">Limpar</button>
-            <button type="button" class="btn btn-secondary" onclick="importarIndicadores()">Importar Arquivo</button>
-            <button type="submit" class="btn btn-primary">Cadastrar / Modificar Indicador</button>
-        </div>
-    </form>
-
-    <!---
-    <div class="history-section">
-        <h3>Histórico de Atualizações do Indicador</h3>
-        <table class="history-table">
-            <thead>
-                <tr>
-                    <th>Data/Hora</th>
-                    <th>Ação</th>
-                    <th>Usuário Responsável</th>
-                    <th>Modificação</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>25/06/2026 09:15</td>
-                    <td>Adição</td>
-                    <td>Ana Costa (SEED)</td>
-                    <td>Inserção inicial do indicador de evasão no sistema</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    -->
-</div>
 ```
+        <div class="form-group">
+            <label for="ind-nome">Nome do Indicador</label>
+            <input type="text" id="ind-nome" required placeholder="Ex: Percentual de evasão escolar corrigida">
+        </div>
+
+        <div class="form-group">
+            <label for="ind-tipo">Identidade Visual / Tipo de Métrica</label>
+            <select id="ind-tipo" required>
+                <option value="Percentual">Taxa / Percentual (%)</option>
+                <option value="Absoluto">Índice Absoluto (Inteiro)</option>
+                <option value="Cronograma">Evolução Temporal / Quadrimestre</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="ind-valor">Valor Atual Registrado</label>
+            <input type="text" id="ind-valor" required placeholder="Insira o dado numérico ou percentual">
+        </div>
+
+        <div class="import-box">
+            <h3>Importar dados de indicadores</h3>
+            <p>Envie um arquivo para atualizar ou complementar indicadores vinculados às tarefas. Os dados serão validados antes do registro.</p>
+
+            <div class="form-group">
+                <label for="arquivo-indicadores">Arquivo de importação</label>
+                <input type="file" id="arquivo-indicadores" accept=".csv,.xlsx,.pdf">
+                <span class="import-help">Formatos aceitos: CSV, XLSX e PDF.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions-row">
+        <button type="button" class="btn btn-secondary">Limpar</button>
+        <button type="button" class="btn btn-secondary" onclick="importarIndicadores()">Importar Arquivo</button>
+        <button type="submit" class="btn btn-primary">Cadastrar / Modificar Indicador</button>
+    </div>
+</form>
+
+<!---
+<div class="history-section">
+    <h3>Histórico de Atualizações do Indicador</h3>
+    <table class="history-table">
+        <thead>
+            <tr>
+                <th>Data/Hora</th>
+                <th>Ação</th>
+                <th>Usuário Responsável</th>
+                <th>Modificação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>25/06/2026 09:15</td>
+                <td>Adição</td>
+                <td>Ana Costa (SEED)</td>
+                <td>Inserção inicial do indicador de evasão no sistema</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+-->
+```
+
+</div>
 
 </main>
 
