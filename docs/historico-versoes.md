@@ -90,7 +90,7 @@
 - RF21: Originado a partir da remoção de validação do RF20.
 - RF22: A maneira de cadastro não estava definida.
 - RF23: Seria necessário definir como o usuário cadastrado receberia acesso ao login.
-- Rf24: Requisito para impedir que o Administrador mantenha com a senha do novo usuário.
+- RF24: Requisito para impedir que o Administrador mantenha com a senha do novo usuário.
 
 #  Versão 2 - Semana 3 - 21/06
 
@@ -128,7 +128,7 @@
 - RF09: Após uma reunião de validação foi especificado que as permissões seriam hierárquicas, então esse requisito sofreu alterações para refletir isto.
 - RF19: Apesar de parecidas as permissões de Administradores e SEDEF são levemente diferentes, mas anteriormente os dois estavam no mesmo "nível" de permissão, assim foi incluído também a permissão de gerenciar uma tarefa por parte do administrador.
 - RF25: Apesar de ter requisitos em torno do login e cadastro não havia uma contra medida para caso o usuário perdesse ou esquecesse a senha, neste caso esse requisito foi adicionado para contemplar essa possibilidade.
-- RF26: Só tinham especificações de atualizações mais recentes por tarefas, e como são dois históricos diferentes, esse requisito foi adicionado para garantir que o usuário público visualiza-se os dois.
+- RF26: Só tinham especificações de atualizações mais recentes por tarefas, e como são dois históricos diferentes, esse requisito foi adicionado para garantir que o usuário público visualizasse os dois.
 - RF27: Novo requisito para separar a especificação de permissão de visualização do histórico da definição do histórico em si.
 - HU01: O RF02 se relaciona diretamente com a HU01 dado que determina o formato da visualização.
 - HU02: O RF24 se relaciona com o HU02 dado que também trata de uma situação de login
@@ -140,3 +140,77 @@
 - HU19: Após uma reunião de validação foi levantada a necessidade de uma opção de acessibilidade em libras, essa HU serve para apoiar o RF28 e o RNF01
 - HU20: Uma HU referente a especificamente o cadastro de um usuário estava em falta, adicionada também as relações com RF22 e RF23
 - HU21: Não havia HU direcionada a visualização da alteração mais recente sobre indicadores, somente sobre tarefas. Relação com RF26 e RF13
+
+# Versão 3 - Entrega Final - 28/06
+
+## Requisitos Adicionados
+
+* Nenhum requisito funcional ou não funcional novo foi adicionado nesta versão.
+
+## Requisitos Alterados
+
+* Nenhum requisito foi alterado conceitualmente nesta versão.
+* A matriz de rastreabilidade foi atualizada para refletir as telas efetivamente implementadas no protótipo.
+
+## Requisitos Removidos
+
+* Nenhum requisito foi removido nesta versão.
+
+## Documentação Alterada
+
+* Atualização do README com o nome do projeto, descrição expandida da solução, telas disponíveis e organização atualizada das pastas.
+* Atualização da matriz de rastreabilidade para relacionar requisitos, histórias de usuário, casos de uso e telas implementadas.
+* Atualização dos atores para refletir melhor os interesses e permissões dos perfis Usuário Público, Gestor SEDEF, Conselho Estadual/Secretarias e Administrador.
+* Atualização das histórias de usuário, backlog, regras de negócio e casos de uso conforme os ajustes finais do escopo.
+* Inclusão e consolidação das informações relacionadas às telas de Dashboard, Histórico, Recuperação de Senha, Cadastro de Usuário, Gerenciar Dados e Detalhamento Público.
+
+## Protótipo Alterado
+
+* Criação e evolução da tela Home.
+* Criação e ajuste da tela de Login.
+* Criação e ajuste da tela de Busca/Filtros.
+* Criação e ajuste da tela de Indicadores.
+* Criação da tela de Dashboard.
+* Criação da tela de Recuperação de Senha.
+* Criação da tela de Cadastro de Usuário.
+* Criação da tela de Gerenciar Dados.
+* Criação da tela de Histórico de Atualizações.
+* Criação da tela de Detalhamento Público.
+* Inclusão de botão para acessar o Detalhamento Público a partir da tela de Indicadores.
+* Inclusão de exportação simulada na tela de Busca/Filtros, com opções CSV, Excel e PDF.
+* Inclusão de importação simulada na tela de Gerenciar Dados, com suporte visual para arquivos CSV, XLSX e PDF.
+* Ajustes de consistência visual entre Home, Login, Busca/Filtros, Indicadores, Dashboard, Painel Administrativo, Cadastro de Usuário, Gerenciar Dados e Histórico.
+* Inclusão de botões de retorno ao Painel Administrativo em telas restritas.
+* Ajustes nos cabeçalhos, espaçamentos e navegação das telas administrativas.
+* Atualização da navegação entre telas públicas e administrativas.
+
+## Funcionalidades Representadas no Protótipo
+
+* Visualização pública da estrutura hierárquica do Plano Decenal.
+* Consulta de problemas públicos, compromissos, objetivos, linhas de ação, tarefas e indicadores.
+* Busca textual.
+* Filtros cumulativos.
+* Visualização de indicadores e progresso.
+* Visualização de dashboard.
+* Visualização de detalhamento público.
+* Visualização de responsáveis e entidades colaboradoras.
+* Visualização de histórico de atualizações.
+* Login simulado.
+* Recuperação de senha simulada.
+* Cadastro de usuários.
+* Gerenciamento de dados.
+* Importação simulada de indicadores.
+* Exportação simulada de dados.
+* Recursos parciais de acessibilidade, como alto contraste e representação de Libras em telas selecionadas.
+
+
+## Justificativas
+
+* A atualização final teve como objetivo consolidar o protótipo navegável do sistema, aproximando as telas dos requisitos, histórias de usuário e casos de uso definidos ao longo do projeto.
+* A tela de Detalhamento Público foi incluída para representar a visualização completa de uma ação do Plano Decenal, exibindo problema público, compromisso, objetivo, linha de ação, tarefa, status, progresso, responsáveis, colaboradores, indicadores relacionados e histórico resumido.
+* A tela de Indicadores foi ajustada para exibir informações públicas de atualização dos indicadores e permitir o acesso ao detalhamento.
+* A exportação simulada foi incluída para representar a funcionalidade prevista de exportação de dados públicos filtrados ou não filtrados.
+* A importação simulada foi incluída para representar a funcionalidade prevista de envio e validação de arquivos de indicadores por usuários autorizados.
+* A tela de Histórico foi incluída para representar o acompanhamento das alterações feitas nas tarefas e indicadores.
+* As atualizações no README e na matriz de rastreabilidade foram necessárias para manter a documentação compatível com o estado final do protótipo.
+* As pendências foram mantidas registradas para indicar limitações do protótipo acadêmico e funcionalidades que não foram completamente implementadas.
