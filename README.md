@@ -1,4 +1,4 @@
-# Nome do Projeto
+# Nome do Projeto EM BREVE
 
 Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente.
 
@@ -13,11 +13,11 @@ Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente.
 
 O sistema tem como objetivo apoiar o monitoramento dos compromissos decenais da criança e do adolescente, permitindo a visualização hierárquica de problemas públicos, compromissos, objetivos, linhas de ação, tarefas e indicadores.
 
-A solução contempla consulta pública, busca e filtros, visualização de indicadores, dashboard, autenticação de usuários, recuperação de senha, painel administrativo, cadastro de usuários e gerenciamento de dados com controle de permissões.
+A solução contempla consulta pública, busca e filtros, visualização de indicadores, dashboard, autenticação de usuários, recuperação de senha, painel administrativo, cadastro de usuários, gerenciamento de dados, histórico de atualizações e controle de permissões.
 
 ## Link do Protótipo
 
-- EM BREVE
+EM BREVE
 
 ## Telas disponíveis no protótipo
 
@@ -30,6 +30,7 @@ A solução contempla consulta pública, busca e filtros, visualização de indi
 * Painel Administrativo: `prototipo/telas/painel-administrativo/adm.html`
 * Cadastro de Usuário: `prototipo/telas/cadastro-usuario/cadastro-usuario.html`
 * Gerenciar Dados: `prototipo/telas/gerenciar-dados/gerenciar-dados.html`
+* Histórico: `prototipo/telas/historico/historico.html`
 
 ## Organização das Pastas
 
@@ -56,7 +57,8 @@ trabalho-requisitos/
 │   │   ├── recuperacao-senha/
 │   │   ├── painel-administrativo/
 │   │   ├── cadastro-usuario/
-│   │   └── gerenciar-dados/
+│   │   ├── gerenciar-dados/
+│   │   └── historico/
 │   ├── link-prototipo.md
 │   └── descricao-prototipo.md
 └── entregas/
@@ -97,6 +99,5 @@ cd trabalho-requisitos
 
 * Semana 1: definição de escopo, atores, revisão inicial dos requisitos e identificação de inconsistências.
 * Semana 2: criação do backlog, histórias de usuário, critérios de aceitação e regras de negócio.
-* Semana 3: criação e evolução do protótipo inicial, com telas de Home, Login, Busca/Filtros, Painel Administrativo, Indicadores, Dashboard, Recuperação de Senha, Cadastro de Usuário e Gerenciar Dados, além da atualização da matriz de rastreabilidade.
+* Semana 3: criação e evolução do protótipo inicial, com telas de Home, Login, Busca/Filtros, Painel Administrativo, Indicadores, Dashboard, Recuperação de Senha, Cadastro de Usuário, Gerenciar Dados e Histórico, além da atualização da matriz de rastreabilidade.
 * Entrega final: EM BREVE
-
