@@ -1,6 +1,4 @@
-# Nome do Projeto 
-
-Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente.
+# Sistema de Monitoramento do Plano Decenal da Criança e do Adolescente.
 
 ## Integrantes
 
@@ -64,9 +62,12 @@ trabalho-requisitos/
 │   ├── link-prototipo.md
 │   └── descricao-prototipo.md
 └── entregas/
-    ├── semana-1.md
-    ├── semana-2.md
-    └── semana-3.md
+│   ├── semana-1.md
+│   ├── semana-2.md
+│   └── semana-3.md
+│   └── entrega-final.md
+└── apresentacao/
+    └── slides.pdf
 ```
 
 ## Instruções para acessar a documentação
